@@ -5,16 +5,17 @@ body {
 
 .footer{
 	position: sticky;
-	background-color: inherit;
+	background-color: #ededed;
 	clear: both;
 	top: 100%;
-	margin-bottom: 2em;
-	margin-left: 4.5em;
+	padding-bottom: 0.2em;
+	padding-left: 0.6em;
 }
 
 .footer .social{
 	text-align: center;
 	padding-bottom: 25px;
+	padding-top: 1em;
 	color: #4B4C4D;
 }
 
@@ -66,6 +67,7 @@ body {
 .footer .copyright{
 	margin-top: 15px;
 	text-align: center;
-	font-size: 13px;
-	color: #AAA;
+	font-size: 15px;
+	color: black;
+	
 }

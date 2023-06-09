@@ -5,13 +5,14 @@
 	<head>
 		<title>Footer</title>
 		<link rel="stylesheet" href="./styles/footer.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	</head>
 	<body>
 		<section class="footer">
 			<div class="social">
-				<a href="#"><i class="fa-brands fa-instagram"></i></a>
-				<a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+				<a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+				<a href="https://www.facebook.com/"><i class="fa-brands fa-facebook-f"></i></a>
 			</div>
 			
 			<ul class="list">
