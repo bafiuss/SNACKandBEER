@@ -18,33 +18,38 @@ body {
 }
 
 nav {
-  background-color: #F99A6B;
-  overflow: hidden;
-  display: flex;
-  justify-content: space-between;
+	  background-color: #F99A6B;
+	  overflow: hidden;
+	  display: flex;
+	  justify-content: space-between;
+	  position: sticky;
+	  top: 0;
 }
 
 
 nav ul {
-  display: flex;
-  list-style-type:none;
-  padding: 0;
+	display: flex;
+	list-style-type:none;
+	padding: 0;
 }
 
 .link-sx{
-  padding-left: 1.6em;
-  
+	padding-left: 1.5em;
+	font-family: 'Bagel Fat One', cursive;
+	margin-top: 1.3em;
+	 font-size: 1.2em;
+	 text-decoration: none;
 }
 
 .link-dx{
-  padding: 1.3em 0 0 2em;
-  font-family: 'Montserrat', sans-serif;
-  margin-left: 0;
+	  padding: 0.8em 0 0 2em;
+	  font-family: 'Montserrat', sans-serif;
+	  margin-left: 0;
+	  
 }
-
-
-
-
+.aLink:hover{
+	text-decoration: underline;
+}
 
 nav a{
   float: right;
@@ -55,29 +60,10 @@ nav a{
   text-decoration: none; 
   font-family: 'Montserrat', sans-serif;
   position: relative;
-  text-decoration: none;
 }
 
 /*			LINKS			*/
 
-a::before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 4px;
-  border-radius: 4px;
-  background-color: #ECE6EC;
-  bottom: 0;
-  left: 0;
-  transform-origin: right;
-  transform: scaleX(0);
-  transition: transform .3s ease-in-out;
-}
-
-a:hover::before {
-  transform-origin: left;
-  transform: scaleX(1);
-}
 
 /*			BOTTONI			*/
 button{
@@ -98,7 +84,6 @@ button:hover{
 
 .sec-btn{
 	margin: 2em 2em 2em 0;
-	
 }
 
 /*			SEARCH BOX			*/
@@ -106,7 +91,7 @@ button:hover{
   float: right;
   padding: 10px;
   border: none;
-  margin-top: 2.6em;
+  margin-top: 2.5em;
   margin-right: 15px;
   font-size: 17px;
   padding: 0.5em 3em 0 0;

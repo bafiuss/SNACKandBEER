@@ -11,20 +11,17 @@
 	</head>
 	<body class="header-body">
 		<nav>
-			<div class="logo">
-				
 				<ul class="link-sx"><li><a href="index.jsp">SNACK&BEER</a></li></ul>
-			</div>
 			<div class="topnav">
 				<input type="text" placeholder="Cerca...">
 			</div>
 			<ul class="link-dx">
-				<li><a href="birre.jsp">BIRRE</a></li>
-				<li><a href="snacks.jsp">SNACKS</a></li>
-				<li><a href="about.jsp">CHI SIAMO</a></li>
+				<li><a href="birre.jsp" class="aLink">BIRRE</a></li>
+				<li><a href="snacks.jsp" class="aLink">SNACKS</a></li>
+				<li><a href="about.jsp" class="aLink">CHI SIAMO</a></li>
 			
 			</ul>
-				<button><i class="fa-solid fa-user"></i> ACCEDI</button>
+				<button onclick="window.location.href='login.jsp'"><i class="fa-solid fa-user"></i> ACCEDI</button>
 				<button class="sec-btn"><i class="fa-solid fa-cart-shopping"></i> CARRELLO</button>	
 		</nav>
 	</body>
