@@ -18,7 +18,7 @@
 			<ul class="link-dx">
 				<li><a href="birre.jsp" class="aLink">BIRRE</a></li>
 				<li><a href="snacks.jsp" class="aLink">SNACKS</a></li>
-				<li><a href="about.jsp" class="aLink">CHI SIAMO</a></li>
+				<li><a href="accessori.jsp" class="aLink">ACCESSORI</a></li>
 			
 			</ul>
 				<button onclick="window.location.href='login.jsp'"><i class="fa-solid fa-user"></i> ACCEDI</button>
