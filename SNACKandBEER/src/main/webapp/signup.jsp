@@ -25,7 +25,7 @@
 				}
 			}
 			%>
-			
+		<section class="signupSection">
 		  <div class="container">
 		    <h2>SIGNUP</h2>
 		    <form action="Signup" method="POST">
@@ -59,7 +59,7 @@
 		      Sei già registrato? <a href="login.jsp" class="registration-link"> Clicca qui</a>
 		    </form>
 		  </div>
-
+		</section>
 		
 			<%@ include file="./footer.jsp" %>
 	</body>

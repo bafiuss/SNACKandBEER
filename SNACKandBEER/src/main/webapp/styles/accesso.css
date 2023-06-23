@@ -71,7 +71,7 @@
 	}
 	
 	
-	/*			MESSAGGIO ERRORI			*/
+	/* (A) THE BASE */
 	.error-message {
 		max-width: 400px;
 	  background-color: #fce4e4;
@@ -88,6 +88,31 @@
 	  font-weight: bold;
 	  line-height: 20px;
 	  text-shadow: 1px 1px rgba(250,250,250,.3);
+	}
+	
+	.loginSection{
+		width: 100%;
+		padding-top:100px;
+		background-image: url(../images/sfondo.png);
+	    height: 100vh;
+		background-position: center;
+	    background-size: cover;
+	    grid-template-columns: repeat(1, 1fr);
+	    align-items: center;
+	}
+	
+	.signupSection
+	{
+			width: 100%;
+			padding-top:20px;
+			background-image: url(../images/sfondo.png);
+		    height: 100vh;
+			background-position: center;
+		    background-size: cover;
+		    /*display: grid;*/
+		    grid-template-columns: repeat(1, 1fr);
+		    align-items: center;
+		    padding-bottom: 5%;
 	}
 
     
