@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@page import="java.util.List"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -11,7 +12,15 @@
 	</head>
 	<body>
 			<%@ include file="./header.jsp" %>
-	
+			<% 
+			List<String> errors = (List<String>) request.getAttribute("errors");
+			if (errors != null){
+				for (String error: errors){ %>
+					<p style="font-size:25px; color: red; padding-top: 2em"  align="center" ><%=error %></p>		
+				<%
+				}
+			}
+			%>
 		  <div class="container">
 		    <h2>LOGIN</h2>
 		    <form action="Signup" method="POST">
