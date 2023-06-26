@@ -12,6 +12,8 @@
 	</head>
 	<body>
 			<%@ include file="./header.jsp" %>
+		<section class="signupSection">
+			
 			<% 
 			List<String> errors = (List<String>) request.getAttribute("errors");
 			if (errors != null){
@@ -25,24 +27,31 @@
 				}
 			}
 			%>
-		<section class="signupSection">
 		  <div class="container">
 		    <h2>SIGNUP</h2>
 		    <form action="Signup" method="POST">
 		      <div class="form-group">
-		        <label for="email">Nome:</label>
+		        <label for="nome">Nome:</label>
 		        <input type="text" id="nomeUtente" name="nome" required>
 		      </div>
 		      <div class="form-group">
-		        <label for="password">Cognome:</label>
+		        <label for="cognome">Cognome:</label>
 		        <input type="text" id="cognomeUtente" name="cognome" required>
 		      </div>
 		      <div class="form-group">
-		        <label for="email">Indirizzo:</label>
+		        <label for="nascita">Data di nascita:</label>
+		        <input type="date" id="nascitaUtente" name="nascita" required>
+		      </div>
+		      <div class="form-group">
+		        <label for="indirizzo">Indirizzo:</label>
 		        <input type="text" id="indUtente" name="indirizzo" required>
+		      </div>
+		      <div class="form-group">
+		        <label for="indirizzoSped">Indirizzo spedizione:</label>
+		        <input type="text" id="indSpedUtente" name="indirizzoSped" required>
 		      </div>		      
 		      <div class="form-group">
-		        <label for="password">Email:</label>
+		        <label for="email">Email:</label>
 		        <input type="text" id="emailUtente" name="email" required>
 		      </div>
 		      <div class="form-group">
@@ -50,7 +59,7 @@
 		        <input type="password" id="pswUtente" name="password" required>
 		      </div>
 		      <div class="form-group">
-		        <label for="password">Conferma password:</label>
+		        <label for="confPsw">Conferma password:</label>
 		        <input type="password" id="confPsw" name="confPsw" required>
 		      </div>
 		      <div class="form-group">

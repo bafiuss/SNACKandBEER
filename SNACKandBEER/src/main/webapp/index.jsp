@@ -24,6 +24,7 @@
         <div class="contenuto">	
         	<p class="testoIndex">SNACK&BEER</p>
         	<p class="slogan">Il piacere di bere</p>
+			 <button onclick="window.location.href='birre.jsp'" id="btnCentrale">SFOGLIA</button>      	
         </div>
     		
 		<%@ include file="./footer.jsp" %>

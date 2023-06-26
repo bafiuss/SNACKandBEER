@@ -11,20 +11,27 @@
 		<link rel="stylesheet" href="./styles/index.css">
 	</head>
 	<body>
-			<%@ include file="./header.jsp" %>
+		<%@ include file="./header.jsp" %>
+		<section class="loginSection">
+		
 			<% 
 			List<String> errors = (List<String>) request.getAttribute("errors");
 			if (errors != null){
 				for (String error: errors){ %>
-					<p style="font-size:25px; color: red; padding-top: 2em"  align="center" ><%=error %></p>		
+					<div class="error-message">
+  						<span class="error-text">
+  							<%=error %>
+  						</span>
+  					</div>		
 				<%
 				}
 			}
 			%>
-		<section class="loginSection">
+			
+			
 			  <div class="container">
 			    <h2>LOGIN</h2>
-			    <form action="Signup" method="POST">
+			    <form action="Login" method="POST">
 			      <div class="form-group">
 			        <label for="email">Email:</label>
 			        <input type="text" id="email" name="email" required>
@@ -39,7 +46,6 @@
 			      Non sei registrato? <a href="signup.jsp" class="registration-link">Clicca qui</a>
 			    </form>
 			  </div>
-			  ciao<br>ciao<br>ciao<br>ciao<br>
 		 </section>
 
 		

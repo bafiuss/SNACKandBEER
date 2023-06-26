@@ -11,7 +11,9 @@ public class UserBean implements Serializable {
 	String password;
 	String nome;
 	String cognome;
+	String nascita;
 	String indirizzo;
+	String indirizzoSped;
 	boolean isAdmin;
 
 	public UserBean() 
@@ -21,6 +23,8 @@ public class UserBean implements Serializable {
 		nome = "";
 		cognome = "";
 		indirizzo = "";
+		indirizzoSped = "";
+		nascita = "";
 		isAdmin = false;
 	}
 
@@ -55,6 +59,13 @@ public class UserBean implements Serializable {
 	public void setCognome(String cognome) {
 		this.cognome = cognome;
 	}
+	
+	public String getNascita() {
+		return nascita;
+	}
+	public void setNascita(String nascita) {
+		this.nascita = nascita;
+	}
 
 
 	public String getIndirizzo() {
@@ -64,21 +75,32 @@ public class UserBean implements Serializable {
 	public void setIndirizzo(String indirizzo) {
 		this.indirizzo = indirizzo;
 	}
+	
+	public String getIndirizzoSped() {
+		return indirizzoSped;
+	}
 
+	public void setIndirizzoSped(String indirizzoSped) {
+		this.indirizzoSped = indirizzoSped;
+	}
+	
 	public boolean isAdmin() {
 		return isAdmin;
 	}
-
+	
 	public void setAdmin(boolean isAdmin) {
 		this.isAdmin = isAdmin;
 	}
 
+
+	
 	@Override
 	public String toString() {
 		return "UserBean [email=" + email + ", password=" + password + ", nome=" + nome + ", cognome=" + cognome
-				+ ", indirizzo=" + indirizzo + ", isAdmin=" + isAdmin + "]";
+				+ ", nascita=" + nascita + ", indirizzo=" + indirizzo + ", indirizzoSped=" + indirizzoSped
+				+ ", isAdmin=" + isAdmin + "]";
 	}
-	
+
 	public boolean passControl(String s, String m) {
 		if(s.equals(m)) return true;
 		

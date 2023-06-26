@@ -15,7 +15,6 @@ import javax.sql.DataSource;
 
 import model.bean.*;
 import model.DAO.*;
-import model.interfaces.*;
 
 @WebServlet("/Signup")
 public class SignupServlet extends HttpServlet {
@@ -30,21 +29,19 @@ public class SignupServlet extends HttpServlet {
 			throws ServletException, IOException {
 		String nome = request.getParameter("nome");
 		String cognome = request.getParameter("cognome");
+		String nascita = request.getParameter("nascita");
+		String indirizzo = request.getParameter("indirizzo");
+		String indirizzoSped = request.getParameter("indirizzoSped");
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		String confPsw = request.getParameter("confPsw");
-		String indirizzo = request.getParameter("indirizzo");
+		
+		
 		List<String> errors = new ArrayList<>();
 		RequestDispatcher registerDispatcher = request.getRequestDispatcher("signup.jsp");
 
-		
 
 
-		if (!errors.isEmpty()) {
-			request.setAttribute("errors", errors);
-			registerDispatcher.forward(request, response);
-			return;
-		}
 
 		UserDAO userDao = new UserDAO((DataSource) getServletContext().getAttribute("DataSource"));
 
@@ -65,7 +62,9 @@ public class SignupServlet extends HttpServlet {
 		ub.setPassword(password);
 		ub.setNome(nome);
 		ub.setCognome(cognome);
+		ub.setNascita(nascita);
 		ub.setIndirizzo(indirizzo);
+		ub.setIndirizzoSped(indirizzoSped);
 		
 		if(ub.passControl(password,confPsw)) {
 			try {
@@ -79,10 +78,12 @@ public class SignupServlet extends HttpServlet {
 			request.setAttribute("errors", errors);
 			
 		}
-		registerDispatcher.forward(request, response);
-		request.setAttribute("registrazione_completata", true);
-		request.getRequestDispatcher("login.jsp").forward(request, response);
 		
+
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
+		dispatcher.forward(request, response);
+
+
 	}
 
 }

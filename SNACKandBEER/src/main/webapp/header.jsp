@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+<% %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -10,6 +12,27 @@
 		 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	</head>
 	<body class="header-body">
+
+				<%
+				boolean logged = false;
+				boolean isAdmin = false;
+
+				String parse = (String) session.getAttribute("logged");
+				
+				
+				if (parse != null && parse.equals("true"))
+					logged = true;
+				else
+					logged = false;
+
+				if (session.getAttribute("isAdmin") != null && session.getAttribute("isAdmin").equals("true"))
+					isAdmin = true;
+				else
+					isAdmin = false;
+				
+				
+				%>
+	
 		<nav>
 				<ul class="link-sx"><li><a href="index.jsp">SNACK&BEER</a></li></ul>
 			<div class="topnav">
@@ -18,10 +41,16 @@
 			<ul class="link-dx">
 				<li><a href="birre.jsp" class="aLink">BIRRE</a></li>
 				<li><a href="snacks.jsp" class="aLink">SNACKS</a></li>
-				<li><a href="accessori.jsp" class="aLink">ACCESSORI</a></li>
-			
+				<li><a href="accessori.jsp" class="aLink">ACCESSORI</a></li>		
 			</ul>
+			<% 
+			if(logged){%>
+				<button onclick="window.location.href='account.jsp'"><i class="fa-solid fa-user"></i> ACCOUNT</button>
+			<% }else{ %>
+					
 				<button onclick="window.location.href='login.jsp'"><i class="fa-solid fa-user"></i> ACCEDI</button>
+			<% }%>	
+				
 				<button class="sec-btn"><i class="fa-solid fa-cart-shopping"></i> CARRELLO</button>	
 		</nav>
 	</body>
