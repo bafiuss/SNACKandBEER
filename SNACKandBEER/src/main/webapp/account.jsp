@@ -16,14 +16,26 @@
 		
 		<%
 			UserBean user = (UserBean)session.getAttribute("user");
-			
-		
 		%>
 		
 		<section class="accountSection">
+		<% 
+			List<String> errors = (List<String>) request.getAttribute("errors");
+			if (errors != null){
+				for (String error: errors){ %>
+					<div class="error-message">
+  						<span class="error-text">
+  							<%=error %>
+  						</span>
+  					</div>		
+				<%
+				}
+			}
+			%>		  
+		  
 		  <div class="container">
-		    <h2>INFORMAZIONI ACCOUNT</h2>
-		    <form action="Modifica" method="POST">
+		    <h2>BENTORNATO <i style="color: '#1ED953'"> <%=user.getEmail()%></i><br><br><hr><br> INFORMAZIONI ACCOUNT</h2>
+		    <form action="ModificaInfo" method="POST">
 		      <div class="form-group">
 		        <label for="nome">Nome:</label>
 		        <input type="text" id="nomeUtente" name="nome" value="<%=user.getNome()%>" disabled>
@@ -37,6 +49,10 @@
 		        <input type="date" id="nascitaUtente" name="nascita"  value="<%=user.getNascita()%>" disabled>
 		      </div>
 		      <div class="form-group">
+		        <label for="email">Email:</label>
+		        <input type="text" id="emailUtente" name="email" value="<%=user.getEmail()%>" disabled>
+		      </div>
+		      <div class="form-group">
 		        <label for="indirizzo">Indirizzo:</label>
 		        <input type="text" id="indUtente" name="indirizzo" value="<%=user.getIndirizzo()%>">
 		      </div>
@@ -45,24 +61,20 @@
 		        <input type="text" id="indSpedUtente" name="indirizzoSped" value="<%=user.getIndirizzoSped()%>">
 		      </div>		      
 		      <div class="form-group">
-		        <label for="email">Email:</label>
-		        <input type="text" id="emailUtente" name="email" value="<%=user.getEmail()%>">
-		      </div>
-		      <div class="form-group">
 		        <input type="submit" value="Modifica">
 		      </div>
 		    </form>
 		  </div>
 		  <div class="container">
 		  <h2>CAMBIA PASSWORD</h2>		  
-		  <form action="Modifica" method="POST">
+		  <form action="ModificaPsw" method="POST">
 		  	<div class="form-group">
 		        <label for="password">Vecchia password:</label>
-		        <input type="password" id="pswUtente" name="password" required>
+		        <input type="password" id="pswUtente" name="vecchiaPsw" required>
 		      </div>
 		      <div class="form-group">
 		        <label for="confPsw">Nuova password:</label>
-		        <input type="password" id="confPsw" name="confPsw" required>
+		        <input type="password" id="confPsw" name="nuovaPsw" required>
 		      </div>
 			<div class="form-group">
 		        <input type="submit" value="Modifica">
