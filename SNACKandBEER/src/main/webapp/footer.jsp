@@ -17,16 +17,10 @@
 			
 			<ul class="list">
 				<li>
-					<a href="#">Chi siamo</a>
-				</li>
-				<li>
-					<a href="#">Info spedizioni</a>
+					<a href="ChiSiamo.jsp">Chi siamo</a>
 				</li>
 				<li>
 					<a href="#">Pagamenti</a>
-				</li>
-				<li>
-					<a href="#">Privacy Policy</a>
 				</li>
 			</ul>
 			
