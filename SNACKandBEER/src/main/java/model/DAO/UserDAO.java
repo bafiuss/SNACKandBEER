@@ -2,6 +2,7 @@ package model.DAO;
 
 import java.nio.charset.StandardCharsets;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,6 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.sql.DataSource;
+
 
 import model.bean.*;
 
@@ -53,6 +55,61 @@ public class UserDAO{
 					c.close();
 			}
 		}
+	}
+	
+	public synchronized boolean doUpdateInfo(String email, String indirizzo, String indirizzoSped) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		int result = 0;
+
+		String updateSQL = "UPDATE " + UserDAO.TABLE_NAME + " SET indirizzo= ? , indirizzo_spedizione = ? WHERE email = ?";
+
+		try {
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(updateSQL);
+			preparedStatement.setString(1, indirizzo);
+			preparedStatement.setString(2, indirizzoSped);
+			preparedStatement.setString(3, email);
+			
+			result = preparedStatement.executeUpdate();
+
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return (result != 0);
+	}
+	
+	public synchronized boolean doUpdatePsw(String email, String nuovaPsw) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		int result = 0;
+
+		String updateSQL = "UPDATE " + UserDAO.TABLE_NAME + " SET pswd= ? WHERE email = ?";
+
+		try {
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(updateSQL);
+			preparedStatement.setString(1, nuovaPsw);
+			preparedStatement.setString(2, email);
+			
+			result = preparedStatement.executeUpdate();
+
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return (result != 0);
 	}
 	
 	public synchronized UserBean doRetrieveByKey(String email) throws SQLException {
