@@ -19,9 +19,6 @@
 				<li>
 					<a href="ChiSiamo.jsp">Chi siamo</a>
 				</li>
-				<li>
-					<a href="#">Pagamenti</a>
-				</li>
 			</ul>
 			
 			<p class="copyright">
