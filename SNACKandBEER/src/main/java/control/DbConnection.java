@@ -1,5 +1,9 @@
 package control;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -11,7 +15,9 @@ import javax.sql.DataSource;
 
 @WebListener
 public class DbConnection implements ServletContextListener{
+	
 	public void contextInitialized(ServletContextEvent event) {
+		
 		
 		ServletContext context = event.getServletContext();
 		DataSource ds = null;
@@ -28,6 +34,7 @@ public class DbConnection implements ServletContextListener{
 		context.setAttribute("DataSource", ds);
 		System.out.println("Creating DataSource... " + ds.toString());
 	}
+
 	
 	public void contextDestroyed(ServletContextEvent event) {
 		ServletContext context = event.getServletContext();
