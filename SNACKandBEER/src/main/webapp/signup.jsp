@@ -62,6 +62,7 @@
 		        <label for="confPsw">Conferma password:</label>
 		        <input type="password" id="confPsw" name="confPsw" required>
 		      </div>
+		      <input type="hidden" name="isAdmin" value="0" required>
 		      <div class="form-group">
 		        <input type="submit" value="Registrati">
 		      </div>

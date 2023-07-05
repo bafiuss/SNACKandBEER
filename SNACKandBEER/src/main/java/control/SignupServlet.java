@@ -27,6 +27,7 @@ public class SignupServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		String nome = request.getParameter("nome");
 		String cognome = request.getParameter("cognome");
 		String nascita = request.getParameter("nascita");
@@ -35,13 +36,11 @@ public class SignupServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		String confPsw = request.getParameter("confPsw");
+		boolean isAdmin = Boolean.parseBoolean(request.getParameter("isAdmin"));
 		
+		String adminEmail = "@snackandbeer.it";
 		
 		List<String> errors = new ArrayList<>();
-		RequestDispatcher registerDispatcher = request.getRequestDispatcher("signup.jsp");
-
-
-
 
 		UserDAO userDao = new UserDAO((DataSource) getServletContext().getAttribute("DataSource"));
 
@@ -49,15 +48,16 @@ public class SignupServlet extends HttpServlet {
 			if (userDao.checkUserEmailExistance(email)) {
 				errors.add("L'email è già in uso!");
 				request.setAttribute("errors", errors);
-				//registerDispatcher.forward(request, response);
-				//return;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
+		if(email.contains(adminEmail))
+			isAdmin = true;
 		
 		UserBean ub = new UserBean();
+
 		ub.setEmail(email);
 		ub.setPassword(password);
 		ub.setNome(nome);
@@ -65,6 +65,7 @@ public class SignupServlet extends HttpServlet {
 		ub.setNascita(nascita);
 		ub.setIndirizzo(indirizzo);
 		ub.setIndirizzoSped(indirizzoSped);
+		ub.setAdmin(isAdmin);
 		
 		if(ub.passControl(password,confPsw)) {
 			try {
@@ -75,13 +76,19 @@ public class SignupServlet extends HttpServlet {
 			}
 		}else {
 			errors.add("Le due password non corrispondono");
-			request.setAttribute("errors", errors);
-			
+			request.setAttribute("errors", errors);	
 		}
 		
-
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
-		dispatcher.forward(request, response);
+		if(errors.isEmpty())
+		{
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
+			dispatcher.forward(request, response);
+		}else
+		{
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/signup.jsp");
+			dispatcher.forward(request, response);
+		
+		}
 
 
 	}
