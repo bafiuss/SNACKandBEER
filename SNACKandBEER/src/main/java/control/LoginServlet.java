@@ -2,7 +2,6 @@ package control;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -38,40 +37,34 @@ public class LoginServlet extends HttpServlet {
 		UserDAO tool = new UserDAO((DataSource) getServletContext().getAttribute("DataSource"));
 		UserBean user = null;
 		
-		String email = null;
-		String password = null;
+		String email = request.getParameter("email");
+		String password = request.getParameter("password");
 		String passwordUtente = null;
-		
-		boolean controllo = false;
+		String type = null;
+		boolean controlloPsw = false;
 		
 		List<String> errors = new ArrayList<>();
 		
-		if(request.getParameter("email") != null)
-			email = request.getParameter("email");
-		
-		if(request.getParameter("password") != null)
-			password = request.getParameter("password");
-
 		try {
 			user = tool.doRetrieveByKey(email);
 		} catch (SQLException e) {
 			logger.log(Level.WARNING, "Problema Parse/Sql!");
 			}
 
-		if(user!=null && user.getEmail().equals(email) ){
-			
+		if(user!=null && user.getEmail().equals(email) )
+		{
 			passwordUtente = user.getPassword();
 			
-			if(passwordUtente.equals(password)) {
-				controllo=true;
-			}else
-				controllo=false;
+			if(passwordUtente.equals(password)) 
+				controlloPsw = true;
+			else
+				controlloPsw = false;
 		}
 		
+		HttpSession session = request.getSession();
 		
-		if(!controllo){ 
+		if(!controlloPsw){ 
 			errors.add("Email o password errati");
-			HttpSession session = request.getSession();
 			session.setAttribute("logged", "false");
 			request.setAttribute("errors", errors);
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
@@ -80,38 +73,26 @@ public class LoginServlet extends HttpServlet {
 		}
 		
 		
-		
-		//significa che ho trovato l'utente
-		HttpSession session = request.getSession();
 		session.setAttribute("logged", "true"); 
-		session.setAttribute("user", user); //mi serve per recuperare le info dell'utente per account
+		session.setAttribute("user", user); 
 		
-		
-		
-		String res;
-		if(user.isAdmin())
-			res = "true";
+		if(user.isAdmin()) 
+			type = "true";
 		else
-			res = "false";
+			type = "false";
 		
-			
-		
-		session.setAttribute("isAdmin", res);
+		session.setAttribute("isAdmin", type);
 	
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
-		dispatcher.forward(request, response);
-		
-
-		
+		dispatcher.forward(request, response);	
 	}
 	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+	{
 		doPost(request, response);
 	}
-	
-	
-	
+
 }
 
 
