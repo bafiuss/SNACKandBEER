@@ -1,0 +1,42 @@
+@charset "ISO-8859-1";
+
+.prodottoSection{
+	width: 100%;
+	padding-top:20px;
+    height: auto;
+	background-image: url(../images/sfondo.png);
+	background-position: center;
+    background-size: cover;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    align-items: center;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.image {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.image img {
+  max-width: 100%;
+}
+
+.info {
+  flex: 1;
+}
+
+.info h2 {
+  font-size: 24px;
+}
+
+.info p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}

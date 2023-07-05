@@ -1,0 +1,59 @@
+@charset "ISO-8859-1";
+
+.carrelloSection{
+	width: 100%;
+	padding-top:20px;
+    height: auto;
+	background-image: url(../images/sfondo.png);
+	background-position: center;
+    background-size: cover;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    align-items: center;
+}
+
+h2#inth2{
+	text-align: center;
+	border-radius: 1rem;
+	font-size: 4rem;
+	color: white;
+	background-color: #F9BD6B;
+	width: 8em;
+	align-items: center;
+	margin: 5% auto;
+}
+
+h2#riepilogoh2{
+	text-align: center;
+	font-size: 4rem;
+	color: white;
+	background-color: #F9BD6B;
+	width: 8em;
+	align-items: center;
+	margin: 5% auto;
+	margin-bottom: 0;
+}
+
+
+.riepilogo{
+	background-color: white;
+	width: 512px;
+	align-items: center;
+	margin:0 auto;
+	padding: 0 auto;
+	margin-bottom: 5%;
+}
+
+.testoRiepilogo{
+	text-align: center;
+	padding: 5% auto;
+	margin: 5% auto;
+	font-size: 22px;
+}
+
+#btnCarrello{
+	width: 90%;
+	margin: 5% ;
+	font-size: 15px;
+}
+
