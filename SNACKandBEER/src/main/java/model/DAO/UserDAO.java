@@ -1,15 +1,19 @@
 package model.DAO;
 
-import java.nio.charset.StandardCharsets;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 
@@ -18,7 +22,7 @@ import model.bean.*;
 
 public class UserDAO{
 
-	private static final String TABLE_NAME = "utente";
+	static final String TABLE_NAME = "utente";
 	private DataSource ds = null;
 	private static Logger logger = Logger.getAnonymousLogger();
 
@@ -150,6 +154,66 @@ public class UserDAO{
 		return bean;
 	}
 	
+    public ArrayList<UserBean> doRetrieveAll(){
+    	
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		
+		ArrayList<UserBean> utenteList = new ArrayList<>();
+
+
+		String selectSQL = "SELECT * FROM " + UserDAO.TABLE_NAME;
+
+		try {
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(selectSQL);
+			ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                String email = rs.getString(1);
+                String password = rs.getString(2);
+                String nome = rs.getString(3);
+                String cognome = rs.getString(4);
+                String nascita = rs.getString(5);
+                String indirizzo = rs.getString(6);
+                String indirizzoSped = rs.getString(7);
+                boolean isAdmin = rs.getBoolean(8);
+                utenteList.add(new UserBean(email, password, nome, cognome, nascita, indirizzo, indirizzoSped, isAdmin));
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return utenteList;
+    }
+
+	public synchronized boolean doDelete(String email) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		int result = 0;
+
+		String deleteSQL = "DELETE FROM " + UserDAO.TABLE_NAME + " WHERE email = ?";
+
+		try {
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(deleteSQL);
+			preparedStatement.setString(1, email);
+
+			result = preparedStatement.executeUpdate();
+
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return (result != 0);
+	}
 	
 /*
 	@Override
@@ -257,7 +321,7 @@ public class UserDAO{
 		}
 		return bean;
 	}
-
+/*
 	public static String toHash(String password) {
 		StringBuilder sb = new StringBuilder();
         try {
@@ -272,7 +336,7 @@ public class UserDAO{
         	logger.log(Level.WARNING, "Problema hash pswd!");
         }
         return sb.toString();
-    }
+    }*/
 	
 	public boolean isRegistrato(String s) throws SQLException{
 		Connection c = null;
