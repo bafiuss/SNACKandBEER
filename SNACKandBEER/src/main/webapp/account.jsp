@@ -34,7 +34,7 @@
 			%>		  
 		  
 		  <div class="container">
-		    <h2>BENTORNATO <i style="color: '#1ED953'"> <%=user.getEmail()%></i><br><br><hr><br> INFORMAZIONI ACCOUNT</h2>
+		    <h1 style="color: red; text-align: center;">BENTORNATO <i style="color: '#1ED953'"> <%=user.getNome() %> <%=user.getCognome() %></i><br><br><hr><h2> INFORMAZIONI ACCOUNT </h2></h1>
 		    <form action="ModificaInfo" method="POST">
 		      <div class="form-group">
 		        <label for="nome">Nome:</label>
