@@ -113,7 +113,7 @@ public class ProdottoDAO{
 
 			ResultSet rs = preparedStatement.executeQuery();
 			
-			System.out.println("ciao");
+			
 			
 			while (rs.next()) {
 				bean.setID_Prodotto(rs.getInt("ID_Prodotto"));

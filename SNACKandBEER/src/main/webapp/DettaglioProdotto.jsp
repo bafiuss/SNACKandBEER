@@ -10,7 +10,6 @@
 		
 			int type = (int) request.getAttribute("num");
 			
-			System.out.println("Numero in jsp" + type);
 		%>
 <html>
 	<head>

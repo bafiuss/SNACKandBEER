@@ -39,9 +39,6 @@ public class GetProdotto extends HttpServlet {
 		int code = Integer.parseInt(request.getParameter("id"));
 		String type = (String) request.getParameter("categoria");
 		
-		System.out.println(type);
-		
-		
 		ProdottoBean pBean = null;
 		BirraBean bBean = null;
 		SnackBean sBean = null;
@@ -51,7 +48,6 @@ public class GetProdotto extends HttpServlet {
 		try {
 			pBean = pDao.doRetrieveByKey(code);
 		} catch (SQLException e) {
-			//logger.log(Level.WARNING, "Problema accesso DB!\n"+e.getMessage()+"--- ---"+e.getCause());
 			logger.log(Level.WARNING, "Problema accesso DB!");
 		}
 
@@ -66,7 +62,6 @@ public class GetProdotto extends HttpServlet {
 			}
 			
 			num = 1;
-			System.out.println("Numero: "+ num);
 			request.setAttribute("birra", bBean);
 			
 		}else if(type.equals("Snack"))
@@ -78,7 +73,6 @@ public class GetProdotto extends HttpServlet {
 			}
 
 			num = 2;
-			System.out.println("Numero: "+ num);
 			request.setAttribute("snack", sBean);
 			
 		}else if(type.equals("Accessorio"))
@@ -90,7 +84,6 @@ public class GetProdotto extends HttpServlet {
 			}
 			
 			num = 3;
-			System.out.println("Numero: "+ num);
 			request.setAttribute("accessorio", aBean);
 		}
 		
