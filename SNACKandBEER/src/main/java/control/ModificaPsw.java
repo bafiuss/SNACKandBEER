@@ -48,10 +48,11 @@ public class ModificaPsw extends HttpServlet {
 		UserDAO udao = new UserDAO((DataSource) getServletContext().getAttribute("DataSource"));
 		UserBean user = (UserBean) request.getSession().getAttribute("user");
 		String email = user.getEmail();
+		String password = user.getPassword();
 		
 		List<String> errors = new ArrayList<>();
 		
-		if(vecchiaPsw.equals(nuovaPsw))
+		if(password.equals(vecchiaPsw))
 		{
 			try {
 				udao.doUpdatePsw(email, nuovaPsw);

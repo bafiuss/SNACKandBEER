@@ -50,9 +50,10 @@ public class ModificaInfo extends HttpServlet {
 		UserBean user = (UserBean) request.getSession().getAttribute("user");
 		String email = user.getEmail();
 		
-		HttpSession session = request.getSession();
+		
 		user.setIndirizzo(indirizzo);
 		user.setIndirizzoSped(indirizzoSped);
+		HttpSession session = request.getSession();
 		session.setAttribute("user", user);
 
 		try {
