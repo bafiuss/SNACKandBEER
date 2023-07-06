@@ -27,6 +27,18 @@ public class UserBean implements Serializable {
 		nascita = "";
 		isAdmin = false;
 	}
+	
+	public UserBean(String email, String password, String nome, String cognome, String nascita, String indirizzo, String indirizzoSped, boolean isAdmin)
+	{
+		this.email = email;
+		this.password = password;
+		this.nome = nome;
+		this.cognome = cognome;
+		this.nascita = nascita;
+		this.indirizzo = indirizzo;
+		this.indirizzoSped = indirizzoSped;
+		this.isAdmin = isAdmin;
+	}
 
 	public String getEmail() {
 		return email;
