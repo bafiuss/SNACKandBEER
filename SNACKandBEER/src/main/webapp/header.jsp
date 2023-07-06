@@ -14,13 +14,11 @@
 	<body class="header-body">
 
 				<%
-				boolean logged = false;
-				boolean isAdmin = false;
-
-				String parse = (String) session.getAttribute("logged");
+				String log = (String) session.getAttribute("logged");
 				
+				boolean logged = false, isAdmin = false;
 				
-				if (parse != null && parse.equals("true"))
+				if (log != null && log.equals("true"))
 					logged = true;
 				else
 					logged = false;
@@ -34,24 +32,26 @@
 				%>
 	
 		<nav>
-				<ul class="link-sx"><li><a href="index.jsp">SNACK&BEER</a></li></ul>
-			<div class="topnav">
-				<input type="text" placeholder="Cerca...">
-			</div>
+				<ul class="link-sx"><li><a href="index.jsp" class="aLinkLogo">SNACK&BEER</a></li></ul>
+			
 			<ul class="link-dx">
-				<li><a href="birre.jsp" class="aLink">BIRRE</a></li>
-				<li><a href="snacks.jsp" class="aLink">SNACKS</a></li>
-				<li><a href="accessori.jsp" class="aLink">ACCESSORI</a></li>		
+				<li><a href="Catalogo?categoria=birra" class="aLink">BIRRE</a></li>
+				<li><a href="Catalogo?categoria=snack" class="aLink">SNACKS</a></li>
+				<li><a href="Catalogo?categoria=accessori" class="aLink">ACCESSORI</a></li>		
 			</ul>
 			<% 
-			if(logged){%>
-				<button onclick="window.location.href='account.jsp'"><i class="fa-solid fa-user"></i> ACCOUNT</button>
-			<% }else{ %>
-					
+			if(!logged && !isAdmin){%>
 				<button onclick="window.location.href='login.jsp'"><i class="fa-solid fa-user"></i> ACCEDI</button>
-			<% }%>	
+				<button onclick="window.location.href='carrello.jsp'" class="btnCarrello"><i class="fa-solid fa-cart-shopping"></i> CARRELLO</button>			
+			<% }else if(logged && !isAdmin){ %>
+				<button onclick="window.location.href='account.jsp'" class="btnUtente"><i class="fa-solid fa-user"></i> ACCOUNT</button>	
+				<button onclick="window.location.href='carrello.jsp'" class="btnCarrello"><i class="fa-solid fa-cart-shopping"></i> CARRELLO</button>				
+			<% }else if (logged && isAdmin){%>	
+				<button onclick="window.location.href='account.jsp'" class="btnUtente"><i class="fa-solid fa-user"></i> ACCOUNT</button>	
+				<button onclick="window.location.href='gestione.jsp'" class="btnCarrello"><i class='fas fa-user-cog'></i></i> GESTIONE</button>				
+			<% } %>
 				
-				<button class="sec-btn"><i class="fa-solid fa-cart-shopping"></i> CARRELLO</button>	
+	
 		</nav>
 	</body>
 </html>
