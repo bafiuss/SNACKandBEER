@@ -7,22 +7,24 @@ public class ProdottoBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	int ID_Prodotto;
-	String titolo;
+	String nome;
 	String produttore;
 	String descrizione;
 	double prezzo;
+	int quantita;
 	String categoria;
-	String png;
+	String img;
 
 	public ProdottoBean() 
 	{
 		ID_Prodotto = -1;
-		titolo = "";
+		nome = "";
 		produttore = "";
 		descrizione = "";
 		prezzo = 0;
+		quantita = 0;
 		categoria = "";
-		png = "";
+		img = "";
 	}
 
 	public int getID_Prodotto() {
@@ -33,12 +35,12 @@ public class ProdottoBean implements Serializable {
 		this.ID_Prodotto = ID_Prodotto;
 	}
 
-	public String getTitolo() {
-		return titolo;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setTitolo(String titolo) {
-		this.titolo = titolo;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public String getProduttore() {
@@ -69,16 +71,24 @@ public class ProdottoBean implements Serializable {
 		return categoria;
 	}
 
+	public int getQuantita() {
+		return quantita;
+	}
+
+	public void setQuantita(int quantita) {
+		this.quantita = quantita;
+	}
+	
 	public void setCategoria(String categoria) {
 		this.categoria = categoria;
 	}
 
-	public String getPng() {
-		return png;
+	public String getImg() {
+		return img;
 	}
 
-	public void setPng(String png) {
-		this.png = png;
+	public void setImg(String img) {
+		this.img = img;
 	}
 
 	
