@@ -35,13 +35,13 @@ public class AdminServlet extends HttpServlet {
         UserDAO utenteDAO = new UserDAO((DataSource) getServletContext().getAttribute("DataSource"));
         
         ArrayList<UserBean> utenteArrayList;
+        ArrayList<ProdottoBean> prodottiArrayList;
         HttpSession session = request.getSession(false);
 
         switch(scelta){
            
 
             case "Visualizza lista utenti":
-                
             	utenteArrayList = utenteDAO.doRetrieveAll();
                 request.setAttribute("listUtenti", utenteArrayList);
                 address = "/ListaUtentiAdmin.jsp";
@@ -52,7 +52,16 @@ public class AdminServlet extends HttpServlet {
                 request.setAttribute("listUtenti", utenteArrayList);        		
             	address = "/RimozioneUtenteAdmin.jsp";
                 break;
-            	
+                
+            case "Aggiungi un nuovo prodotto":
+                address = "/InserimentoProdottoAdmin.jsp";
+                break;
+                
+            case "Rimuovi un prodotto":
+            	prodottiArrayList = prodottoDAO.doRetrieveAll();
+                request.setAttribute("listProdotti", prodottiArrayList);        		
+            	address = "/RimozioneProdottoAdmin.jsp";
+                break;
         }
 
 
