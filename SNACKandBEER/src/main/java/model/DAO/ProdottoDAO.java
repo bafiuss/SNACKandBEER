@@ -7,7 +7,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.*;
@@ -60,7 +59,7 @@ public class ProdottoDAO{
 		}
 	}
 	
-	public List<ProdottoBean> getAllProducts(String cat){
+	public List<ProdottoBean> getAllProductsByCat(String cat){
 		List<ProdottoBean> prodotti = new ArrayList<ProdottoBean>();
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -94,8 +93,41 @@ public class ProdottoDAO{
 		}
 		
 		return prodotti;
-		
 	}
+	
+	public ArrayList<ProdottoBean> doRetrieveAll(){
+    	
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		
+		ArrayList<ProdottoBean> prodottiList = new ArrayList<>();
+
+
+		String selectSQL = "SELECT * FROM " + ProdottoDAO.TABLE_NAME;
+
+		try {
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(selectSQL);
+			ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                int id = rs.getInt(1);
+                String nome = rs.getString(2);
+                String produttore = rs.getString(3);
+                String descrizione = rs.getString(4);
+                double prezzo = rs.getDouble(5);
+                int quantita = rs.getInt(6);
+                String categoria = rs.getString(7);
+                String img = rs.getString(8);
+                prodottiList.add(new ProdottoBean(id,nome,produttore,descrizione,prezzo,quantita,categoria,img));
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return prodottiList;
+    }
 	
 	public synchronized ProdottoBean doRetrieveByKey(int id) throws SQLException {
 		
@@ -140,4 +172,31 @@ public class ProdottoDAO{
 		return bean;
 	}
 
+	
+	public synchronized boolean doDelete(int code) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		int result = 0;
+
+		String deleteSQL = "DELETE FROM " + ProdottoDAO.TABLE_NAME + " WHERE ID_Prodotto = ?";
+
+		try {
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(deleteSQL);
+			preparedStatement.setInt(1, code);
+
+			result = preparedStatement.executeUpdate();
+
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return (result != 0);
+	}
 }

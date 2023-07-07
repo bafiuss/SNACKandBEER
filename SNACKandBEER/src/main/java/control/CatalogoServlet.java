@@ -39,18 +39,18 @@ public class CatalogoServlet extends HttpServlet {
 		
 		if(categoria.equals("birra"))
 		{
-			prodotti = pDao.getAllProducts("Birra");
+			prodotti = pDao.getAllProductsByCat("Birra");
 			request.setAttribute("type", 1);
 			
 		}
 		else if(categoria.equals("snack"))
 		{
-			prodotti = pDao.getAllProducts("Snack");
+			prodotti = pDao.getAllProductsByCat("Snack");
 			request.setAttribute("type", 2);
 		}
 		else if(categoria.equals("accessori"))
 		{
-			prodotti = pDao.getAllProducts("Accessori");
+			prodotti = pDao.getAllProductsByCat("Accessori");
 			request.setAttribute("type", 3);
 		}
 		

@@ -26,6 +26,18 @@ public class ProdottoBean implements Serializable {
 		categoria = "";
 		img = "";
 	}
+	
+	public ProdottoBean(int ID_Prodotto, String nome, String produttore, String descrizione, double prezzo, int quantita, String categoria, String img)
+	{
+		this.ID_Prodotto = ID_Prodotto;
+		this.nome = nome;
+		this.produttore = produttore;
+		this.descrizione = descrizione;
+		this.prezzo = prezzo;
+		this.quantita = quantita;
+		this.categoria = categoria;
+		this.img = img;
+	}
 
 	public int getID_Prodotto() {
 		return ID_Prodotto;

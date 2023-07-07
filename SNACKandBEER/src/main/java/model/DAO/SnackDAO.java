@@ -31,7 +31,7 @@ public class SnackDAO{
 		Connection c = null;
 		PreparedStatement p = null;
 
-		String query = "INSERT INTO " + UserDAO.TABLE_NAME + " (ID_Prodotto,quantita) VALUES (?,?)";
+		String query = "INSERT INTO " + SnackDAO.TABLE_NAME + " (ID_Prodotto,quantita) VALUES (?,?)";
 
 		try {
 			c = ds.getConnection();

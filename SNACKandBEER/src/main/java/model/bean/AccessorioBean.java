@@ -12,7 +12,7 @@ public class AccessorioBean implements Serializable {
 	public AccessorioBean() 
 	{
 		ID_Prodotto = -1;
-		String tipologia = "";
+		tipologia = "";
 	}
 
 	public int getID_Prodotto() {

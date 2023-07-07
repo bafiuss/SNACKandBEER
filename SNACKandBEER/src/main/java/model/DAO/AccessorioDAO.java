@@ -31,7 +31,7 @@ public class AccessorioDAO{
 		Connection c = null;
 		PreparedStatement p = null;
 
-		String query = "INSERT INTO " + UserDAO.TABLE_NAME + " (ID_Prodotto,tipologia) VALUES (?,?)";
+		String query = "INSERT INTO " + AccessorioDAO.TABLE_NAME + " (ID_Prodotto,tipologia) VALUES (?,?)";
 
 		try {
 			c = ds.getConnection();

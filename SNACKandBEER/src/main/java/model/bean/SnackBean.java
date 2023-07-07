@@ -12,7 +12,7 @@ public class SnackBean implements Serializable {
 	public SnackBean() 
 	{
 		ID_Prodotto = -1;
-		int quantita = -1;
+		quantita = -1;
 	}
 
 	public int getID_Prodotto() {

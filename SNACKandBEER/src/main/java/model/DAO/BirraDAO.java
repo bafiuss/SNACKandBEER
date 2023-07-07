@@ -31,7 +31,7 @@ public class BirraDAO{
 		Connection c = null;
 		PreparedStatement p = null;
 
-		String query = "INSERT INTO " + UserDAO.TABLE_NAME + " (ID_Prodotto,volume,gradAlcolica,colore,nazione) VALUES (?,?,?,?,?)";
+		String query = "INSERT INTO " + BirraDAO.TABLE_NAME + " (ID_Prodotto,volume,gradAlcolica,colore,nazione) VALUES (?,?,?,?,?)";
 
 		try {
 			c = ds.getConnection();
