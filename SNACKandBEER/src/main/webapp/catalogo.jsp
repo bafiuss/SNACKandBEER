@@ -44,9 +44,9 @@
 		%>
 			<div class="all-products">
 				<div class="product">
-					<img src="images/<%= p.getPng() %>">
+					<img src="images/<%= p.getImg() %>">
 					<div class="product-info">
-						<h4 class="product-title"><%= p.getTitolo() %></h4>
+						<h4 class="product-title"><%= p.getNome() %></h4>
 						<p class="product-price"><%= p.getPrezzo() %> &euro;</p>
 						<a class="product-btn" href="GetProdotto?categoria=<%=p.getCategoria()%>&id=<%= p.getID_Prodotto()%>">Dettagli</a>
 					</div>

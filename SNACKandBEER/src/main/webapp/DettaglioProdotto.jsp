@@ -44,16 +44,16 @@
 		      	} else if(type == 2){
 		      		SnackBean sna = (SnackBean) request.getAttribute("snack");
 		      %>
-		      	  <p>Quantita: <%= sna.getQuantita() %> gr </p>
+		      	  <p><b>Quantita: </b><%= sna.getQuantita() %> gr </p>
 		      <%
 		      	} else if(type == 3){
 		      		AccessorioBean acc = (AccessorioBean) request.getAttribute("accessorio");
 		      %>
-		      	  <p>Tipologia: <%= acc.getTipologia() %></p>
+		      	  <p><b>Tipologia: </b><%= acc.getTipologia() %></p>
 		      <%
 		      	}
 		      %>
-		      	<button>Aggiungi al carrello</button>
+		      	<button id="">Aggiungi al carrello</button>
 		    </div>
 		  </div>
 	</section>
