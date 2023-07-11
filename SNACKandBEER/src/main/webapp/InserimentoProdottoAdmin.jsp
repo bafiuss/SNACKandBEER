@@ -16,7 +16,7 @@
 		<section class="adminSection">
 			  <div class="container">
 			    <h2>INSERISCI DATI PRODOTTO</h2>
-			    <form action="GestioneProdotto" method="POST">
+			    <form action="InserimentoProdotto" method="POST">
 			      
 			      <input type="hidden" name="operazione" value="aggiungi">
 			      
