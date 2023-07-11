@@ -59,6 +59,38 @@ public class ProdottoDAO{
 		}
 	}
 	
+	public synchronized boolean doUpdate(int id, String nome, String produttore, String descrizione, double prezzo, int quantita) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		int result = 0;
+
+		String updateSQL = "UPDATE " + ProdottoDAO.TABLE_NAME + " SET nome = ? , produttore = ? , descrizione= ?, prezzo = ?, quantita = ? WHERE ID_Prodotto = ?";
+
+		try {
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(updateSQL);
+			preparedStatement.setString(1, nome);
+			preparedStatement.setString(2, produttore);
+			preparedStatement.setString(3, descrizione);
+			preparedStatement.setDouble(4, prezzo);
+			preparedStatement.setInt(5, quantita);
+			preparedStatement.setInt(6, id);
+
+			result = preparedStatement.executeUpdate();
+
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return (result != 0);
+	}
+	
 	public List<ProdottoBean> getAllProductsByCat(String cat){
 		List<ProdottoBean> prodotti = new ArrayList<ProdottoBean>();
 		Connection connection = null;

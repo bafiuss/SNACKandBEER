@@ -88,5 +88,36 @@ public class BirraDAO{
 		}
 		return bean;
 	}
+	
+	public synchronized boolean doUpdate(int id, double volume, double gradAlcolica, String colore, String nazione) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		int result = 0;
+
+		String updateSQL = "UPDATE " + BirraDAO.TABLE_NAME + " SET volume = ? , gradAlcolica = ? , colore= ?, nazione = ?  WHERE ID_Prodotto = ?";
+
+		try {
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(updateSQL);
+			preparedStatement.setDouble(1, volume);
+			preparedStatement.setDouble(2, gradAlcolica);
+			preparedStatement.setString(3, colore);
+			preparedStatement.setString(4, nazione);
+			preparedStatement.setInt(5, id);
+
+			result = preparedStatement.executeUpdate();
+
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return (result != 0);
+	}
 
 }

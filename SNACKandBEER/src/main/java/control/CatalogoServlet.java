@@ -50,7 +50,7 @@ public class CatalogoServlet extends HttpServlet {
 		}
 		else if(categoria.equals("accessori"))
 		{
-			prodotti = pDao.getAllProductsByCat("Accessori");
+			prodotti = pDao.getAllProductsByCat("Accessorio");
 			request.setAttribute("type", 3);
 		}
 		
@@ -58,10 +58,7 @@ public class CatalogoServlet extends HttpServlet {
 		
 		RequestDispatcher dispatcher;
 		dispatcher = this.getServletContext().getRequestDispatcher("/catalogo.jsp");
-		dispatcher.forward(request, response);
-
-		
-		
+		dispatcher.forward(request, response);	
 		
 	}
 

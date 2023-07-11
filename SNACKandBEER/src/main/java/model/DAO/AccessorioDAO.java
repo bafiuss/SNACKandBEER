@@ -83,5 +83,33 @@ public class AccessorioDAO{
 		}
 		return bean;
 	}
+	
+	public synchronized boolean doUpdate(int id, String tipologia) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		int result = 0;
+
+		String updateSQL = "UPDATE " + AccessorioDAO.TABLE_NAME + " SET tipologia = ? WHERE ID_Prodotto = ?";
+
+		try {
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(updateSQL);
+			preparedStatement.setString(1, tipologia);
+			preparedStatement.setInt(2, id);
+
+			result = preparedStatement.executeUpdate();
+
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return (result != 0);
+	}
 
 }
