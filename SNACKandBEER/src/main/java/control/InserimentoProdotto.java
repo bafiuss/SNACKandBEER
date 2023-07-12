@@ -9,6 +9,7 @@ import java.util.logging.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,6 +22,8 @@ import model.DAO.*;
 
 
 @WebServlet("/InserimentoProdotto")
+@MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2, maxFileSize = 1024 * 1024 * 10, maxRequestSize = 1024 * 1024 * 50)
+
 public class InserimentoProdotto extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
@@ -37,8 +40,8 @@ public class InserimentoProdotto extends HttpServlet {
 	    	int mod = 0;
 	    	
 	    	ProdottoDAO prodottoDAO = new ProdottoDAO((DataSource) getServletContext().getAttribute("DataSource"));
-
-    		
+	    
+	    		
     		int idProd = Integer.parseInt(request.getParameter("idProdotto"));
     		String nome = request.getParameter("nome");
     		String produttore = request.getParameter("produttore");
@@ -56,6 +59,7 @@ public class InserimentoProdotto extends HttpServlet {
     			mod = 3;
     		
     		ProdottoBean bean = new ProdottoBean();
+    		
     		bean.setID_Prodotto(idProd);
     		bean.setNome(nome);
     		bean.setProduttore(produttore);
@@ -73,8 +77,9 @@ public class InserimentoProdotto extends HttpServlet {
     		request.setAttribute("idProd", idProd);
 	    	request.setAttribute("mod", mod);
 		
-	    	RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/InserimentoFinaleAdmin.jsp");
+	    	RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/UploadPhoto");
 			dispatcher.forward(request, response);
+			return;
     	
     }
 }
