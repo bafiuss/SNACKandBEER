@@ -24,7 +24,7 @@
 
 		  <div class="container">
   				<div class="image">
-		      <img src="images/<%= prod.getImg() %>" >
+		      <img src="GetPictureServlet?id=<%=prod.getID_Prodotto()%>" >
 		    </div>
 		    <div class="info">
 		      <h2><b><%= prod.getNome() %></b></h2><br>

@@ -44,7 +44,7 @@
 		%>
 			<div class="all-products">
 				<div class="product">
-					<img src="images/<%= p.getImg() %>">
+					<img src="GetPictureServlet?id=<%=p.getID_Prodotto()%>">
 					<div class="product-info">
 						<h4 class="product-title"><%= p.getNome() %></h4>
 						<p class="product-price"><%= p.getPrezzo() %> &euro;</p>
