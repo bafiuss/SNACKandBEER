@@ -16,13 +16,10 @@
 		<section class="adminSection">
 			  <div class="container">
 			    <h2>INSERISCI DATI PRODOTTO</h2>
-			    <form action="InserimentoProdotto" method="POST">
-			      
-			      <input type="hidden" name="operazione" value="aggiungi">
-			      
+			    <form action="InserimentoProdotto" method="POST" enctype="multipart/form-data">      
 			      <div class="form-group">
 			        <label for="idProdotto">ID:</label>
-			        <input type="text" id="idProdotto" name="idProdotto" required>
+			        <input type="number" id="idProdotto" name="idProdotto" required>
 			      </div>
 			      <div class="form-group">
 			        <label for="nome">Nome:</label>
@@ -38,15 +35,15 @@
 			      </div>
 			      <div class="form-group">
 			        <label for="prezzo">Prezzo:</label>
-			        <input type="number" id="prezzo" name="prezzo" required>
+			        <input type="number" id="prezzo" name="prezzo" min="0" step="0.01"required>
 			      </div>
 			      <div class="form-group">
 			        <label for="quantita">Quantità:</label>
 			        <input type="number" id="quantita" name="quantita" required>
 			      </div>
 			      <div class="form-group">
-			        <label for="img">Seleziona immagine: </label>
-			        <input type="file" id="img" name="img" required>
+			        <label for="photo">Seleziona immagine: </label>
+			        <input type="file" id="photo" name="photo" value="" required>
 			      </div>
 			      <div class="form-group">
 			       <label for="img">Seleziona categoria: </label>

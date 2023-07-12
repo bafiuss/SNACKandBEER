@@ -33,12 +33,12 @@
 					      %>
 					      <input type="hidden" value="1" name="mod">
 					      <div class="form-group">
-					        <label for="volume">Volume:</label>
-					        <input type="number" id="volume" name="volume" required>
+					        <label for="volume">Volume (L):</label>
+					        <input type="number" id="volume" name="volume" min="0" step="0.01" required>
 					      </div>
 					      <div class="form-group">
 					        <label for="gradAlcolica">Gradazione Alcolica:</label>
-					        <input type="number" id="gradAlcolica" name="gradAlcolica" required>
+					        <input type="number" id="gradAlcolica" name="gradAlcolica" min="0" step="0.01" required>
 					      </div>
 					      <div class="form-group">
 					        <label for="colore">Colore:</label>
@@ -48,13 +48,16 @@
 					        <label for="nazione">Nazione:</label>
 					        <input type="text" id="nazione" name="nazione" required>
 					      </div>
+					       <div class="form-group">
+					        <input type="submit" value="Prosegui">
+					      </div>
 					      
 					      <%
 					      	}else if(mod == 2){
 					      %>
 					      <input type="hidden" value="2" name="mod">
 					      <div class="form-group">
-					        <label for="quantita">Quantità:</label>
+					        <label for="quantita">Quantità (gr):</label>
 					        <input type="number" id="quantita" name="quantita" required>
 					      </div>
 					      <div class="form-group">
