@@ -33,7 +33,7 @@ public class ProdottoDAO{
 		Connection c = null;
 		PreparedStatement p = null;
 
-		String query = "INSERT INTO " + ProdottoDAO.TABLE_NAME + " (ID_Prodotto,nome,produttore,descrizione,prezzo,quantita,categoria,img) VALUES (?,?,?,?,?,?,?,?)";
+		String query = "INSERT INTO " + ProdottoDAO.TABLE_NAME + " (ID_Prodotto,nome,produttore,descrizione,prezzo,quantita,categoria) VALUES (?,?,?,?,?,?,?)";
 
 		try {
 			c = ds.getConnection();
@@ -45,7 +45,6 @@ public class ProdottoDAO{
 			p.setDouble(5, ub.getPrezzo());
 			p.setInt(6, ub.getQuantita());
 			p.setString(7, ub.getCategoria());
-			p.setString(8, ub.getImg());
 			
 			p.executeUpdate();
 		} finally {
@@ -115,7 +114,7 @@ public class ProdottoDAO{
 				row.setPrezzo(rs.getDouble("prezzo"));
 				row.setQuantita(rs.getInt("quantita"));
 				row.setCategoria(rs.getString("categoria"));
-				row.setImg(rs.getString("img"));
+				row.setPhoto(rs.getBytes("photo"));
 				
 				prodotti.add(row);
 			}
@@ -151,7 +150,7 @@ public class ProdottoDAO{
                 int quantita = rs.getInt(6);
                 String categoria = rs.getString(7);
                 String img = rs.getString(8);
-                prodottiList.add(new ProdottoBean(id,nome,produttore,descrizione,prezzo,quantita,categoria,img));
+                prodottiList.add(new ProdottoBean(id,nome,produttore,descrizione,prezzo,quantita,categoria));
             }
         }
         catch (SQLException e) {
@@ -189,7 +188,7 @@ public class ProdottoDAO{
 				bean.setPrezzo(rs.getDouble("prezzo"));
 				bean.setQuantita(rs.getInt("quantita"));
 				bean.setCategoria(rs.getString("categoria"));
-				bean.setImg(rs.getString("img"));
+				bean.setPhoto(rs.getBytes("photo"));
 			}
 
 		} finally {

@@ -13,7 +13,7 @@ public class ProdottoBean implements Serializable {
 	double prezzo;
 	int quantita;
 	String categoria;
-	String img;
+	byte[] photo;
 
 	public ProdottoBean() 
 	{
@@ -24,10 +24,10 @@ public class ProdottoBean implements Serializable {
 		prezzo = 0;
 		quantita = 0;
 		categoria = "";
-		img = "";
+		
 	}
 	
-	public ProdottoBean(int ID_Prodotto, String nome, String produttore, String descrizione, double prezzo, int quantita, String categoria, String img)
+	public ProdottoBean(int ID_Prodotto, String nome, String produttore, String descrizione, double prezzo, int quantita, String categoria)
 	{
 		this.ID_Prodotto = ID_Prodotto;
 		this.nome = nome;
@@ -36,7 +36,7 @@ public class ProdottoBean implements Serializable {
 		this.prezzo = prezzo;
 		this.quantita = quantita;
 		this.categoria = categoria;
-		this.img = img;
+		
 	}
 
 	public int getID_Prodotto() {
@@ -95,14 +95,11 @@ public class ProdottoBean implements Serializable {
 		this.categoria = categoria;
 	}
 
-	public String getImg() {
-		return img;
+	public byte[] getPhoto() {
+		return photo;
 	}
 
-	public void setImg(String img) {
-		this.img = img;
+	public void setPhoto(byte[] photo) {
+		this.photo = photo;
 	}
-
-	
-	
 }
