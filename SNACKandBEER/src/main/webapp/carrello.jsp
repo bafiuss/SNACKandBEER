@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@page import="java.util.List"%>
+<%@page import="model.bean.Cart"%>
+<%@page import="model.bean.CartItem"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -14,6 +17,14 @@
 		</head>
 	<body>
 	
+		<% 
+			Cart carrello = (Cart) request.getAttribute("carrello");
+			if(carrello == null){
+				response.sendRedirect("CartControl");
+				return;
+			}
+		%>
+	
 		<%@ include file="./header.jsp" %>
 			
 			<section class="carrelloSection">	
@@ -25,25 +36,28 @@
 					  <thead class="thead-dark">
 					    <tr>
 					    	<th>    </th>
-					      <th scope="col">Nome</th>
+					      <th scope="col">Nome Prodotto</th>
 					      <th scope="col">Prezzo</th>
 					      <th scope="col">Quantità</th>
 					      <th scope="col">Totale</th>
 					    </tr>
 					  </thead>
 					  <tbody>
+					  <% for(CartItem pb : carrello.getProducts()) { %>
+				
 					    <tr>
-					    <td class="table-secondary"> <a href="#">
+					    <td class="table-secondary"> <a href="CartControl?action=delete&code=<%=pb.getProductBean().getID_Prodotto()%>&redirect=carrello">
 												<svg width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
 													<path d="M3 18C2.45 18 1.979 17.804 1.587 17.412C1.195 17.02 0.999333 16.5493 1 16V3H0V1H5V0H11V1H16V3H15V16C15 16.55 14.804 17.021 14.412 17.413C14.02 17.805 13.5493 18.0007 13 18H3ZM13 3H3V16H13V3ZM5 14H7V5H5V14ZM9 14H11V5H9V14Z" fill="black"/>
 												</svg>
 											</a>
 									</td>
-					      <td class="table-secondary">...</td>
-					      <td class="table-secondary">...</td>
-					      <td class="table-secondary">...</td>
-					      <td class="table-secondary">...</td>
+					      <td class="table-secondary"><%= pb.getProductBean().getNome() %></td>
+					      <td class="table-secondary"><%= pb.getProductBean().getPrezzo() %></td>
+					      <td class="table-secondary"><%= pb.getQuantita() %></td>
+					      <td class="table-secondary"><%=pb.getProductBean().getPrezzo() * pb.getQuantita()%> &euro;</td>
 					    </tr>
+					    <%} %>
 					  </tbody>
 					</table>
 				</div>
@@ -51,7 +65,7 @@
 				<h2 id="riepilogoh2"><b>Riepilogo</b></h2>
 						
 				<div class="riepilogo">
-						<p class="testoRiepilogo"><b>Spesa Totale:</b> 5&euro; </p>
+						<p class="testoRiepilogo"><b>Spesa Totale:</b>  <%=carrello.getTotale()%>&euro; </p>
 						
 						
 						<button onclick="window.location.href='checkout.jsp'" id="btnCarrello">Procedi</button>
