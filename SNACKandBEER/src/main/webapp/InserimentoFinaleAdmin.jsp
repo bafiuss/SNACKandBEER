@@ -37,7 +37,7 @@
 					        <input type="number" id="volume" name="volume" min="0" step="0.01" required>
 					      </div>
 					      <div class="form-group">
-					        <label for="gradAlcolica">Gradazione Alcolica:</label>
+					        <label for="gradAlcolica">Gradazione Alcolica (%):</label>
 					        <input type="number" id="gradAlcolica" name="gradAlcolica" min="0" step="0.01" required>
 					      </div>
 					      <div class="form-group">

@@ -21,7 +21,8 @@
 	<%@ include file="./header.jsp" %>
 	
 	<section class="prodottoSection">
-
+ 		<form action="CartControl?action=add&code=<%=prod.getID_Prodotto()%>&redirect=carrello" method="post">
+          
 		  <div class="container">
   				<div class="image">
 		      <img src="GetPictureServlet?id=<%=prod.getID_Prodotto()%>" >
@@ -56,6 +57,7 @@
 		      	<button id="">Aggiungi al carrello</button>
 		    </div>
 		  </div>
+		  </form>
 	</section>
 	
 	<%@ include file="./footer.jsp" %>
