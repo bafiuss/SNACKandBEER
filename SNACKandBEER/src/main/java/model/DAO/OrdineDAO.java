@@ -20,7 +20,7 @@ import model.bean.OrdineBean;
 public class OrdineDAO {
 	
 	
-	private static final String TABLE_NAME = "ordine";
+	private static final String TABLE_NAME = "Ordine";
 	private DataSource ds = null;
 	private static Logger logger = Logger.getAnonymousLogger();
 	
@@ -169,7 +169,7 @@ public class OrdineDAO {
 
 		Collection<OrdineBean> ordini = new LinkedList<>();
 
-		String selectSQL = "SELECT * FROM" + OrdineDAO.TABLE_NAME + " WHERE email=? ORDER BY ?";
+		String selectSQL = "SELECT * FROM  " + OrdineDAO.TABLE_NAME + " WHERE email = ? ORDER BY ?";
 
 		
 
@@ -211,7 +211,7 @@ public class OrdineDAO {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		
-		String selectSQL = "SELECT MAX(numero_ord) AS MAX FROM " + OrdineDAO.TABLE_NAME;
+		String selectSQL = "SELECT MAX(numero_ordine) AS MAX FROM " + OrdineDAO.TABLE_NAME;
 		
 		int max = 0 ;
 		
@@ -242,7 +242,7 @@ public class OrdineDAO {
 
 		Collection<OrdineBean> ordini = new LinkedList<>();
 
-		String selectSQL = "SELECT * FROM" + OrdineDAO.TABLE_NAME + " WHERE email=? " + " AND data_ordine BETWEEN ? AND ?";
+		String selectSQL = "SELECT * FROM  " + OrdineDAO.TABLE_NAME + " WHERE email = ? " + " AND data_ordine BETWEEN ? AND ?";
 
 		
 		try {
