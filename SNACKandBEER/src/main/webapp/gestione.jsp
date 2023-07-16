@@ -24,7 +24,7 @@
 		      <div class="container">	 
 					<h2> OPERAZIONI SUGLI ORDINI</h2> 
 			      	<div class="form-group">
-			        	<input type="submit" name="scelta" value="Visualizza tutti gli ordini effettuati" onclick="window.location.href='ListaOrdini.jsp'">
+			        	<input type="submit" name="scelta" value="Visualizza ordini" onclick="window.location.href='OrdiniUtenteAdmin.jsp'">
 			      	</div>
 		      </div>
 		      <div class="container">	 
@@ -36,6 +36,7 @@
 			      	</div>
 		      </div>
 		      </form>
+		      <br><br><br><br>
 			</section>
 	
 	

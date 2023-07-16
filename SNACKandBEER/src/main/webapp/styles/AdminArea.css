@@ -3,7 +3,8 @@
 	.adminSection{
 		width: 100%;
 		padding-top:20px;
-	    height: auto;
+		height: auto;
+	  	background-repeat: repeat-y;
 		background-image: url(../images/sfondo.png);
 		background-position: center;
 	    background-size: cover;
@@ -107,6 +108,112 @@
       background-color: white;
     }
      
+     
+@media(max-width:1020px){
+    .content{
+      	width: 370px;
+        transition: .3s; 
+        margin-top: 80px;
+    }
+    h2#inth2{
+        font-size: 3.8rem;
+        transition: .3s;
+        margin-top: 80px;
+    }
+   .container {
+   margin-top: 80px;
+    	width: 370px;
+    	 transition: .3s;
+    }
+
+}
+  
+ @media(max-width:991px){
+	.container .table{
+    	width: 70%;
+    }
+    .container {
+    	width: 350px;
+    	 transition: .3s;
+    	 margin-top: 90px;
+    }
+}
+    
+@media(max-width:920px){
+    .content{
+      	width: 350px;
+        transition: .3s;
+        margin-top: 100px;
+    }
+    h2#inth2{
+        font-size: 3.5rem;
+        transition: .3s;
+        margin-top: 100px;
+    }
+    .container {
+     	transition: .3s;
+    	width: 330px;
+    	margin-top: 100px;
+    }
+}
+
+
+@media(max-height:845px){
+    .content{
+      	width: 330px;
+        transition: .3s;
+        margin-top: 120px;
+    }  
+    h2#inth2{
+        font-size: 3.2rem;
+        transition: .3s;
+        margin-top: 120px;
+    }
+    .container {
+     	transition: .3s;
+    	width: 330px;
+    	margin-top: 110px;
+    }
+    
+}
+
+@media(max-width:620px){
+	.content{
+      	width: 290px;
+      	margin-top: 150px;
+        transition: .3s;
+    }  
+    h2#inth2{
+        font-size: 3.1rem;
+        transition: .3s;
+        margin-top: 150px;
+    }
+    .container {
+     	transition: .3s;
+    	width: 330px;
+    	margin-top: 120px;
+    }
+}
+
+@media(max-width:517px){
+	.content{
+      	width: 270px;
+        transition: .3s;
+        margin-top: 160px;
+    }  
+    h2#inth2{
+        font-size: 2.9rem;
+        transition: .3s;
+        margin-top: 160px;
+    }
+    .container {
+     	transition: .3s;
+    	width: 330px;
+    	margin-top: 150px;
+    }
+}
+    
+
 
     
     

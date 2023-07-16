@@ -5,7 +5,7 @@
 <html>
 	<head>
 		<meta charset="ISO-8859-1">
-			<title>Insert title here</title>
+			<title>Modifica Prodotto</title>
 		</head>
 		
 		<link rel="stylesheet" href="./styles/AdminArea.css">
@@ -44,7 +44,9 @@
 			      	</div>
 			      	
 		      </div>
-		    </form>			
+		    </form>	
+		    <br><br><br><br><br><br>
+			
 			</section>
 	
 		<%@ include file="./footer.jsp" %>

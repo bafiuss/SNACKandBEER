@@ -16,6 +16,7 @@
 		
 		<%
 			UserBean user = (UserBean)session.getAttribute("user");
+		
 		%>
 		
 		<section class="accountSection">
@@ -81,6 +82,25 @@
 		      </div>		      
 		  </form>
 		  </div>
+			  <%
+			  	if(user.isAdmin())
+			  	{
+			  %>
+			  <div class="container">
+			   <h2>ACCEDI ALLE OPERAZIONI DA ADMIN</h2>
+			    <div class="form-group">
+			        <a href="gestione.jsp"><input type="submit" value="Prosegui"></a>
+			    </div>
+			   </div>
+				<%
+			  	}
+				%>
+			<div class="container">
+			   <h2>VISUALIZZA ORDINI EFFETTUATI</h2>
+			    <div class="form-group">
+			        <a href="ordini"><input type="submit" value="Prosegui"></a>
+			    </div>
+			  </div>
 		  <div class="container">
 		   <form action="Logout" method="POST">
 		    <h2>EFFETTUA LOGOUT</h2>

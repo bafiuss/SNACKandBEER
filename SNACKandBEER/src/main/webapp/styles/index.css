@@ -2,12 +2,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Belanosima:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
 .contenuto{
-	    width: 100%;
-    height: 100vh;
+	width: 100%;
+    height: 90vh;
     background-image: url(../images/sfondo.png);
 	text-align: center;
-	background-size: 100%;
-	
+	background-size: cover;
+	background-position: center;
 	
 }
 
@@ -76,3 +76,39 @@ button#btnCentrale:hover:before, button#btnCentrale:focus:before {
 button#btnCentrale:active {
   transform: scale(0.9);
 }
+
+@media(max-width:620px){
+    .contenuto .testoIndex{
+        font-size: 54px;
+        padding-top: 200px;
+        transition: .3s;
+    }
+    .contenuto .slogan{
+    	font-size: 25px;
+        transition: .3s;
+    }
+    button#btnCentrale{
+     	padding: 0.7em 1.9em;
+     	font-size: 16px;
+        transition: .3s;
+    }  
+}
+
+@media(max-width:517px){
+    .contenuto .testoIndex{
+        font-size: 50px;
+        padding-top: 230px;
+        transition: .3s;
+    }
+    .contenuto .slogan{
+    	font-size: 20px;
+        transition: .3s;
+    }
+    button#btnCentrale{
+     	padding: 0.6em 1.7em;
+     	font-size: 14px;
+        transition: .3s;
+    }  
+}
+
+

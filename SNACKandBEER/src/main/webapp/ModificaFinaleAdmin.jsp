@@ -58,7 +58,7 @@
 			      </div>
 			      <div class="form-group">
 			        <label for="img">Seleziona immagine: </label>
-			        <input type="file" id="img" name="img" value="<%= prodotto.getImg()%>" required>
+			        <input type="file" id="img" name="img" value="<%= prodotto.getPhoto()%>" required>
 			      </div>
 			      <%
 					if(cat == 1)
@@ -103,11 +103,13 @@
 					
 					%>	  
 					
-					<br>
+					<br><div class="form-group">
 			        	<input type="submit" name="scelta" value="Modifica">
-
+					</div>
 					 </div>
 			</form>
+			<br><br><br><br>
+		
 		</section>
 		
 		<%@ include file="./footer.jsp" %>

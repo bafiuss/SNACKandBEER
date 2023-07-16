@@ -7,8 +7,7 @@
       background-color: #ffffff;
       border: 1px solid #cccccc;
       border-radius: 5px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);   
     }
     
     h2 {
@@ -111,8 +110,8 @@
 	.loginSection{
 		width: 100%;
 		padding-top:7%;
-		background-image: url(../images/sfondo.png);
-	    height: 100vh;
+		height: 100vh;
+		background-image: url(../images/sfondo.png);    
 		background-position: center;
 	    background-size: cover;
 	    grid-template-columns: repeat(1, 1fr);
@@ -123,9 +122,9 @@
 	.signupSection
 	{
 			width: 100%;
-			padding-top:20px;
+			padding-top: 7%;
+			height: auto;
 			background-image: url(../images/sfondo.png);
-		    height: 125vh;
 			background-position: center;
 		    background-size: cover;
 		    /*display: grid;*/
@@ -138,12 +137,84 @@
 		width: 100%;
 		padding-top:7%;
 		background-image: url(../images/sfondo.png);
-	    height: 200vh;
+	    height: auto;
 		background-position: center;
 	    background-size: cover;
 	    grid-template-columns: repeat(1, 1fr);
 	    align-items: center;
 	    padding-bottom: 10%;	
 	}
-
+	
+@media(max-width:1020px){
+    .container{
+      	width: 370px;
+        transition: .3s; 
+        margin-top: 70px;
+    }
+    .error-message{
+	    width: 370px;
+	    transition: .3s;
+	     margin-top: 70px;
+    }
     
+
+}
+    
+@media(max-width:920px){
+    .container{
+      	width: 350px;
+        transition: .3s;
+        margin-top: 100px;
+    }
+    .error-message{
+	    width: 350px;
+	    transition: .3s;
+	     margin-top: 100px;
+    }
+
+}
+
+@media(max-height:845px){
+    .container{
+      	width: 330px;
+        transition: .3s;
+        margin-top: 130px;
+    }  
+    .error-message{
+	    width: 330px;
+	    transition: .3s;
+	     margin-top: 130px;
+    }
+    
+
+}
+
+@media(max-width:620px){
+	.container{
+      	width: 290px;
+      	margin-top: 150px;
+        transition: .3s;
+    }  
+    .error-message{
+	    width: 300px;
+	    transition: .3s;
+	    margin-top: 150px;
+    }
+    
+
+}
+
+@media(max-width:517px){
+	.container{
+      	width: 270px;
+        transition: .3s;
+        margin-top: 170px;
+    }  
+   .error-message{
+	    width: 280px;
+	    transition: .3s;
+	    margin-top: 170px;
+    }
+}
+
+   

@@ -19,7 +19,7 @@
 		<%@ include file="./header.jsp" %>
 		
 			<section class="adminSection">
-			
+			<h2 id="inth2"><b>Inserimento</b></h2>
 					<div class="container">
 					    <h2>INSERISCI DETTAGLI PRODOTTO</h2>
 					    <form action="InserimentoFinaleProdotto" method="POST">		      
@@ -81,7 +81,8 @@
 					      
 						</form>
 					</div>
-			
+			<br><br><br><br><br>
+			<br><br><br><br><br>
 			</section>
 	
 		<%@ include file="./footer.jsp" %>

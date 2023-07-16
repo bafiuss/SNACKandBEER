@@ -40,16 +40,14 @@
 				<li><a href="Catalogo?categoria=accessori" class="aLink">ACCESSORI</a></li>		
 			</ul>
 			<% 
-			if(!logged && !isAdmin){%>
+			if(!logged){%>
 				<button onclick="window.location.href='login.jsp'"><i class="fa-solid fa-user"></i> ACCEDI</button>
-				<button onclick="window.location.href='carrello.jsp'" class="btnCarrello"><i class="fa-solid fa-cart-shopping"></i> CARRELLO</button>			
-			<% }else if(logged && !isAdmin){ %>
+			<% }else if(logged){ %>
 				<button onclick="window.location.href='account.jsp'" class="btnUtente"><i class="fa-solid fa-user"></i> ACCOUNT</button>	
-				<button onclick="window.location.href='carrello.jsp'" class="btnCarrello"><i class="fa-solid fa-cart-shopping"></i> CARRELLO</button>				
-			<% }else if (logged && isAdmin){%>	
-				<button onclick="window.location.href='account.jsp'" class="btnUtente"><i class="fa-solid fa-user"></i> ACCOUNT</button>	
-				<button onclick="window.location.href='gestione.jsp'" class="btnCarrello"><i class='fas fa-user-cog'></i></i> GESTIONE</button>				
-			<% } %>
+			<% }%>	
+			<button onclick="window.location.href='carrello.jsp'" class="btnCarrello"><i class="fa-solid fa-cart-shopping"></i> CARRELLO</button>			
+			
+				
 				
 	
 		</nav>
