@@ -39,8 +39,7 @@ public class AdminRedirect extends HttpServlet {
         HttpSession session = request.getSession(false);
 
         switch(scelta){
-           
-
+          
             case "Visualizza lista utenti":
             	utenteArrayList = utenteDAO.doRetrieveAll();
                 request.setAttribute("listUtenti", utenteArrayList);
@@ -68,6 +67,11 @@ public class AdminRedirect extends HttpServlet {
                 request.setAttribute("listProdotti", prodottiArrayList);        		
             	address = "/ModificaProdottoAdmin.jsp";
                 break;
+                
+            case "Visualizza ordini":
+            	utenteArrayList = utenteDAO.doRetrieveAll();
+                request.setAttribute("listUtenti", utenteArrayList);
+                address = "/OrdiniUtenteAdmin.jsp";
         }
 
 
