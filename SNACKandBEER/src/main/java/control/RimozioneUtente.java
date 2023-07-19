@@ -33,7 +33,7 @@ public class RimozioneUtente extends HttpServlet {
 			try {
 				userDAO.doDelete(email);
 			} catch (SQLException e) {
-				logger.log(Level.WARNING, "Problema eliminazione utente dal DB!");
+				logger.log(Level.WARNING, "Problema eliminazione utente dal DB!" + e.getMessage());
 			}
 			
 	
