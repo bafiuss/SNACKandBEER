@@ -2,7 +2,7 @@
 
 .checkoutSection{
 	width: 100%;
-	padding-top:20px;
+	padding-top:15%;
     height: auto;
 	background-image: url(../images/sfondo.png);
 	background-position: center;
@@ -51,7 +51,8 @@ h2#inth2{
     
     .form-group input[type="text"],
     .form-group input[type="password"],
-    .form-group input[type="date"] {
+    .form-group input[type="date"],
+    .form-group input[type="number"] {
       width: 100%;
       padding: 10px;
       border: 1px solid #cccccc;
@@ -75,3 +76,59 @@ h2#inth2{
     .form-group input[type="submit"]:hover {
       background-color: white;
     }
+    
+    
+@media(max-width:1020px){
+    .container{
+      	width: 380px;
+        transition: .3s; 
+        margin-top: 15%;
+    }
+}
+
+@media(max-width:920px){
+    .container{
+      	width: 360px;
+        transition: .3s; 
+        margin-top: 20%;
+    }
+}
+    
+@media(max-width:850px){
+    .container{
+      	width: 340px;
+        transition: .3s; 
+        margin-top: 25%;
+    }
+
+    
+    
+}
+
+@media(max-width:750px){
+    .container{
+      	width: 320px;
+        transition: .3s; 
+        margin-top: 30%;
+    }
+
+    
+}
+
+@media(max-width:620px){
+    .container{
+      	width: 300px;
+        transition: .3s; 
+        margin-top: 35%;
+    }
+    
+}
+
+@media(max-width:450px){
+    .container{
+      	width: 280px;
+        transition: .3s; 
+        margin-top: 35%;
+    }  
+}
+ 

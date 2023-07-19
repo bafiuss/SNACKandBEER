@@ -14,8 +14,6 @@
 		<title>Dettaglio Prodotto</title>
 		<link rel="stylesheet" href="./styles/prodotto.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-oqVuAfXRKap7fdgcCY5uykM6+R9GqQ8K/uxy9rx7HNQlGYl1kPzQho1wx4JwY8wC"></script>
-		
 	</head>
 	<body>
 	<%@ include file="./header.jsp" %>
@@ -25,7 +23,7 @@
           
 		  <div class="container">
   				<div class="image">
-		      <img src="GetPictureServlet?id=<%=prod.getID_Prodotto()%>" >
+		      <img src="GetPictureServlet?id=<%=prod.getID_Prodotto()%>">
 		    </div>
 		    <div class="info">
 		      <h2><b><%= prod.getNome() %></b></h2><br>
@@ -38,7 +36,7 @@
 		      		BirraBean bir = (BirraBean) request.getAttribute("birra");
 		      %>
 			      <p><b>Volume: </b><%= bir.getVolume() %> L</p>
-			      <p><b>Gradazione alcolica: </b><%= bir.getGradAlcolica() %></p>
+			      <p><b>Gradazione alcolica: </b><%= bir.getGradAlcolica() %> % </p>
 			      <p><b>Colore: </b><%= bir.getColore() %></p>
 			      <p><b>Nazione: </b><%= bir.getNazione() %></p>
 		      <%

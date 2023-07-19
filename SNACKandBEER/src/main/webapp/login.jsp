@@ -5,10 +5,9 @@
 <html>
 	<head>
 		<meta charset="ISO-8859-1">
-		<title>Login Page</title>
+		<title>Login</title>
 		<link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
-		<link rel="stylesheet" href="./styles/accesso.css?ts=<?=time()?>&quot">
-		<link rel="stylesheet" href="./styles/index.css">
+		<link rel="stylesheet" href="./styles/accesso.css">
 	</head>
 	<body>
 		<%@ include file="./header.jsp" %>
@@ -29,7 +28,7 @@
 			%>
 			
 			
-			  <div class="container">
+			  <div class="inForm">
 			    <h2>LOGIN</h2>
 			    <form action="Login" method="POST">
 			      <div class="form-group">
@@ -46,6 +45,11 @@
 			      Non sei registrato? <a href="signup.jsp" class="registration-link">Clicca qui</a>
 			    </form>
 			  </div>
+			  <br><br><br><br><br>
+			  <br><br><br><br><br>
+			  <br><br><br><br><br>
+			  <br><br><br><br><br>
+			  <br><br><br><br><br>
 		 </section>
 
 		

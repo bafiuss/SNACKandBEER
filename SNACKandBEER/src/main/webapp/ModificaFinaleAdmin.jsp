@@ -24,8 +24,8 @@
 		<section class="adminSection">
 			
 			<h2 id="inth2"><b>Modifica</b></h2>
-		<form action="ModificaProdotto" method="POST">
-			<div class="container">
+		<form action="ModificaProdotto" method="POST" enctype="multipart/form-data">
+			<div class="form">
 				<h2>INSERISCI MODIFICHE PRODOTTO</h2>
 			    
 			    
@@ -57,8 +57,8 @@
 			        <input type="number" id="quantita" name="quantita" value="<%= prodotto.getQuantita()%>"required>
 			      </div>
 			      <div class="form-group">
-			        <label for="img">Seleziona immagine: </label>
-			        <input type="file" id="img" name="img" value="<%= prodotto.getPhoto()%>" required>
+			        <label for="photo">Seleziona immagine: </label>
+			        <input type="file" id="photo" name="photo" value="<%= prodotto.getPhoto()%>" required>
 			      </div>
 			      <%
 					if(cat == 1)
@@ -108,7 +108,12 @@
 					</div>
 					 </div>
 			</form>
-			<br><br><br><br>
+			<br><br><br><br><br><br>
+		    <br><br><br><br><br><br>
+		    <br><br><br><br><br><br>
+		    <br><br><br><br><br><br>
+		    <br><br><br><br><br><br>
+		    <br><br><br><br><br><br>
 		
 		</section>
 		

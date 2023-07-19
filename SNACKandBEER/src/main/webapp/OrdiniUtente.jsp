@@ -4,57 +4,53 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="ISO-8859-1">
 		<title>Ordini Effettuati</title>
 		
 		<link rel="stylesheet" href="./styles/ordini.css">
-			<link rel="stylesheet"
-					href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-					integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-					crossorigin="anonymous">
 		
+		<meta charset="UTF-8">
+  		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
 	</head>
+	<body>
 	
-		<%
+	<%
 	    
     	List<OrdineBean> ordini = (List<OrdineBean>)request.getAttribute("ordini");
 					
-		/*if(ordini == null){
+		if(ordini == null){
 			RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/OrdiniUtente");
 			dispatcher.forward(request, response);	
 			return;
-		}*/
+		}
       	
 		%>
 	
-	<body>
-	
 		<%@ include file="./header.jsp" %>
-		
-		<section class="ordiniSection">	
+			<section class="ordiniSection">	
 			<h2 id="inth2"><b> I tuoi ordini</b></h2>
-					<div class="container">		
-					<table class="table">
-						  <thead class="thead-dark" style="text-align: center;">
-						    <tr>
-						      <th scope="col" style="text-align: center;">ID ordine</th>
-						      <th scope="col" style="text-align: center;">Data acquisto</th>
-						    </tr>
-						  </thead>
-						  <tbody>	
-						 <%for(OrdineBean ordine : ordini){%>
-				<tr>
-					<td class="table-secondary" style="text-align: center;"><%=ordine.getNumero_ordine()%></td>
-					<td class="table-secondary" style="text-align: center;"><%=ordine.getData_ordine()%></td>
-                
-				</tr>
-			<%} %>
-			</tbody>
-		</table>		
-		</section>
-		
+				<table>
+			        <tr>
+			            <th>ID</th>
+		            	<th>DATA ACQUISTO</th>
+		            	<th>QUANTITA'</th>
+		            	<th>PREZZO TOTALE</th>
+		       		 </tr>
+		       		  <%for(OrdineBean ordine : ordini){%>
+		       		 <tr>
+		       		 	<td><%=ordine.getNumero_ordine()%></td>
+		       		 	<td><%=ordine.getData_ordine()%></td>
+		       		 	<td><%=ordine.getQuantita()%></td>
+		       		 	<td><%=ordine.getPrezzo_totale()%></td>
+		       		 </tr>
+		       		 <%} %>
+			    </table>
+			    <br><br><br><br><br>
+			<br><br><br><br><br>
+			<br><br><br><br><br>
+			<br><br><br><br><br>
+			<br><br><br><br><br>
+			</section>
 		<%@ include file="./footer.jsp" %>
-	
-	
 	</body>
 </html>

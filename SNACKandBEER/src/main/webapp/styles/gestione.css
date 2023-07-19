@@ -2,13 +2,15 @@
 
 .gestioneSection{
 	width: 100%;
-	padding-top:20px;
+	padding-top:15%;
+	padding-bottom: 15%;
     height: auto;
 	background-image: url(../images/sfondo.png);
 	background-position: center;
     background-size: cover;
     display: grid;
-    grid-template-columns: repeat(1, 1fr); 
+    grid-template-columns: repeat(1, 1fr);
+    align-items: center;
 }
 
    .container {
@@ -98,3 +100,59 @@
 	h2{
 		color: red;
 	}
+	
+@media(max-width:1020px){
+    .container{
+      	width: 370px;
+        transition: .3s; 
+    }
+    
+
+}
+    
+@media(max-width:920px){
+    .container{
+      	width: 350px;
+        transition: .3s;
+        margin-top: 30px;
+    }
+
+}
+
+@media(max-height:845px){
+    .container{
+      	width: 330px;
+        transition: .3s;
+        margin-top: 50px;
+    }  
+    .error-message{
+	    width: 330px;
+	    transition: .3s;
+    }
+    
+
+}
+
+@media(max-width:620px){
+	.container{
+      	width: 290px;
+      	margin-top: 50px;
+        transition: .3s;
+    }  
+    .error-message{
+	    width: 300px;
+	    transition: .3s;
+    }
+}
+
+@media(max-width:517px){
+	.container{
+      	width: 270px;
+        transition: .3s;
+        margin-top: 70px;
+    }  
+   .error-message{
+	    width: 280px;
+	    transition: .3s;
+    }
+}

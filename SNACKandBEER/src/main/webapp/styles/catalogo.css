@@ -2,7 +2,8 @@
 
 .catalogoSection{
 	width: 100%;
-	padding-top:20px;
+	padding-top:10%;
+	padding-bottom: 15%;
     height: auto;
 	background-image: url(../images/sfondo.png);
 	background-position: center;
@@ -12,10 +13,13 @@
     align-items: center;
 }
 
+
+
 h2{
 	text-align: center;
 	border-radius: 1rem;
 	font-size: 4rem;
+	margin-top: 15%;
 	color: white;
 	background-color: #F9BD6B;
 	width: 8em;
@@ -83,10 +87,20 @@ h2{
 	margin-bottom: 1rem;
 }
 
+
+@media(max-width:992px){
+    h2{
+        font-size: 3.5rem;
+        transition: .3s;
+        margin-top: 18%;
+    }
+}
+
 @media(max-width:620px){
     h2{
         font-size: 3.5rem;
         transition: .3s;
+        margin-top: 19%;
     }
 }
 
@@ -94,6 +108,7 @@ h2{
 	h2{
         font-size: 3.0rem;
         transition: .3s;
+        margin-top: 20%;
     }
 }
 
@@ -101,6 +116,7 @@ h2{
 	h2{
         font-size: 2.5rem;
         transition: .3s;
+        margin-top: 21%;
     }
 }
 

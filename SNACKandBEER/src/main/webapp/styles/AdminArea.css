@@ -21,7 +21,8 @@
 		background-color: #F9BD6B;
 		width: 8em;
 		align-items: center;
-		margin: 5% auto;	
+		margin: 5% auto;
+		margin-top: 10%;	
 	}
 
 
@@ -59,9 +60,9 @@
       background-color: white;
     }
     
-        .container {
+        .form {
       max-width: 400px;
-      margin: 5% auto;
+      margin: 3% auto;
       padding: 20px;
       background-color: #ffffff;
       border: 1px solid #cccccc;
@@ -108,7 +109,43 @@
       background-color: white;
     }
      
-     
+table {
+  border-collapse: collapse;
+  width: 50%; /* Larghezza della tabella */
+  max-width: 600px; /* Larghezza massima della tabella */
+  border: 1px solid #ccc;
+  margin: 7% auto;
+  border-color: #32383e;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 12px 27px;
+  text-align: center;
+  color: white;
+  width: 300px;
+  
+}
+
+td{
+	background-color: #d6d8db;
+	color: black;
+	width: 8rem;
+}
+
+th {
+  background-color: #212529;
+}
+
+    
+@media screen and (max-width: 1100px) {
+  table th, table td {
+	   padding: 10px 25px;
+	   transition: .3s;
+  }
+}
+ 
+    
 @media(max-width:1020px){
     .content{
       	width: 370px;
@@ -120,23 +157,41 @@
         transition: .3s;
         margin-top: 80px;
     }
-   .container {
-   margin-top: 80px;
-    	width: 370px;
+   .form {
+   		margin-top: 80px;
+    	width: 80%;
     	 transition: .3s;
     }
+    .container{
+    	width: 80%;
+    	margin-top: 50px;
+    	transition: .3s;
+    }
+    table th, table td {
+	   padding: 8px 19px;
+	   transition: .3s;
+  }
+    
 
 }
   
  @media(max-width:991px){
-	.container .table{
-    	width: 70%;
-    }
-    .container {
+	
+    .form {
     	width: 350px;
     	 transition: .3s;
     	 margin-top: 90px;
     }
+    .container{
+    	width: 75%;
+    	transition: .3s;
+    	margin-top: 60px;
+    }
+    table th, table td {
+	   padding: 8px 15px;
+	   transition: .3s;
+  }
+    
 }
     
 @media(max-width:920px){
@@ -150,17 +205,26 @@
         transition: .3s;
         margin-top: 100px;
     }
-    .container {
+    .form {
      	transition: .3s;
-    	width: 330px;
+    	width: 70%;
     	margin-top: 100px;
     }
+    .container{
+    	width: 70%;
+    	margin-top: 70px;
+    	transition: .3s;
+    }
+    table th, table td {
+	   padding: 7px 13px;
+	   transition: .3s;
+  }
 }
 
 
 @media(max-height:845px){
     .content{
-      	width: 330px;
+      	width: 320px;
         transition: .3s;
         margin-top: 120px;
     }  
@@ -169,11 +233,20 @@
         transition: .3s;
         margin-top: 120px;
     }
-    .container {
+    .form {
      	transition: .3s;
-    	width: 330px;
+    	width: 60%;
     	margin-top: 110px;
     }
+    .container{
+    	width: 60%;
+    	transition: .3s;
+    	margin-top: 80px;
+    }
+    table th, table td {
+	   padding: 6px 11px;
+	   transition: .3s;
+  }
     
 }
 
@@ -186,32 +259,55 @@
     h2#inth2{
         font-size: 3.1rem;
         transition: .3s;
-        margin-top: 150px;
+        margin-top: 140px;
     }
-    .container {
+    .form {
      	transition: .3s;
-    	width: 330px;
+    	width: 65%;
     	margin-top: 120px;
     }
+    .container{
+    	width: 50%;
+    	transition: .3s;
+    	margin-top: 90px;
+    }
+    table th, table td {
+	   padding: 6px 9px;
+	   transition: .3s;
+  }
+    
 }
 
-@media(max-width:517px){
+@media(max-width:575px){
 	.content{
       	width: 270px;
         transition: .3s;
         margin-top: 160px;
     }  
     h2#inth2{
-        font-size: 2.9rem;
+        font-size: 2.7rem;
         transition: .3s;
-        margin-top: 160px;
+        margin-top: 140px;
     }
-    .container {
+    .form {
      	transition: .3s;
-    	width: 330px;
+    	width: 60%;
     	margin-top: 150px;
     }
+    .container{
+    	width: 30%;
+    	transition: .3s;
+    	margin-top: 100px;
+    	margin-left: 100px;
+    }
+    table th, table td {
+	   padding: 6px 7px;
+	   transition: .3s;
+  }
+    
 }
+
+
     
 
 

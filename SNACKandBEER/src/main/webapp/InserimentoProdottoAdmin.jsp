@@ -15,7 +15,7 @@
 	
 		<section class="adminSection">
 		<h2 id="inth2"><b>Inserimento</b></h2>
-			  <div class="container">
+			  <div class="form">
 			    <h2>INSERISCI DATI PRODOTTO</h2>
 			    <form action="InserimentoProdotto" method="POST" enctype="multipart/form-data">      
 			      <div class="form-group">

@@ -57,6 +57,12 @@
 			<h2>Nessun prodotto disponibile</h2>
 			<% } %>
 			</div>
+			<br><br><br><br><br><br>
+		    <br><br><br><br><br><br>
+		    <br><br><br><br><br><br>
+		    <br><br><br><br><br><br>
+		    <br><br><br><br><br><br>
+		    <br><br><br><br><br><br>
 			
 		</section>
 		

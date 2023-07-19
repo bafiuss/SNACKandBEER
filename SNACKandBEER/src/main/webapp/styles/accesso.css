@@ -1,8 +1,8 @@
 @import url('//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'); 
  
-    .container {
+    .inForm {
       max-width: 400px;
-      margin: 5% auto;
+      margin: 10% auto;
       padding: 20px;
       background-color: #ffffff;
       border: 1px solid #cccccc;
@@ -10,8 +10,14 @@
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);   
     }
     
+    #errorText {
+  color: red;
+  font-size: 14px;
+}
+    
     h2 {
       text-align: center;
+      padding: 20px 0;
     }
     
     .form-group {
@@ -110,7 +116,7 @@
 	.loginSection{
 		width: 100%;
 		padding-top:7%;
-		height: 100vh;
+		height: auto;
 		background-image: url(../images/sfondo.png);    
 		background-position: center;
 	    background-size: cover;
@@ -146,75 +152,81 @@
 	}
 	
 @media(max-width:1020px){
-    .container{
-      	width: 370px;
+    .inForm{
+      	width: 380px;
         transition: .3s; 
-        margin-top: 70px;
+        margin-top: 15%;
     }
     .error-message{
-	    width: 370px;
+	    width: 380px;
 	    transition: .3s;
-	     margin-top: 70px;
+	     margin-top: 10%;
     }
-    
-
 }
-    
+
 @media(max-width:920px){
-    .container{
-      	width: 350px;
-        transition: .3s;
-        margin-top: 100px;
+    .inForm{
+      	width: 360px;
+        transition: .3s; 
+        margin-top: 20%;
     }
     .error-message{
-	    width: 350px;
+	    width: 360px;
 	    transition: .3s;
-	     margin-top: 100px;
-    }
-
-}
-
-@media(max-height:845px){
-    .container{
-      	width: 330px;
-        transition: .3s;
-        margin-top: 130px;
-    }  
-    .error-message{
-	    width: 330px;
-	    transition: .3s;
-	     margin-top: 130px;
+	     margin-top: 15%;
     }
     
+}
+    
+@media(max-width:850px){
+    .inForm{
+      	width: 340px;
+        transition: .3s; 
+        margin-top: 25%;
+    }
+    .error-message{
+	    width: 340px;
+	    transition: .3s;
+	     margin-top: 20%;
+    }
+    
+    
+}
 
+@media(max-width:750px){
+    .inForm{
+      	width: 320px;
+        transition: .3s; 
+        margin-top: 30%;
+    }
+    .error-message{
+	    transition: .3s;
+	     margin-top: 25%;
+    }
+    
 }
 
 @media(max-width:620px){
-	.container{
-      	width: 290px;
-      	margin-top: 150px;
-        transition: .3s;
-    }  
-    .error-message{
-	    width: 300px;
-	    transition: .3s;
-	    margin-top: 150px;
+    .inForm{
+      	width: 300px;
+        transition: .3s; 
+        margin-top: 35%;
     }
     
-
 }
 
-@media(max-width:517px){
-	.container{
-      	width: 270px;
-        transition: .3s;
-        margin-top: 170px;
-    }  
-   .error-message{
-	    width: 280px;
-	    transition: .3s;
-	    margin-top: 170px;
+@media(max-width:450px){
+    .inForm{
+      	width: 280px;
+        transition: .3s; 
+        margin-top: 35%;
     }
+    
+    .error-message{
+      	width: 260px;
+        transition: .3s; 
+    }
+    
 }
 
    

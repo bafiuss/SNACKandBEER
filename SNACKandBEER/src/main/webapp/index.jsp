@@ -26,7 +26,7 @@
         	<p class="slogan">Il piacere di bere</p>
 			 <a href="Catalogo?categoria=birra"><button id="btnCentrale">SFOGLIA</button> </a>     	
         </div>
-    		
+
 		<%@ include file="./footer.jsp" %>
 	</body>
 </html>

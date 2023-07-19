@@ -8,11 +8,6 @@
 		<title>Ordini Utente</title>
 		
 		<link rel="stylesheet" href="./styles/AdminArea.css">
-		<link rel="stylesheet"
-					href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-					integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-					crossorigin="anonymous">
-		
 	</head>
 	<body>
 	
@@ -26,7 +21,7 @@
 		<h2 id="inth2"><b>Utilizza filtri</b></h2>
 			<form method="post" action="ordAdmin">
 				<div class="content">	 
-					<h2> SCEGLI UTENTE</h2> 
+					<h2 style="padding: 12px 0;"> SCEGLI UTENTE</h2> 
 			      	<div class="form-group">
 			     
 			        <div align="center">
@@ -48,7 +43,8 @@
 			      	</div>   	
 		      </div>
 		    </form>
-			
+			<br><br><br><br><br>
+			<br><br><br><br><br>
 		</section>
 	
 		<%@ include file="./footer.jsp" %>

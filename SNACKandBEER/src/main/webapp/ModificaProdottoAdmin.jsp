@@ -21,7 +21,7 @@
 			<section class="adminSection">
 			<h2 id="inth2"><b>Modifica</b></h2>
 			
-			<form method="post" action="ModificaProdotto">
+			<form method="post" action="ModificaProdotto" enctype="multipart/form-data">
 				<div class="content">	 
 					<h2> SCEGLI IL PRODOTTO DA MODIFICARE</h2> 
 			      	<div class="form-group">
@@ -46,7 +46,11 @@
 		      </div>
 		    </form>	
 		    <br><br><br><br><br><br>
-			
+		    <br><br><br><br><br><br>
+		    <br><br><br><br><br><br>
+		    <br><br><br><br><br><br>
+		    <br><br><br><br><br><br>
+		    <br><br><br><br><br><br>
 			</section>
 	
 		<%@ include file="./footer.jsp" %>

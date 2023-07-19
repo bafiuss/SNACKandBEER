@@ -8,7 +8,7 @@
 			<title>Pagamento</title>
 		
 		<link rel="stylesheet" href="./styles/checkout.css">
-		
+		<script src="./scripts/validate.js"></script>
 		</head>
 	<%
 		UserBean user = (UserBean)session.getAttribute("user");
@@ -22,20 +22,23 @@
 		<section class="checkoutSection">
 		
 		 <div class="container">
-		    <h1 style="color: red; text-align: center;">Indirizzo di spedizione: <i style="color: '#1ED953'"> <%=user.getIndirizzoSped()%></i><br><br><hr><h2> Informazioni Carta </h2></h1>
-		    <form action="/CheckoutServlet" method="post">
- 			<input type="hidden" name="indSped" value="<%=user.getIndirizzoSped() %>">
-		      <div class="form-group">
+		    <h1 style="color: red; text-align: center;">Indirizzo di spedizione: <i style="color: '#1ED953'"> <%=user.getIndirizzoSped()%></i></h1><br><br><hr>
+		    <h2 style="padding: 15px 0"> Informazioni Carta </h2>
+		    <form action="checkoutPagamento" method="post" id="checkoutForm" onsubmit="event.preventDefault();checkCheckout(this)">
+ 			 <div class="form-group">
 			        <label for="numeroCarta">Numero di carta:</label>
-			        <input type="text" id="numeroCarta" name="numeroCarta" required>
+			        <input type="number" id="numCard" name="numeroCarta" required onChange="return validateNumCarta()">
+			        <span id="cardNumberError"></span><br>
 			      </div>
 			      <div class="form-group">
 			        <label for="scadenzaCarta">Data di scadenza:</label>
-			        <input type="text" id="scadenzaCarta" name="scadenzaCarta" required>
+			        <input type="date" id="scadenzaCarta" name="scadenzaCarta" required onChange="return validateScadenzaCarta()"> 
+			        <span id="expiryError"></span><br>
 			      </div>
 			      <div class="form-group">
 			        <label for="cvv">CVV:</label>
-			        <input type="password" id="cvv" name="cvv" required>
+			        <input type="number" id="cvv" name="cvv" onChange="return validateCVV()"> 
+			        <span id="CVVError"></span><br>
 			      </div>
 			      <div class="form-group">
 		        		<input type="submit" value="Effettua Pagamento">
@@ -50,6 +53,11 @@
 			}
 			%>
 			  </div>
+			  <br><br><br><br><br>
+			  <br><br><br><br><br>
+			  <br><br><br><br><br>
+			  <br><br><br><br><br>
+			  <br><br><br><br><br>
 		</section>
 	
 	<%@ include file="./footer.jsp" %>

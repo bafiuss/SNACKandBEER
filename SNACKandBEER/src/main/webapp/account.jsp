@@ -8,8 +8,7 @@
 		<meta charset="ISO-8859-1">
 		<title>Account</title>
 		<link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
-		<link rel="stylesheet" href="./styles/accesso.css?ts=<?=time()?>&quot">
-		<link rel="stylesheet" href="./styles/index.css">
+		<link rel="stylesheet" href="./styles/accesso.css">
 	</head>
 	<body>
 		<%@ include file="./header.jsp" %>
@@ -34,7 +33,7 @@
 			}
 			%>		  
 		  
-		  <div class="container">
+		  <div class="inForm">
 		    <h1 style="color: red; text-align: center;">BENTORNATO <i style="color: '#1ED953'"> <%=user.getNome() %> <%=user.getCognome() %></i><br><br><hr><h2> INFORMAZIONI ACCOUNT </h2></h1>
 		    <form action="ModificaInfo" method="POST">
 		      <div class="form-group">
@@ -66,7 +65,7 @@
 		      </div>
 		    </form>
 		  </div>
-		  <div class="container">
+		  <div class="inForm">
 		  <h2>CAMBIA PASSWORD</h2>		  
 		  <form action="ModificaPsw" method="POST">
 		  	<div class="form-group">
@@ -86,7 +85,7 @@
 			  	if(user.isAdmin())
 			  	{
 			  %>
-			  <div class="container">
+			  <div class="inForm">
 			   <h2>ACCEDI ALLE OPERAZIONI DA ADMIN</h2>
 			    <div class="form-group">
 			        <a href="gestione.jsp"><input type="submit" value="Prosegui"></a>
@@ -95,13 +94,13 @@
 				<%
 			  	}
 				%>
-			<div class="container">
+			<div class="inForm">
 			   <h2>VISUALIZZA ORDINI EFFETTUATI</h2>
 			    <div class="form-group">
 			        <a href="ordini"><input type="submit" value="Prosegui"></a>
 			    </div>
 			  </div>
-		  <div class="container">
+		  <div class="inForm">
 		   <form action="Logout" method="POST">
 		    <h2>EFFETTUA LOGOUT</h2>
 		    <div class="form-group">

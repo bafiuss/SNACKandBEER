@@ -3,11 +3,9 @@
 .carrelloSection{
 	width: 100%;
 	padding-top:20px;
-    height: auto;
 	background-image: url(../images/sfondo.png);
 	background-position: center;
     background-size: cover;
-    display: grid;
     grid-template-columns: repeat(1, 1fr);
     align-items: center;
 }
@@ -21,6 +19,7 @@ h2#inth2{
 	width: 8em;
 	align-items: center;
 	margin: 5% auto;
+	margin-top: 15%;
 }
 
 h2#riepilogoh2{
@@ -32,6 +31,7 @@ h2#riepilogoh2{
 	align-items: center;
 	margin: 5% auto;
 	margin-bottom: 0;
+	padding: 10px 0;
 }
 
 
@@ -41,13 +41,13 @@ h2#riepilogoh2{
 	align-items: center;
 	margin:0 auto;
 	padding: 0 auto;
-	margin-bottom: 5%;
+	/*margin-bottom: 5%;*/
 }
 
 .testoRiepilogo{
 	text-align: center;
-	padding: 5% auto;
-	margin: 5% auto;
+	padding: 20px auto;
+	/*margin: 5% auto;*/
 	font-size: 22px;
 }
 
@@ -57,3 +57,135 @@ h2#riepilogoh2{
 	font-size: 15px;
 }
 
+	.error-message {
+		max-width: 400px;
+	  background-color: #fce4e4;
+	  border: 1px solid #fcc2c3;
+	  padding: 20px 50px;
+	  margin: 2% auto;
+	  text-align: center;
+	}
+	
+	
+	.error-text {
+	  color: #cc0033;
+	  font-family: Helvetica, Arial, sans-serif;
+	  font-size: 13px;
+	  font-weight: bold;
+	  line-height: 20px;
+	  text-shadow: 1px 1px rgba(250,250,250,.3);
+	}
+
+table {
+  border-collapse: collapse;
+  width: 50%; /* Larghezza della tabella */
+  max-width: 600px; /* Larghezza massima della tabella */
+  border: 1px solid #ccc;
+  margin: 7% auto;
+  border-color: #32383e;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+  color: white;
+}
+
+td{
+	background-color: #d6d8db;
+	color: black;
+}
+
+th {
+  background-color: #212529;
+}
+	
+	
+
+	
+@media(max-width:620px){
+    h2#inth2{
+        font-size: 3.5rem;
+        transition: .3s;
+        margin-top: 19%;
+    }
+    .riepilogo{
+    	width: 80%;
+    	transition: .3s;
+    }
+    h2#riepilogoh2{
+    	width: 80%;
+    	font-size: 3.5rem;
+    	margin-top: 50px;
+    	transition: .3s;
+    }
+    .container{
+    	width: 80%;
+    	margin-top: 50px;
+    	transition: .3s;
+    }
+    .testoRiepilogo{
+    	font-size: 18px;
+    }
+    
+}
+
+@media(max-width:517px){
+	h2#inth2{
+        font-size: 3.0rem;
+        transition: .3s; 
+        margin-top: 24%;
+        
+    }
+    .riepilogo{
+    	width: 70%;
+    	transition: .3s;
+    	
+    }
+    h2#riepilogoh2{
+    	width: 70%;
+    	font-size: 3.0rem;
+    	margin-top: 70px;
+    	transition: .3s;
+    }
+     .container{
+    	width: 70%;
+    	margin-top: 70px;
+    	transition: .3s;
+    }
+    .testoRiepilogo{
+    	font-size: 17px;
+    }
+}
+
+@media(max-width:490px){
+	h2#inth2{
+        font-size: 2.5rem;
+        transition: .3s;
+        margin-top: 27%;
+    }
+    .riepilogo{
+    	width: 60%;
+    	transition: .3s;
+    }
+    h2#riepilogoh2{
+    	width: 60%;
+    	font-size: 2.5rem;
+    	 margin-top: 90px;
+    	 transition: .3s;
+    }
+    .container{
+    	width: 60%;
+    	transition: .3s;
+    }
+    .testoRiepilogo{
+    	font-size: 16px;
+    }
+    table{
+    	margin-top: 30%;
+    	transition: .3s;
+    }
+    
+}
+	
