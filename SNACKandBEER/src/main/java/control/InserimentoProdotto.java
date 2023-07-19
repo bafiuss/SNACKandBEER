@@ -74,8 +74,11 @@ public class InserimentoProdotto extends HttpServlet {
     			logger.log(Level.WARNING, "Problema accesso DB!");
     		}
     		
+    		String op = "inserimento";
+    		
     		request.setAttribute("idProd", idProd);
 	    	request.setAttribute("mod", mod);
+	    	request.setAttribute("op", op);
 		
 	    	RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/UploadPhoto");
 			dispatcher.forward(request, response);

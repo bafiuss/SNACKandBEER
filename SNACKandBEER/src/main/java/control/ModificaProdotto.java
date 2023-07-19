@@ -7,6 +7,7 @@ import java.util.logging.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,6 +18,8 @@ import model.DAO.*;
 import model.bean.*;
 
 @WebServlet("/ModificaProdotto")
+@MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2, maxFileSize = 1024 * 1024 * 10, maxRequestSize = 1024 * 1024 * 50)
+
 public class ModificaProdotto extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -140,9 +143,14 @@ public class ModificaProdotto extends HttpServlet {
         			logger.log(Level.WARNING, "Problema modifica prodotto!");
         		}
     		}
-
-    		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/gestione.jsp");
-			dispatcher.forward(request, response);
+    		
+    		String op = "modifica";
+    		
+    		request.setAttribute("idProd", id);
+    		request.setAttribute("op", op);
+    		
+    		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/UploadPhoto");
+    		dispatcher.forward(request, response);
 			return;
     		
 		}
