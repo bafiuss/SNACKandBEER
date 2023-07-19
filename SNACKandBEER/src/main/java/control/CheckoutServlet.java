@@ -22,7 +22,7 @@ import model.DAO.*;
 
 
 
-@WebServlet("/checkout")
+@WebServlet("/checkoutPagamento")
 public class CheckoutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -77,26 +77,14 @@ public class CheckoutServlet extends HttpServlet {
 			ordine.setNumero_ordine(numero_ordine);
 			ordine.setEmail(user.getEmail());
 			ordine.setData_ordine(new java.sql.Date(System.currentTimeMillis()));
+			for(CartItem elem : elementi)
+			{
+				ordine.setQuantita(elem.getQuantita());
+				ordine.setPrezzo_totale(elem.getProductBean().getPrezzo() * elem.getQuantita());
+			}
 			ordinedao.doSave(ordine);
 		} catch (SQLException e1) {
 			logger.log(Level.WARNING, LOG_MSG);
-		}
-
-
-		DettaglioOrdineDAO dettaglioOrdineDAO = new DettaglioOrdineDAO((DataSource) getServletContext().getAttribute("DataSource"));
-
-		try {
-			for (CartItem elem : elementi) {
-				DettaglioOrdineBean dettaglioOrdine = new DettaglioOrdineBean();
-				dettaglioOrdine.setID_Prodotto(elem.getProductBean().getID_Prodotto());
-				dettaglioOrdine.setQuantita(elem.getQuantita());
-				dettaglioOrdine.setPrezzo(elem.getProductBean().getPrezzo() * elem.getQuantita());
-				dettaglioOrdine.setNumero_ordine(numero_ordine);
-
-				dettaglioOrdineDAO.doSave(dettaglioOrdine);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
 		}
 		
 		ProdottoDAO prodottoDAO = new ProdottoDAO((DataSource) getServletContext().getAttribute("DataSource"));
