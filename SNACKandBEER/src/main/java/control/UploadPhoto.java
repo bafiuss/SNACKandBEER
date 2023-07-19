@@ -36,16 +36,29 @@ public class UploadPhoto extends HttpServlet {
 		
 		Part filePart = request.getPart("photo");
                 
+		System.out.println(filePart);
         try {
 			PhotoControl.updatePhoto(code, filePart.getInputStream());
 		} catch (SQLException sqlException) {
 			logger.log(Level.WARNING, "Problema SQL!");
 		}
         
+        String redirect = (String) request.getAttribute("op");
+        
+        if(redirect.equals("inserimento"))
+        {
+        	RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/InserimentoFinaleAdmin.jsp");
+    		dispatcher.forward(request, response);
+    		return;
+        }else if(redirect.equals("modifica"))
+        {
+        	RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/gestione.jsp");
+    		dispatcher.forward(request, response);
+    		return;
+        }
 
         
-    	RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/InserimentoFinaleAdmin.jsp");
-		dispatcher.forward(request, response);
+    	
         
 	}
 
