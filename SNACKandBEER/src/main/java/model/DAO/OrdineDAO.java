@@ -37,7 +37,7 @@ public class OrdineDAO {
 		PreparedStatement preparedStatement = null;
 		
 
-		String insertSQL = "INSERT INTO " + OrdineDAO.TABLE_NAME + " (numero_ordine, email,  data_ordine) VALUES (?, ?, ?)";
+		String insertSQL = "INSERT INTO " + OrdineDAO.TABLE_NAME + " (numero_ordine,email,data_ordine,quantita,prezzo_totale) VALUES (?, ?, ?, ?, ?)";
 
 		try {
 			connection = ds.getConnection();
@@ -46,6 +46,8 @@ public class OrdineDAO {
 			preparedStatement.setInt(1, ordine.getNumero_ordine());
 			preparedStatement.setString(2, ordine.getEmail());
 			preparedStatement.setDate(3, new java.sql.Date(ordine.getData_ordine().getTime()));
+			preparedStatement.setInt(4, ordine.getQuantita());
+			preparedStatement.setDouble(5, ordine.getPrezzo_totale());
 			
 			
 			preparedStatement.executeUpdate();
@@ -106,6 +108,8 @@ public class OrdineDAO {
 				bean.setNumero_ordine(rs.getInt("numero_ordine"));
 				bean.setEmail(rs.getString("email"));
 				bean.setData_ordine(rs.getDate("data_ordine"));
+				bean.setQuantita(rs.getInt("quantita"));
+				bean.setPrezzo_totale(rs.getDouble("prezzo_totale"));
 			}
 		} finally {
 			try {
@@ -145,6 +149,8 @@ public class OrdineDAO {
 				bean.setNumero_ordine(rs.getInt("numero_ordine"));
 				bean.setEmail(rs.getString("email"));
 				bean.setData_ordine(rs.getDate("data_ordine"));
+				bean.setQuantita(rs.getInt("quantita"));
+				bean.setPrezzo_totale(rs.getDouble("prezzo_totale"));
 				
 				
 				ordini.add(bean);
@@ -189,6 +195,8 @@ public class OrdineDAO {
 				bean.setNumero_ordine(rs.getInt("numero_ordine"));
 				bean.setEmail(rs.getString("email"));
 				bean.setData_ordine(rs.getDate("data_ordine"));
+				bean.setQuantita(rs.getInt("quantita"));
+				bean.setPrezzo_totale(rs.getDouble("prezzo_totale"));
 				
 				ordini.add(bean);
 			}
@@ -261,6 +269,8 @@ public class OrdineDAO {
 				bean.setNumero_ordine(rs.getInt("numero_ordine"));
 				bean.setEmail(rs.getString("email"));
 				bean.setData_ordine(rs.getDate("data_ordine"));
+				bean.setQuantita(rs.getInt("quantita"));
+				bean.setPrezzo_totale(rs.getDouble("prezzo_totale"));
 				
 				ordini.add(bean);
 			}
