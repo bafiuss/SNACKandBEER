@@ -36,7 +36,6 @@ public class AdminRedirect extends HttpServlet {
         
         ArrayList<UserBean> utenteArrayList = null;
         ArrayList<ProdottoBean> prodottiArrayList = null;
-        HttpSession session = request.getSession(false);
 
         switch(scelta){
           

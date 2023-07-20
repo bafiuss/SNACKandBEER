@@ -85,7 +85,6 @@ public class CartControl extends HttpServlet {
 
 		request.setAttribute("carrello", carrello);
 		request.getRequestDispatcher("/carrello.jsp").forward(request, response);
-		return;
 		
 		
 	}

@@ -22,7 +22,6 @@ import model.bean.PhotoControl;
 public class UploadPhoto extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	private static Logger logger = Logger.getAnonymousLogger();
 
 	public UploadPhoto() {
 		super();
@@ -31,6 +30,8 @@ public class UploadPhoto extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		Logger logger = Logger.getAnonymousLogger();
 
 		int code = (int) request.getAttribute("idProd");
 		
@@ -49,12 +50,10 @@ public class UploadPhoto extends HttpServlet {
         {
         	RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/admin/InserimentoFinaleAdmin.jsp");
     		dispatcher.forward(request, response);
-    		return;
         }else if(redirect.equals("modifica"))
         {
         	RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/admin/gestione.jsp");
     		dispatcher.forward(request, response);
-    		return;
         }
 
         

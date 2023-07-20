@@ -33,10 +33,9 @@ public class OrdiniUtente extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		List <OrdineBean> ordini = null;
-		List <OrdineBean> dettagli = null;
+
 		Logger logger = Logger.getAnonymousLogger();
 		OrdineDAO ordineDAO = new OrdineDAO((DataSource) getServletContext().getAttribute("DataSource"));
-		//DettaglioOrdineDAO dettaglioDAO= new DettaglioOrdineDAO((DataSource) getServletContext().getAttribute("DataSource"));
 		
 		UserBean user = (UserBean) request.getSession().getAttribute("user");
 		String email = null;
@@ -50,9 +49,7 @@ public class OrdiniUtente extends HttpServlet {
 			logger.log(Level.WARNING, "Problema accesso DB!"+e.getMessage());
 		}
 		
-		
-		
-		
+
 		request.setAttribute("ordini", ordini);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/OrdiniUtente.jsp");
 		dispatcher.forward(request, response);

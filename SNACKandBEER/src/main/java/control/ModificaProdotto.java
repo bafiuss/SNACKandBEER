@@ -92,7 +92,7 @@ public class ModificaProdotto extends HttpServlet {
 			
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin/ModificaFinaleAdmin.jsp");
 			dispatcher.forward(request, response);
-			return;
+			
 		}else if(modType == 2)
 		{
 			
@@ -151,7 +151,6 @@ public class ModificaProdotto extends HttpServlet {
     		
     		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/UploadPhoto");
     		dispatcher.forward(request, response);
-			return;
     		
 		}
 	}

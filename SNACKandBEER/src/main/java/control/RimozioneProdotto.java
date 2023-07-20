@@ -34,7 +34,6 @@ public class RimozioneProdotto extends HttpServlet {
 			}
 			
 			dispatcher.forward(request, response);
-			return ;
 
 	}
 

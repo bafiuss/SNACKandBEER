@@ -69,11 +69,11 @@ public class CheckoutServlet extends HttpServlet {
 		OrdineDAO ordinedao = new OrdineDAO((DataSource) getServletContext().getAttribute("DataSource"));
 		OrdineBean ordine = new OrdineBean();
 		
-		int numero_ordine = 0;
+		int numeroOrdine = 0;
 
 		try {
-			numero_ordine = ordinedao.doRetrieveMaxNumOrdine() + 1;
-			ordine.setNumero_ordine(numero_ordine);
+			numeroOrdine = ordinedao.doRetrieveMaxNumOrdine() + 1;
+			ordine.setNumero_ordine(numeroOrdine);
 			ordine.setEmail(user.getEmail());
 			ordine.setData_ordine(new java.sql.Date(System.currentTimeMillis()));
 			for(CartItem elem : elementi)

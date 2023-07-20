@@ -82,7 +82,6 @@ public class InserimentoProdotto extends HttpServlet {
 		
 	    	RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/UploadPhoto");
 			dispatcher.forward(request, response);
-			return;
     	
     }
 }
