@@ -22,7 +22,7 @@ public class CartControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private static Logger logger = Logger.getAnonymousLogger();
-	
+	private static final String CARRELLO_STR = "carrello";
 	
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -34,12 +34,12 @@ public class CartControl extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		Cart carrello = (Cart) request.getSession().getAttribute("carrello");
+		Cart carrello = (Cart) request.getSession().getAttribute(CARRELLO_STR);
 		
 		if (carrello == null) 
 		{
 			carrello = new Cart();
-			request.getSession().setAttribute("carrello", carrello);
+			request.getSession().setAttribute(CARRELLO_STR, carrello);
 		}
 
 		String action = request.getParameter("action");
@@ -58,7 +58,7 @@ public class CartControl extends HttpServlet {
 				try {
 					carrello.addProduct(productDao.doRetrieveByKey(code));
 				} catch (SQLException e) {
-					logger.log(Level.WARNING, "Problema accesso DB!" + e.getMessage());
+					logger.log(Level.WARNING, "Problema accesso DB!");
 				}
 				break;
 			}
@@ -66,7 +66,7 @@ public class CartControl extends HttpServlet {
 				try {
 					carrello.deleteProduct(productDao.doRetrieveByKey(code));
 				} catch (SQLException e) {
-					logger.log(Level.WARNING, "Problema accesso DB!" + e.getMessage());
+					logger.log(Level.WARNING, "Problema accesso DB!");
 				}
 				break;
 			}
@@ -78,12 +78,12 @@ public class CartControl extends HttpServlet {
 			response.sendRedirect("catalogo.jsp");
 			return;
 		}
-		if (redirect != null && redirect.equals("carrello")) {
+		if (redirect != null && redirect.equals(CARRELLO_STR)) {
 			response.sendRedirect("carrello.jsp");
 			return;
 		}
 
-		request.setAttribute("carrello", carrello);
+		request.setAttribute(CARRELLO_STR, carrello);
 		request.getRequestDispatcher("/carrello.jsp").forward(request, response);
 		
 		

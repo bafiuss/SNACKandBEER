@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Logger;
 
 import javax.sql.DataSource;
@@ -147,12 +148,12 @@ public class UserDAO{
 		return bean;
 	}
 	
-    public ArrayList<UserBean> doRetrieveAll() throws SQLException{
+    public List<UserBean> doRetrieveAll() throws SQLException{
     	
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		
-		ArrayList<UserBean> utenteList = new ArrayList<>();
+		List<UserBean> utenteList = new ArrayList<>();
 
 
 		String selectSQL = "SELECT * FROM " + UserDAO.TABLE_NAME;

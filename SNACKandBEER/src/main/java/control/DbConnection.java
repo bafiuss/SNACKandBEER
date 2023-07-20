@@ -3,6 +3,8 @@ package control;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -15,7 +17,7 @@ import javax.sql.DataSource;
 
 @WebListener
 public class DbConnection implements ServletContextListener{
-	
+	private static Logger logger = Logger.getAnonymousLogger();
 	public void contextInitialized(ServletContextEvent event) {
 		
 		
@@ -28,11 +30,10 @@ public class DbConnection implements ServletContextListener{
 			
 			ds = (DataSource) envCtx.lookup("jdbc/snackandbeer");
 		} catch(NamingException e) {
-			System.out.println("Error: " + e.getMessage());
+			logger.log(Level.WARNING, "Problema accesso DB!");
 		}
 		
 		context.setAttribute("DataSource", ds);
-		System.out.println("Creating DataSource... " + ds.toString());
 	}
 
 	
@@ -40,6 +41,6 @@ public class DbConnection implements ServletContextListener{
 		ServletContext context = event.getServletContext();
 		
 		DataSource ds = (DataSource) context.getAttribute("DataSource");
-		System.out.println("DataSource deletion.... " + ds.toString());
+		logger.log(Level.WARNING, "Problema accesso DB!");
 	}
 }

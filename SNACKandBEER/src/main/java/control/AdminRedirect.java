@@ -24,7 +24,7 @@ import model.dao.*;
 public class AdminRedirect extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
-
+	private static final String UTENTI_STR = "carrello";
 	 
 	
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -46,7 +46,7 @@ public class AdminRedirect extends HttpServlet {
 					
 					e.printStackTrace();
 				}
-                request.setAttribute("listUtenti", utenteArrayList);
+                request.setAttribute(UTENTI_STR, utenteArrayList);
                 address = "./admin/ListaUtentiAdmin.jsp";
                 break;
                 
@@ -56,7 +56,7 @@ public class AdminRedirect extends HttpServlet {
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
-                request.setAttribute("listUtenti", utenteArrayList);        		
+                request.setAttribute(UTENTI_STR, utenteArrayList);        		
             	address = "./admin/RimozioneUtenteAdmin.jsp";
                 break;
                 
@@ -90,8 +90,9 @@ public class AdminRedirect extends HttpServlet {
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
-                request.setAttribute("listUtenti", utenteArrayList);
+                request.setAttribute(UTENTI_STR, utenteArrayList);
                 address = "./admin/OrdiniUtenteAdmin.jsp";
+            default: break;
         }
 
 

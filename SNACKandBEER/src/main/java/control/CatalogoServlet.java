@@ -21,8 +21,6 @@ import model.dao.*;
 @WebServlet("/Catalogo")
 public class CatalogoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
-	private static Logger logger = Logger.getAnonymousLogger();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

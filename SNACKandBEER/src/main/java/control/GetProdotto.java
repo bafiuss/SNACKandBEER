@@ -22,7 +22,9 @@ public class GetProdotto extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private static Logger logger = Logger.getAnonymousLogger();
-
+	private static final String DS_STR = "DataSource";
+	private static final String WARNING_STR = "Problema accesso DB!";
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		doPost(request, response);
@@ -30,10 +32,10 @@ public class GetProdotto extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		ProdottoDAO pDao = new ProdottoDAO((DataSource) getServletContext().getAttribute("DataSource"));
-		BirraDAO bDao =new BirraDAO((DataSource) getServletContext().getAttribute("DataSource"));
-		SnackDAO sDao =new SnackDAO((DataSource) getServletContext().getAttribute("DataSource"));
-		AccessorioDAO aDao = new AccessorioDAO((DataSource) getServletContext().getAttribute("DataSource"));
+		ProdottoDAO pDao = new ProdottoDAO((DataSource) getServletContext().getAttribute(DS_STR));
+		BirraDAO bDao =new BirraDAO((DataSource) getServletContext().getAttribute(DS_STR));
+		SnackDAO sDao =new SnackDAO((DataSource) getServletContext().getAttribute(DS_STR));
+		AccessorioDAO aDao = new AccessorioDAO((DataSource) getServletContext().getAttribute(DS_STR));
 		
 		int num = 0;
 		int code = Integer.parseInt(request.getParameter("id"));
@@ -48,7 +50,7 @@ public class GetProdotto extends HttpServlet {
 		try {
 			pBean = pDao.doRetrieveByKey(code);
 		} catch (SQLException e) {
-			logger.log(Level.WARNING, "Problema accesso DB!");
+			logger.log(Level.WARNING, WARNING_STR);
 		}
 
 		request.setAttribute("prodotto", pBean);
@@ -58,7 +60,7 @@ public class GetProdotto extends HttpServlet {
 			try {
 				bBean = bDao.doRetrieveByKey(code);
 			} catch (SQLException e) {
-				logger.log(Level.WARNING, "Problema accesso DB!");
+				logger.log(Level.WARNING, WARNING_STR);
 			}
 			
 			num = 1;
@@ -69,7 +71,7 @@ public class GetProdotto extends HttpServlet {
 			try {
 				sBean = sDao.doRetrieveByKey(code);
 			} catch (SQLException e) {
-				logger.log(Level.WARNING, "Problema accesso DB!");
+				logger.log(Level.WARNING, WARNING_STR);
 			}
 
 			num = 2;
@@ -80,7 +82,7 @@ public class GetProdotto extends HttpServlet {
 			try {
 				aBean = aDao.doRetrieveByKey(code);
 			} catch (SQLException e) {
-				logger.log(Level.WARNING, "Problema accesso DB!");
+				logger.log(Level.WARNING, WARNING_STR);
 			}
 			
 			num = 3;
