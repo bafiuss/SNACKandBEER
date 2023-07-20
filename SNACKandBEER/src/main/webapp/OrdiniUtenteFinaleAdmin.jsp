@@ -19,6 +19,7 @@
 		<%@ include file="./header.jsp" %>
 	
 		<section class="adminSection">
+		<br><br><br>
 		<h2 id="inth2"><b>Visualizza ordini</b></h2>
 					<table>
 					    <tr>
