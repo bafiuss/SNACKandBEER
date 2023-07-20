@@ -69,7 +69,7 @@
 		</div>
 	</div>
 	</header>
-	<script src="scripts/header.js"></script>
+	<script src="<%=request.getContextPath()%>/scripts/header.js"></script>
 </body>
 
 </html>
