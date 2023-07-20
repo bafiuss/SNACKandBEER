@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
 import model.bean.Cart;
-import model.DAO.ProdottoDAO;
+import model.dao.ProdottoDAO;
 
 
 @WebServlet("/CartControl")

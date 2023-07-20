@@ -1,4 +1,4 @@
-package model.DAO;
+package model.dao;
 
 import java.nio.charset.StandardCharsets;
 import java.sql.Connection;
@@ -16,31 +16,28 @@ import javax.sql.DataSource;
 import model.bean.*;
 
 
-public class BirraDAO{
+public class AccessorioDAO{
 
-	private static final String TABLE_NAME = "Birra";
+	private static final String TABLE_NAME = "Accessorio";
 	private DataSource ds = null;
 	private static Logger logger = Logger.getAnonymousLogger();
 
-	public BirraDAO(DataSource ds) {
+	public AccessorioDAO(DataSource ds) {
 		this.ds = ds;
 	}
 
 	
-	public synchronized void doSave(BirraBean ub) throws SQLException {
+	public synchronized void doSave(AccessorioBean ub) throws SQLException {
 		Connection c = null;
 		PreparedStatement p = null;
 
-		String query = "INSERT INTO " + BirraDAO.TABLE_NAME + " (ID_Prodotto,volume,gradAlcolica,colore,nazione) VALUES (?,?,?,?,?)";
+		String query = "INSERT INTO " + AccessorioDAO.TABLE_NAME + " (ID_Prodotto,tipologia) VALUES (?,?)";
 
 		try {
 			c = ds.getConnection();
 			p = c.prepareStatement(query);
 			p.setInt(1, ub.getID_Prodotto());
-			p.setDouble(2, ub.getVolume());
-			p.setDouble(3, ub.getGradAlcolica());
-			p.setString(4, ub.getColore());
-			p.setString(5, ub.getNazione());
+			p.setString(2, ub.getTipologia());
 			
 			p.executeUpdate();
 		} finally {
@@ -54,27 +51,25 @@ public class BirraDAO{
 		}
 	}
 	
-	public synchronized BirraBean doRetrieveByKey(int id) throws SQLException {
+	public synchronized AccessorioBean doRetrieveByKey(int code) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		BirraBean bean = new BirraBean();
+		AccessorioBean bean = new AccessorioBean();
 
-		String selectSQL = "SELECT * FROM " + BirraDAO.TABLE_NAME + " WHERE ID_Prodotto = ?";
+		String selectSQL = "SELECT * FROM " + AccessorioDAO.TABLE_NAME + " WHERE ID_Prodotto = ?";
 
 		try {
 			connection = ds.getConnection();
 			preparedStatement = connection.prepareStatement(selectSQL);
-			preparedStatement.setInt(1, id);
+			preparedStatement.setInt(1, code);
 
 			ResultSet rs = preparedStatement.executeQuery();
 
 			while (rs.next()) {
 				bean.setID_Prodotto(rs.getInt("ID_Prodotto"));
-				bean.setVolume(rs.getDouble("volume"));
-				bean.setGradAlcolica(rs.getDouble("gradAlcolica"));
-				bean.setColore(rs.getString("colore"));
-				bean.setNazione(rs.getString("nazione"));
+				bean.setTipologia(rs.getString("tipologia"));
+			
 			}
 
 		} finally {
@@ -89,22 +84,19 @@ public class BirraDAO{
 		return bean;
 	}
 	
-	public synchronized boolean doUpdate(int id, double volume, double gradAlcolica, String colore, String nazione) throws SQLException {
+	public synchronized boolean doUpdate(int id, String tipologia) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
 		int result = 0;
 
-		String updateSQL = "UPDATE " + BirraDAO.TABLE_NAME + " SET volume = ? , gradAlcolica = ? , colore= ?, nazione = ?  WHERE ID_Prodotto = ?";
+		String updateSQL = "UPDATE " + AccessorioDAO.TABLE_NAME + " SET tipologia = ? WHERE ID_Prodotto = ?";
 
 		try {
 			connection = ds.getConnection();
 			preparedStatement = connection.prepareStatement(updateSQL);
-			preparedStatement.setDouble(1, volume);
-			preparedStatement.setDouble(2, gradAlcolica);
-			preparedStatement.setString(3, colore);
-			preparedStatement.setString(4, nazione);
-			preparedStatement.setInt(5, id);
+			preparedStatement.setString(1, tipologia);
+			preparedStatement.setInt(2, id);
 
 			result = preparedStatement.executeUpdate();
 

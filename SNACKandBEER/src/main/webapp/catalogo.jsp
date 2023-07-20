@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
       
 <%@ page import="java.util.List"%>
-<%@ page import="model.bean.ProdottoBean, model.DAO.ProdottoDAO, java.util.*, javax.sql.DataSource"%>
+<%@ page import="model.bean.ProdottoBean,model.dao.ProdottoDAO, java.util.*, javax.sql.DataSource"%>
 <!DOCTYPE html>
 <html lang="it">
 	<head>

@@ -1,4 +1,4 @@
-package model.DAO;
+package model.dao;
 
 import java.nio.charset.StandardCharsets;
 import java.sql.Connection;

@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
-import model.DAO.UserDAO;
+import model.dao.UserDAO;
 
 @WebServlet("/RimozioneUtente")
 public class RimozioneUtente extends HttpServlet {

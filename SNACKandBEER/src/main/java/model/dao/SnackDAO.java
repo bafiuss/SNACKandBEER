@@ -1,4 +1,4 @@
-package model.DAO;
+package model.dao;
 
 import java.nio.charset.StandardCharsets;
 import java.sql.Connection;
@@ -16,28 +16,28 @@ import javax.sql.DataSource;
 import model.bean.*;
 
 
-public class AccessorioDAO{
+public class SnackDAO{
 
-	private static final String TABLE_NAME = "Accessorio";
+	private static final String TABLE_NAME = "Snack";
 	private DataSource ds = null;
 	private static Logger logger = Logger.getAnonymousLogger();
 
-	public AccessorioDAO(DataSource ds) {
+	public SnackDAO(DataSource ds) {
 		this.ds = ds;
 	}
 
 	
-	public synchronized void doSave(AccessorioBean ub) throws SQLException {
+	public synchronized void doSave(SnackBean ub) throws SQLException {
 		Connection c = null;
 		PreparedStatement p = null;
 
-		String query = "INSERT INTO " + AccessorioDAO.TABLE_NAME + " (ID_Prodotto,tipologia) VALUES (?,?)";
+		String query = "INSERT INTO " + SnackDAO.TABLE_NAME + " (ID_Prodotto,quantita) VALUES (?,?)";
 
 		try {
 			c = ds.getConnection();
 			p = c.prepareStatement(query);
 			p.setInt(1, ub.getID_Prodotto());
-			p.setString(2, ub.getTipologia());
+			p.setInt(2, ub.getQuantita());
 			
 			p.executeUpdate();
 		} finally {
@@ -51,13 +51,13 @@ public class AccessorioDAO{
 		}
 	}
 	
-	public synchronized AccessorioBean doRetrieveByKey(int code) throws SQLException {
+	public synchronized SnackBean doRetrieveByKey(int code) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		AccessorioBean bean = new AccessorioBean();
+		SnackBean bean = new SnackBean();
 
-		String selectSQL = "SELECT * FROM " + AccessorioDAO.TABLE_NAME + " WHERE ID_Prodotto = ?";
+		String selectSQL = "SELECT * FROM " + SnackDAO.TABLE_NAME + " WHERE ID_Prodotto = ?";
 
 		try {
 			connection = ds.getConnection();
@@ -68,8 +68,7 @@ public class AccessorioDAO{
 
 			while (rs.next()) {
 				bean.setID_Prodotto(rs.getInt("ID_Prodotto"));
-				bean.setTipologia(rs.getString("tipologia"));
-			
+				bean.setQuantita(rs.getInt("quantita"));
 			}
 
 		} finally {
@@ -84,18 +83,18 @@ public class AccessorioDAO{
 		return bean;
 	}
 	
-	public synchronized boolean doUpdate(int id, String tipologia) throws SQLException {
+	public synchronized boolean doUpdate(int id, int quant) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
 		int result = 0;
 
-		String updateSQL = "UPDATE " + AccessorioDAO.TABLE_NAME + " SET tipologia = ? WHERE ID_Prodotto = ?";
+		String updateSQL = "UPDATE " + SnackDAO.TABLE_NAME + " SET quantita = ? WHERE ID_Prodotto = ?";
 
 		try {
 			connection = ds.getConnection();
 			preparedStatement = connection.prepareStatement(updateSQL);
-			preparedStatement.setString(1, tipologia);
+			preparedStatement.setInt(1, quant);
 			preparedStatement.setInt(2, id);
 
 			result = preparedStatement.executeUpdate();

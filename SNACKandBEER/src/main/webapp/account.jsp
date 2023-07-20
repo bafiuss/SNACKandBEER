@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@page import="java.util.List"%>
-<%@page import="model.DAO.UserDAO, model.bean.UserBean, java.util.*" %>
+<%@page import="model.dao.UserDAO, model.bean.UserBean, java.util.*" %>
 <!DOCTYPE html>
 <html lang="it">
 	<head>

@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
 import model.bean.*;
-import model.DAO.*;
+import model.dao.*;
 
 
 @WebServlet("/GetProdotto")

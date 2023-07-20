@@ -17,7 +17,7 @@ import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 import model.bean.*;
-import model.DAO.*;
+import model.dao.*;
 
 
 @WebServlet("/InserimentoFinaleProdotto")

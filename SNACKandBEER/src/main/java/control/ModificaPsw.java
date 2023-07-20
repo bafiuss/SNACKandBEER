@@ -18,7 +18,7 @@ import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 import model.bean.UserBean;
-import model.DAO.UserDAO;
+import model.dao.UserDAO;
 
 
 
