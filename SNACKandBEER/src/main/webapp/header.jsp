@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewpoint" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="./styles/header.css">
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/styles/header.css">
 	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 	<title>Snack&Beer</title>
@@ -49,15 +49,15 @@
 					<% 
 						if(!logged){%>
 					<li class="nav-item">
-						<button onclick="window.location.href='login.jsp'"><i class="fa-solid fa-user"></i> ACCEDI</button>
+						<button onclick="window.location.href='<%=request.getContextPath()%>/login.jsp'"><i class="fa-solid fa-user"></i> ACCEDI</button>
 					</li>
 					<% }else if(logged){ %>
 					<li class="nav-item">
-						<button onclick="window.location.href='account.jsp'" class="btnUtente"><i class="fa-solid fa-user"></i> ACCOUNT</button>	
+						<button onclick="window.location.href='<%=request.getContextPath()%>/account.jsp'" class="btnUtente"><i class="fa-solid fa-user"></i> ACCOUNT</button>	
 					</li>
 					<% }%>	
 					<li class="nav-item">
-						<button onclick="window.location.href='carrello.jsp'" class="btnCarrello"><i class="fa-solid fa-cart-shopping"></i> CARRELLO</button>			
+						<button onclick="window.location.href='<%=request.getContextPath()%>/carrello.jsp'" class="btnCarrello"><i class="fa-solid fa-cart-shopping"></i> CARRELLO</button>			
 					</li>
 				</ul>
 				<div class="hamburger">

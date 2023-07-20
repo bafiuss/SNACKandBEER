@@ -47,12 +47,12 @@ public class UploadPhoto extends HttpServlet {
         
         if(redirect.equals("inserimento"))
         {
-        	RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/InserimentoFinaleAdmin.jsp");
+        	RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/admin/InserimentoFinaleAdmin.jsp");
     		dispatcher.forward(request, response);
     		return;
         }else if(redirect.equals("modifica"))
         {
-        	RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/gestione.jsp");
+        	RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/admin/gestione.jsp");
     		dispatcher.forward(request, response);
     		return;
         }

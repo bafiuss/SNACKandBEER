@@ -6,14 +6,14 @@
 		<meta charset="ISO-8859-1">
 		<title>Gestione</title>
 		
-		<link rel="stylesheet" href="./styles/gestione.css">
+		<link rel="stylesheet" href="<%=request.getContextPath()%>/styles/gestione.css">
 		
 	</head>
 	<body>
-		<%@ include file="./header.jsp" %>
+		<%@ include file="../header.jsp" %>
 	
 			<section class="gestioneSection">
-			<form action="Admin">
+			<form action="<%=request.getContextPath()%>/Admin">
 				<div class="container">	 
 					<h2> OPERAZIONI SU UTENTI</h2> 
 			      	<div class="form-group">
@@ -40,6 +40,6 @@
 			</section>
 	
 	
-		<%@ include file="./footer.jsp" %>
+		<%@ include file="../footer.jsp" %>
 	</body>
 </html>

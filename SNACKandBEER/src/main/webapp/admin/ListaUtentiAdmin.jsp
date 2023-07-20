@@ -19,7 +19,7 @@
 		    ArrayList<UserBean> list = (ArrayList<UserBean>)request.getAttribute("listUtenti");   
 		%>
 	
-		<%@ include file="./header.jsp" %>
+		<%@ include file="../header.jsp" %>
 		
 		<section class="adminSection">
 		<br><br><br><br><br>
@@ -63,7 +63,7 @@
 		</section>
 		
 		
-		<%@ include file="./footer.jsp" %>
+		<%@ include file="../footer.jsp" %>
 	
 	</body>
 </html>

@@ -90,7 +90,7 @@ public class ModificaProdotto extends HttpServlet {
 			request.setAttribute("prodotto", prodottoBean);
 			request.setAttribute("cat", cat);
 			
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ModificaFinaleAdmin.jsp");
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin/ModificaFinaleAdmin.jsp");
 			dispatcher.forward(request, response);
 			return;
 		}else if(modType == 2)

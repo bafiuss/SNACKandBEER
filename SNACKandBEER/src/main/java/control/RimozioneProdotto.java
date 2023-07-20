@@ -25,7 +25,7 @@ public class RimozioneProdotto extends HttpServlet {
 		
 		int prodotto = Integer.parseInt(request.getParameter("prodotto"));
 		ProdottoDAO prodottoDAO = new ProdottoDAO((DataSource) getServletContext().getAttribute("DataSource"));
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/gestione.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin/gestione.jsp");
 
 			try {
 				prodottoDAO.doDelete(prodotto);

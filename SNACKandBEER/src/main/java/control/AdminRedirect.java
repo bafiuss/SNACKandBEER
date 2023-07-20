@@ -43,35 +43,35 @@ public class AdminRedirect extends HttpServlet {
             case "Visualizza lista utenti":
             	utenteArrayList = utenteDAO.doRetrieveAll();
                 request.setAttribute("listUtenti", utenteArrayList);
-                address = "/ListaUtentiAdmin.jsp";
+                address = "./admin/ListaUtentiAdmin.jsp";
                 break;
                 
             case "Rimuovi un utente":
             	utenteArrayList = utenteDAO.doRetrieveAll();
                 request.setAttribute("listUtenti", utenteArrayList);        		
-            	address = "/RimozioneUtenteAdmin.jsp";
+            	address = "./admin/RimozioneUtenteAdmin.jsp";
                 break;
                 
             case "Aggiungi un nuovo prodotto":
-                address = "/InserimentoProdottoAdmin.jsp";
+                address = "./admin/InserimentoProdottoAdmin.jsp";
                 break;
                 
             case "Rimuovi un prodotto":
             	prodottiArrayList = prodottoDAO.doRetrieveAll();
                 request.setAttribute("listProdotti", prodottiArrayList);        		
-            	address = "/RimozioneProdottoAdmin.jsp";
+            	address = "./admin/RimozioneProdottoAdmin.jsp";
                 break;
                 
             case "Modifica un prodotto":
             	prodottiArrayList = prodottoDAO.doRetrieveAll();
                 request.setAttribute("listProdotti", prodottiArrayList);        		
-            	address = "/ModificaProdottoAdmin.jsp";
+            	address = "./admin/ModificaProdottoAdmin.jsp";
                 break;
                 
             case "Visualizza ordini":
             	utenteArrayList = utenteDAO.doRetrieveAll();
                 request.setAttribute("listUtenti", utenteArrayList);
-                address = "/OrdiniUtenteAdmin.jsp";
+                address = "./admin/OrdiniUtenteAdmin.jsp";
         }
 
 

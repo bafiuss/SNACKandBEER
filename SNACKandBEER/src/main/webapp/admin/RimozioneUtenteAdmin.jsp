@@ -12,7 +12,7 @@
 		
 	</head>
 	<body>
-		<%@ include file="./header.jsp" %>
+		<%@ include file="../header.jsp" %>
 		
 		<%
 		    ArrayList<UserBean> list = (ArrayList<UserBean>)request.getAttribute("listUtenti");
@@ -43,6 +43,6 @@
 				<br><br><br><br><br>
 			</section>
 	
-		<%@ include file="./footer.jsp" %>
+		<%@ include file="../footer.jsp" %>
 	</body>
 </html>

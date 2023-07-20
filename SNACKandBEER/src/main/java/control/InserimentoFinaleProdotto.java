@@ -96,7 +96,7 @@ public class InserimentoFinaleProdotto extends HttpServlet {
     		}    		
     	}
     	
-    	RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/gestione.jsp");
+    	RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/admin/gestione.jsp");
 		dispatcher.forward(request, response);
     	
     }

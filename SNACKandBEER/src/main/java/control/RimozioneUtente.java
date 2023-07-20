@@ -25,7 +25,7 @@ public class RimozioneUtente extends HttpServlet {
 		
 		String email = request.getParameter("user");
 		UserDAO userDAO = new UserDAO((DataSource) getServletContext().getAttribute("DataSource"));
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/gestione.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin/gestione.jsp");
 		
 		
 		if(email != null) {

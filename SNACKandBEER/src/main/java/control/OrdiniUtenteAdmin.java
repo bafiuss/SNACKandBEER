@@ -33,19 +33,13 @@ public class OrdiniUtenteAdmin extends HttpServlet {
 		
 		Date parseInizio = null;
 		Date parseFine = null;
-		
 
-		
 		
 		if (inizio != null && !inizio.equals(""))
 			parseInizio = java.sql.Date.valueOf(inizio);
-		//else
-			//startDate = java.sql.Date.valueOf("2023-05-15");
-	
+		
 		if(fine != null && !fine.equals(""))
 			parseFine = java.sql.Date.valueOf(fine);
-		//else
-		//	endDate = new java.sql.Date(System.currentTimeMillis());
 						
 		OrdineDAO ordineDAO = new OrdineDAO((DataSource) getServletContext().getAttribute("DataSource"));
 		List <OrdineBean> ordineList = null;
@@ -59,7 +53,7 @@ public class OrdiniUtenteAdmin extends HttpServlet {
 		
 			
 			request.setAttribute("listOrdine", ordineList);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/OrdiniUtenteFinaleAdmin.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/admin/OrdiniUtenteFinaleAdmin.jsp");
 			dispatcher.forward(request, response);	
 	
 

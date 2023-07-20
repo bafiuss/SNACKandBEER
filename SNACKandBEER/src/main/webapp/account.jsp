@@ -88,7 +88,7 @@
 			  <div class="inForm">
 			   <h2>ACCEDI ALLE OPERAZIONI DA ADMIN</h2>
 			    <div class="form-group">
-			        <a href="gestione.jsp"><input type="submit" value="Prosegui"></a>
+			        <a href="<%=request.getContextPath()%>/admin/gestione.jsp"><input type="submit" value="Prosegui"></a>
 			    </div>
 			   </div>
 				<%
