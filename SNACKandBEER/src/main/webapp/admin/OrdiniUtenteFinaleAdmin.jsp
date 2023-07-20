@@ -22,6 +22,7 @@
 		<br><br><br>
 		<h2 id="inth2"><b>Visualizza ordini</b></h2>
 					<table>
+					<caption> </caption>
 					    <tr>
 					      <th> ID</th>
 					      <th>Utente</th>

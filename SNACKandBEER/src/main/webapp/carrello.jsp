@@ -61,6 +61,7 @@
 				<%} %>
 				<h2 id="inth2"><b> Il tuo carrello</b></h2>	
 					<table>
+					<caption> </caption>
 					    <tr>
 					    	<th>    </th>
 					      <th>Nome Prodotto</th>

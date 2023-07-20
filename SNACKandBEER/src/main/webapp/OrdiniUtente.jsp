@@ -30,6 +30,7 @@
 			<section class="ordiniSection">	
 			<h2 id="inth2"><b> I tuoi ordini</b></h2>
 				<table>
+				<caption> </caption>
 			        <tr>
 			            <th>ID</th>
 		            	<th>DATA ACQUISTO</th>

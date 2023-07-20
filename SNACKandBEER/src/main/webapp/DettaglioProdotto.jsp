@@ -21,7 +21,7 @@
  		<form action="CartControl?action=add&code=<%=prod.getID_Prodotto()%>&redirect=carrello" method="post"> 
 			  <div class="product-container">
 			    <div class="product-image">
-			      <img src="GetPictureServlet?id=<%=prod.getID_Prodotto()%>">
+			      <img src="GetPictureServlet?id=<%=prod.getID_Prodotto()%>"  alt="imgProdotto">
 			    </div>
 			    <div class="product-info">
 			      <h1><%= prod.getNome() %></b></h1><br>

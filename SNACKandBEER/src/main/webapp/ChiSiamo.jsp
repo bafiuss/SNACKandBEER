@@ -20,7 +20,7 @@
 			<div class="wrapper">
 				<div class="rosw">
 					<div class="image-section">
-						<img src ="images/logo.jpg">
+						<img src ="images/logo.jpg"  alt="logo">
 					</div>
 					<div class="content">
 						<h1>Chi siamo</h1>

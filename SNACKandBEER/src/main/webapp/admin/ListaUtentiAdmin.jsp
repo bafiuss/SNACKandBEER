@@ -28,6 +28,7 @@
 		<%}else{ %>
 			<h2 id="inth2"><b>Utenti Registrati</b></h2>
 					<table class="responsive-table">
+					<caption> </caption>
 					    <thead>
 					      <tr>
 					        <th class="email">Email</th>
