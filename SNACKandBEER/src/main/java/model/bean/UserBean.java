@@ -1,7 +1,6 @@
 package model.bean;
 
 import java.io.Serializable;
-import java.sql.Date;
 
 public class UserBean implements Serializable {
 
@@ -105,18 +104,14 @@ public class UserBean implements Serializable {
 	}
 
 
-	
-	@Override
-	public String toString() {
-		return "UserBean [email=" + email + ", password=" + password + ", nome=" + nome + ", cognome=" + cognome
-				+ ", nascita=" + nascita + ", indirizzo=" + indirizzo + ", indirizzoSped=" + indirizzoSped
-				+ ", isAdmin=" + isAdmin + "]";
-	}
-
 	public boolean passControl(String s, String m) {
-		if(s.equals(m)) return true;
+		boolean flag = false;
 		
-		return false;
+		if(s.equals(m)) {
+			flag = true;
+		}
+		
+		return flag;
 	}	
 
 

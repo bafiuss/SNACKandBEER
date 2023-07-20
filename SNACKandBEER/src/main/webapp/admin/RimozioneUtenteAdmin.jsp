@@ -15,7 +15,7 @@
 		<%@ include file="../header.jsp" %>
 		
 		<%
-		    ArrayList<UserBean> list = (ArrayList<UserBean>)request.getAttribute("listUtenti");
+		    List<UserBean> list = (List<UserBean>)request.getAttribute("listUtenti");
 		%>	
 	
 		<section class="adminSection">

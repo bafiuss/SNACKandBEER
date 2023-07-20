@@ -1,13 +1,9 @@
 package model.dao;
 
-import java.nio.charset.StandardCharsets;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.ParseException;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.*;
 
@@ -118,7 +114,7 @@ public class ProdottoDAO{
 	}
 	
 	public List<ProdottoBean> getAllProductsByCat(String cat)throws SQLException{
-		List<ProdottoBean> prodotti = new ArrayList<ProdottoBean>();
+		List<ProdottoBean> prodotti = new ArrayList<>();
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		
@@ -159,12 +155,12 @@ public class ProdottoDAO{
 		return prodotti;
 	}
 	
-	public ArrayList<ProdottoBean> doRetrieveAll() throws SQLException{
+	public List<ProdottoBean> doRetrieveAll() throws SQLException{
     	
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		
-		ArrayList<ProdottoBean> prodottiList = new ArrayList<>();
+		List<ProdottoBean> prodottiList = new ArrayList<>();
 
 
 		String selectSQL = "SELECT * FROM " + ProdottoDAO.TABLE_NAME;

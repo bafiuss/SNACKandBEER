@@ -4,16 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.LinkedList;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 
@@ -219,45 +212,6 @@ public class UserDAO{
 		}
 		return (result != 0);
 	}
-	
-/*
-	@Override
-	public synchronized UserBean doRetrieveByEmailAndPass(String email, String password) throws SQLException {
-		Connection c = null;
-		PreparedStatement p = null;
-
-		UserBean bean = null;
-
-		String query = "SELECT * FROM " + UserDao.TABLE_NAME + " WHERE email = ? AND password = ?";
-
-		try {
-			c = ds.getConnection();
-			p = c.prepareStatement(query);
-			p.setString(1, email);
-			p.setString(2, toHash(password));
-
-			ResultSet rs = p.executeQuery();
-
-			if (rs.next()) {
-				bean = new UserBean();
-				bean.setId(rs.getInt("id"));
-				bean.setNome(rs.getString("nome"));
-				bean.setCognome(rs.getString("cognome"));
-				bean.setEmail(rs.getString("email"));
-				// bean.setPassword(rs.getString("password"));
-			}
-		} finally {
-			try {
-				if (p != null)
-					p.close();
-			} finally {
-				if (c != null)
-					c.close();
-			}
-		}
-
-		return bean;
-	}*/
 
 	
 	public synchronized boolean checkUserEmailExistance(String email) throws SQLException {
@@ -290,121 +244,4 @@ public class UserDAO{
 
 		return exists;
 	}
-	
-	public UserBean doRetrieveByEmail(String code) throws SQLException {
-		Connection c = null;
-		PreparedStatement p = null;
-
-		UserBean bean = new UserBean();
-		String query;	
-		
-		if(code == null)
-			query = "select * FROM " + UserDAO.TABLE_NAME ; 
-		else
-			query = "select * FROM " + UserDAO.TABLE_NAME + " WHERE email = ? ; "; 
-		try {
-			c = ds.getConnection();
-			p = c.prepareStatement(query);
-			p.setString(1, code);
-			ResultSet rs = p.executeQuery();	
-			while (rs.next()) {
-				bean.setEmail(rs.getString("email"));
-				bean.setPassword(rs.getString("password"));
-				bean.setNome(rs.getString("nome"));
-				bean.setCognome(rs.getString("cognome"));
-				bean.setIndirizzo(rs.getString("indirizzo"));
-				bean.setAdmin(rs.getBoolean("isAdmin"));
-			}
-		} finally {
-			try {
-				if (p != null)
-					p.close();
-			} finally {
-				if (c != null)
-					c.close();
-			}
-		}
-		return bean;
-	}
-/*
-	public static String toHash(String password) {
-		StringBuilder sb = new StringBuilder();
-        try {
-            java.security.MessageDigest digest = java.security.MessageDigest.getInstance("SHA-512");
-            byte[] hash = digest.digest(password.getBytes(StandardCharsets.UTF_8));
-            for (int i = 0; i < hash.length; i++) {
-                sb.append(Integer.toHexString( 
-                                  (hash[i] & 0xFF) | 0x100 
-                              ).toLowerCase().substring(1,3));
-            }
-        } catch (java.security.NoSuchAlgorithmException e) {
-        	logger.log(Level.WARNING, "Problema hash pswd!");
-        }
-        return sb.toString();
-    }*/
-	
-	public boolean isRegistrato(String s) throws SQLException{
-		Connection c = null;
-		PreparedStatement p = null;
-
-		UserBean user;
-		String query;
-
-		if(s == null)
-			query = "select count(*) as numUtenti FROM" + UserDAO.TABLE_NAME;
-		else
-			query = "select count(*) as numUtenti FROM " + UserDAO.TABLE_NAME + " WHERE email = ? ; "; 
-		
-		try {
-			c = ds.getConnection();
-			p = c.prepareStatement(query);
-			p.setString(1, s);
-			ResultSet rs = p.executeQuery();
-			rs.next();
-			if(rs.getInt("numUtenti") > 0) {
-				return true;
-			}
-			return false;
-		} finally {
-			try {
-				if (p != null)
-					p.close();
-			} finally {
-				if (c != null)
-					c.close();
-			}
-		}	
-	}
-/*
-	@Override
-	public synchronized boolean checkUserIsAdmin(int id) throws SQLException {
-		Connection c = null;
-		PreparedStatement p = null;
-
-		boolean isAdmin = false;
-
-		String query = "SELECT * FROM ADMIN WHERE id = ?";
-
-		try {
-			c = ds.getConnection();
-			p = c.prepareStatement(query);
-			p.setInt(1, id);
-
-			ResultSet rs = p.executeQuery();
-
-			if (rs.next())
-				isAdmin = true;
-
-		} finally {
-			try {
-				if (p != null)
-					p.close();
-			} finally {
-				if (c != null)
-					c.close();
-			}
-		}
-		return isAdmin;
-	}*/
-
 }

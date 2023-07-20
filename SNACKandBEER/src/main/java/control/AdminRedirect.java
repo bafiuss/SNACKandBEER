@@ -34,8 +34,8 @@ public class AdminRedirect extends HttpServlet {
         ProdottoDAO prodottoDAO = new ProdottoDAO((DataSource) getServletContext().getAttribute("DataSource"));
         UserDAO utenteDAO = new UserDAO((DataSource) getServletContext().getAttribute("DataSource"));
         
-        ArrayList<UserBean> utenteArrayList = null;
-        ArrayList<ProdottoBean> prodottiArrayList = null;
+        List<UserBean> utenteArrayList = null;
+        List<ProdottoBean> prodottiArrayList = null;
 
         switch(scelta){
           
