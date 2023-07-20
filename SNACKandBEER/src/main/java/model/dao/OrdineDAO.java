@@ -17,9 +17,13 @@ public class OrdineDAO {
 	
 	
 	private static final String TABLE_NAME = "Ordine";
-	private DataSource ds = null;
-	private static Logger logger = Logger.getAnonymousLogger();
+	private static final String NUMERO_ORDINE = "numero_ordine";
+	private static final String EMAIL = "email";
+	private static final String DATA_ORDINE = "data_ordine";
+	private static final String QUANTITA = "quantita";
+	private static final String PREZZO_TOTALE = "prezzo_totale";
 	
+	private DataSource ds = null;
 	
 	public OrdineDAO(DataSource ds) {
 		this.ds = ds;
@@ -101,11 +105,11 @@ public class OrdineDAO {
 			ResultSet rs = preparedStatement.executeQuery();
 			
 			while (rs.next()) {
-				bean.setNumero_ordine(rs.getInt("numero_ordine"));
-				bean.setEmail(rs.getString("email"));
-				bean.setData_ordine(rs.getDate("data_ordine"));
-				bean.setQuantita(rs.getInt("quantita"));
-				bean.setPrezzo_totale(rs.getDouble("prezzo_totale"));
+				bean.setNumero_ordine(rs.getInt(NUMERO_ORDINE));
+				bean.setEmail(rs.getString(EMAIL));
+				bean.setData_ordine(rs.getDate(DATA_ORDINE));
+				bean.setQuantita(rs.getInt(QUANTITA));
+				bean.setPrezzo_totale(rs.getDouble(PREZZO_TOTALE));
 			}
 		} finally {
 			try {
@@ -142,11 +146,11 @@ public class OrdineDAO {
 
 			while (rs.next()) {
 				OrdineBean bean = new OrdineBean();
-				bean.setNumero_ordine(rs.getInt("numero_ordine"));
-				bean.setEmail(rs.getString("email"));
-				bean.setData_ordine(rs.getDate("data_ordine"));
-				bean.setQuantita(rs.getInt("quantita"));
-				bean.setPrezzo_totale(rs.getDouble("prezzo_totale"));
+				bean.setNumero_ordine(rs.getInt(NUMERO_ORDINE));
+				bean.setEmail(rs.getString(EMAIL));
+				bean.setData_ordine(rs.getDate(DATA_ORDINE));
+				bean.setQuantita(rs.getInt(QUANTITA));
+				bean.setPrezzo_totale(rs.getDouble(PREZZO_TOTALE));
 				
 				
 				ordini.add(bean);
@@ -188,11 +192,11 @@ public class OrdineDAO {
 
 			while (rs.next()) {
 				OrdineBean bean = new OrdineBean();
-				bean.setNumero_ordine(rs.getInt("numero_ordine"));
-				bean.setEmail(rs.getString("email"));
-				bean.setData_ordine(rs.getDate("data_ordine"));
-				bean.setQuantita(rs.getInt("quantita"));
-				bean.setPrezzo_totale(rs.getDouble("prezzo_totale"));
+				bean.setNumero_ordine(rs.getInt(NUMERO_ORDINE));
+				bean.setEmail(rs.getString(EMAIL));
+				bean.setData_ordine(rs.getDate(DATA_ORDINE));
+				bean.setQuantita(rs.getInt(QUANTITA));
+				bean.setPrezzo_totale(rs.getDouble(PREZZO_TOTALE));
 				
 				ordini.add(bean);
 			}
@@ -262,11 +266,11 @@ public class OrdineDAO {
 
 			while (rs.next()) {
 				OrdineBean bean = new OrdineBean();
-				bean.setNumero_ordine(rs.getInt("numero_ordine"));
-				bean.setEmail(rs.getString("email"));
-				bean.setData_ordine(rs.getDate("data_ordine"));
-				bean.setQuantita(rs.getInt("quantita"));
-				bean.setPrezzo_totale(rs.getDouble("prezzo_totale"));
+				bean.setNumero_ordine(rs.getInt(NUMERO_ORDINE));
+				bean.setEmail(rs.getString(EMAIL));
+				bean.setData_ordine(rs.getDate(DATA_ORDINE));
+				bean.setQuantita(rs.getInt(QUANTITA));
+				bean.setPrezzo_totale(rs.getDouble(PREZZO_TOTALE));
 				
 				ordini.add(bean);
 			}
@@ -304,9 +308,11 @@ public class OrdineDAO {
 
 			while (rs.next()) {
 				OrdineBean bean = new OrdineBean();
-				bean.setNumero_ordine(rs.getInt("numero_ordine"));
-				bean.setEmail(rs.getString("email"));
-				bean.setData_ordine(rs.getDate("data_ordine"));
+				bean.setNumero_ordine(rs.getInt(NUMERO_ORDINE));
+				bean.setEmail(rs.getString(EMAIL));
+				bean.setData_ordine(rs.getDate(DATA_ORDINE));
+				bean.setQuantita(rs.getInt(QUANTITA));
+				bean.setPrezzo_totale(rs.getDouble(PREZZO_TOTALE));
 				
 				ordini.add(bean);
 			}

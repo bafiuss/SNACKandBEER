@@ -29,7 +29,7 @@
 			     	<input type="hidden" value="1" name="modType">
 			     	
 			     
-			        <div align="center">
+			        <div>
 				        <select class="selectCategoria" style="text-align: center;" name="prodotto">
 				        <%for(ProdottoBean prodotto : list)
 				          {

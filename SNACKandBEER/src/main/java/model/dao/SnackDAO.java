@@ -20,7 +20,6 @@ public class SnackDAO{
 
 	private static final String TABLE_NAME = "Snack";
 	private DataSource ds = null;
-	private static Logger logger = Logger.getAnonymousLogger();
 
 	public SnackDAO(DataSource ds) {
 		this.ds = ds;

@@ -16,7 +16,6 @@ public class AccessorioDAO{
 
 	private static final String TABLE_NAME = "Accessorio";
 	private DataSource ds = null;
-	private static Logger logger = Logger.getAnonymousLogger();
 
 	public AccessorioDAO(DataSource ds) {
 		this.ds = ds;

@@ -30,7 +30,7 @@ public class RimozioneProdotto extends HttpServlet {
 			try {
 				prodottoDAO.doDelete(prodotto);
 			} catch (SQLException e) {
-				logger.log(Level.WARNING, "Problema eliminazione prodotto dal DB!"+e.getMessage());
+				logger.log(Level.WARNING, "Problema eliminazione prodotto dal DB!");
 			}
 			
 			dispatcher.forward(request, response);

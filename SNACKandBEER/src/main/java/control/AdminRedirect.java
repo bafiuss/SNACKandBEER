@@ -92,6 +92,8 @@ public class AdminRedirect extends HttpServlet {
 				}
                 request.setAttribute(UTENTI_STR, utenteArrayList);
                 address = "./admin/OrdiniUtenteAdmin.jsp";
+                break;
+                
             default: break;
         }
 

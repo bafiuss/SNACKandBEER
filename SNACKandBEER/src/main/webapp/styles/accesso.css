@@ -18,6 +18,7 @@
     h2 {
       text-align: center;
       padding: 20px 0;
+      color: #F99A6B;
     }
     
     .form-group {
@@ -87,10 +88,6 @@
 	a.registration-link:hover {
 	  color: #ff0000; /* Colore del testo al passaggio del mouse */
 	  text-decoration: none; /* Sottolinea il testo al passaggio del mouse */
-	}
-	
-	h2{
-		color: #F99A6B;
 	}
 	
 	

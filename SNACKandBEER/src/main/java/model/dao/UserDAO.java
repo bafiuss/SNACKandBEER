@@ -17,8 +17,8 @@ import model.bean.*;
 public class UserDAO{
 
 	static final String TABLE_NAME = "utente";
+	private static final String SELECT = "SELECT * FROM ";
 	private DataSource ds = null;
-	private static Logger logger = Logger.getAnonymousLogger();
 
 	public UserDAO(DataSource ds) {
 		this.ds = ds;
@@ -116,7 +116,7 @@ public class UserDAO{
 
 		UserBean bean = new UserBean();
 
-		String selectSQL = "SELECT * FROM " + UserDAO.TABLE_NAME + " WHERE EMAIL = ?";
+		String selectSQL = SELECT + UserDAO.TABLE_NAME + " WHERE EMAIL = ?";
 
 		try {
 			connection = ds.getConnection();
@@ -156,7 +156,7 @@ public class UserDAO{
 		List<UserBean> utenteList = new ArrayList<>();
 
 
-		String selectSQL = "SELECT * FROM " + UserDAO.TABLE_NAME;
+		String selectSQL = SELECT + UserDAO.TABLE_NAME;
 
 		try {
 			connection = ds.getConnection();
@@ -221,7 +221,7 @@ public class UserDAO{
 
 		boolean exists = false;
 
-		String query = "SELECT * FROM " + UserDAO.TABLE_NAME + " WHERE email = ?";
+		String query = SELECT + UserDAO.TABLE_NAME + " WHERE email = ?";
 
 		try {
 			c = ds.getConnection();

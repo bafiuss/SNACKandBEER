@@ -24,7 +24,7 @@
 					<h2 style="padding: 12px 0;"> SCEGLI UTENTE</h2> 
 			      	<div class="form-group">
 			     
-			        <div align="center">
+			        <div>
 				        <select class="selectCategoria" style="text-align: center;" name="user">
 				        <%for(UserBean utente : utenti){ if(utente.isAdmin() == false) {%>
 				        	<option value="<%=utente.getEmail()%>"> <%=utente.getEmail()%> - <%=utente.getNome()%> <%=utente.getCognome()%></option>

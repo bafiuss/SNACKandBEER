@@ -16,7 +16,6 @@ public class BirraDAO{
 
 	private static final String TABLE_NAME = "Birra";
 	private DataSource ds = null;
-	private static Logger logger = Logger.getAnonymousLogger();
 
 	public BirraDAO(DataSource ds) {
 		this.ds = ds;

@@ -26,7 +26,7 @@
 					<h2> SCEGLI IL PRODOTTO DA ELIMINARE</h2> 
 			      	<div class="form-group">
 			     
-			        <div align="center">
+			        <div>
 				        <select class="selectCategoria" style="text-align: center;" name="prodotto">
 				        <%for(ProdottoBean prodotto : list)
 				          {

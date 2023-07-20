@@ -16,8 +16,8 @@ import model.bean.*;
 public class ProdottoDAO{
 
 	private static final String TABLE_NAME = "prodotto";
+	private static final String SELECT = "SELECT * FROM ";
 	private DataSource ds = null;
-	private static Logger logger = Logger.getAnonymousLogger();
 	
 	
 	public ProdottoDAO(DataSource ds) {
@@ -118,7 +118,7 @@ public class ProdottoDAO{
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		
-		String selectSQL = "SELECT * FROM " + ProdottoDAO.TABLE_NAME + " WHERE categoria = ?";
+		String selectSQL = SELECT + ProdottoDAO.TABLE_NAME + " WHERE categoria = ?";
 		
 		try {
 			connection = ds.getConnection();
@@ -163,7 +163,7 @@ public class ProdottoDAO{
 		List<ProdottoBean> prodottiList = new ArrayList<>();
 
 
-		String selectSQL = "SELECT * FROM " + ProdottoDAO.TABLE_NAME;
+		String selectSQL = SELECT + ProdottoDAO.TABLE_NAME;
 
 		try {
 			connection = ds.getConnection();
@@ -201,7 +201,7 @@ public class ProdottoDAO{
 		
 		ProdottoBean bean = new ProdottoBean();
 		
-		String selectSQL = "SELECT * FROM " + ProdottoDAO.TABLE_NAME + " WHERE ID_Prodotto = ?";
+		String selectSQL = SELECT + ProdottoDAO.TABLE_NAME + " WHERE ID_Prodotto = ?";
 		
 		try {
 			connection = ds.getConnection();

@@ -26,6 +26,7 @@
     
     h2 {
       text-align: center;
+      color: #F99A6B;
     }
     
     .form-group {
@@ -97,9 +98,6 @@
 	  text-decoration: none; /* Sottolinea il testo al passaggio del mouse */
 	}
 	
-	h2{
-		color: red;
-	}
 	
 @media(max-width:1020px){
     .container{

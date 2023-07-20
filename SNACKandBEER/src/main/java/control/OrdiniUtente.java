@@ -22,7 +22,7 @@ import model.dao.*;
 public class OrdiniUtente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	
+	private static final String WARNING_STR = "Problema accesso DB!";
        
    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -46,7 +46,7 @@ public class OrdiniUtente extends HttpServlet {
 		try {
 			ordini = (List<OrdineBean>) ordineDAO.doRetrieveByEmail(email ,"data_ordine");
 		} catch (SQLException e) {
-			logger.log(Level.WARNING, "Problema accesso DB!"+e.getMessage());
+			logger.log(Level.WARNING, WARNING_STR);
 		}
 		
 

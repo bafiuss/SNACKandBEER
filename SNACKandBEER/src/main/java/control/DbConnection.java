@@ -35,12 +35,4 @@ public class DbConnection implements ServletContextListener{
 		
 		context.setAttribute("DataSource", ds);
 	}
-
-	
-	public void contextDestroyed(ServletContextEvent event) {
-		ServletContext context = event.getServletContext();
-		
-		DataSource ds = (DataSource) context.getAttribute("DataSource");
-		logger.log(Level.WARNING, "Problema accesso DB!");
-	}
 }

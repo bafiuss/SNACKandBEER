@@ -32,12 +32,9 @@ public class UploadPhoto extends HttpServlet {
 			throws ServletException, IOException {
 		
 		Logger logger = Logger.getAnonymousLogger();
-
 		int code = (int) request.getAttribute("idProd");
-		
 		Part filePart = request.getPart("photo");
-                
-		System.out.println(filePart);
+		
         try {
 			PhotoControl.updatePhoto(code, filePart.getInputStream());
 		} catch (SQLException sqlException) {

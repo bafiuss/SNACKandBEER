@@ -24,6 +24,7 @@ public class OrdiniUtenteAdmin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private static Logger logger = Logger.getAnonymousLogger();
+	private static final String WARNING_STR = "Problema accesso DB!";
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -48,7 +49,7 @@ public class OrdiniUtenteAdmin extends HttpServlet {
 			try {
 				ordineList = (List<OrdineBean>) ordineDAO.doRetrieveByUserData(email, parseInizio, parseFine);
 			} catch (SQLException e) {
-				logger.log(Level.WARNING, "Problema accesso DB!" + e.getMessage());
+				logger.log(Level.WARNING, WARNING_STR);
 			}
 		
 			

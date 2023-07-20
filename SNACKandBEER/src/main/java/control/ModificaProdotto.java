@@ -24,6 +24,10 @@ public class ModificaProdotto extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private static Logger logger = Logger.getAnonymousLogger();
+	
+	private static final String WARNING_STR = "Problema accesso DB!";
+	private static final String DS_STR = "DataSource";
+	private static final String MODIFY_STR = "Problema modifica prodotto!";
        
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -31,10 +35,10 @@ public class ModificaProdotto extends HttpServlet {
 		int cat = 0;
 		int categ = 0;
 		
-		ProdottoDAO prodottoDAO = new ProdottoDAO((DataSource) getServletContext().getAttribute("DataSource"));
-		BirraDAO birraDAO = new BirraDAO((DataSource) getServletContext().getAttribute("DataSource"));
-		SnackDAO snackDAO = new SnackDAO((DataSource) getServletContext().getAttribute("DataSource"));
-		AccessorioDAO accessorioDAO = new AccessorioDAO((DataSource) getServletContext().getAttribute("DataSource"));
+		ProdottoDAO prodottoDAO = new ProdottoDAO((DataSource) getServletContext().getAttribute(DS_STR));
+		BirraDAO birraDAO = new BirraDAO((DataSource) getServletContext().getAttribute(DS_STR));
+		SnackDAO snackDAO = new SnackDAO((DataSource) getServletContext().getAttribute(DS_STR));
+		AccessorioDAO accessorioDAO = new AccessorioDAO((DataSource) getServletContext().getAttribute(DS_STR));
 		
 		ProdottoBean prodottoBean = null;
 		BirraBean birraBean = null;
@@ -48,7 +52,7 @@ public class ModificaProdotto extends HttpServlet {
 			try {
 				prodottoBean = prodottoDAO.doRetrieveByKey(id);
 			} catch (SQLException e) {
-				logger.log(Level.WARNING, "Problema DB! "+e.getMessage());
+				logger.log(Level.WARNING, WARNING_STR);
 			}
 			
 			if(prodottoBean.getCategoria().equals("Birra"))
@@ -57,7 +61,7 @@ public class ModificaProdotto extends HttpServlet {
 				try {
 					birraBean = birraDAO.doRetrieveByKey(id);
 				} catch (SQLException e) {
-					logger.log(Level.WARNING, "Problema DB! "+e.getMessage());
+					logger.log(Level.WARNING, WARNING_STR);
 				}
 				
 				request.setAttribute("birra", birraBean);
@@ -69,7 +73,7 @@ public class ModificaProdotto extends HttpServlet {
 				try {
 					snackBean = snackDAO.doRetrieveByKey(id);
 				} catch (SQLException e) {
-					logger.log(Level.WARNING, "Problema DB! "+e.getMessage());
+					logger.log(Level.WARNING, WARNING_STR);
 				}
 				
 				request.setAttribute("snack", snackBean);
@@ -81,7 +85,7 @@ public class ModificaProdotto extends HttpServlet {
 				try {
 					accessorioBean = accessorioDAO.doRetrieveByKey(id);
 				} catch (SQLException e) {
-					logger.log(Level.WARNING, "Problema DB! "+e.getMessage());
+					logger.log(Level.WARNING, WARNING_STR);
 				}
 				
 				request.setAttribute("accessorio", accessorioBean);
@@ -122,7 +126,7 @@ public class ModificaProdotto extends HttpServlet {
     			try {
         			birraDAO.doUpdate(id,volume,gradAlcolica,colore,nazione);
         		} catch (SQLException e) {
-        			logger.log(Level.WARNING, "Problema modifica prodotto! "+ e.getMessage());
+        			logger.log(Level.WARNING,MODIFY_STR);
         		}
     		}else if(categ == 2)
     		{
@@ -131,7 +135,7 @@ public class ModificaProdotto extends HttpServlet {
     			try {
         			snackDAO.doUpdate(id,quant);
         		} catch (SQLException e) {
-        			logger.log(Level.WARNING, "Problema modifica prodotto!");
+        			logger.log(Level.WARNING,MODIFY_STR);
         		}
     		}else if(categ == 3)
     		{
@@ -140,7 +144,7 @@ public class ModificaProdotto extends HttpServlet {
     			try {
         			accessorioDAO.doUpdate(id,tipologia);
         		} catch (SQLException e) {
-        			logger.log(Level.WARNING, "Problema modifica prodotto!");
+        			logger.log(Level.WARNING,MODIFY_STR);
         		}
     		}
     		

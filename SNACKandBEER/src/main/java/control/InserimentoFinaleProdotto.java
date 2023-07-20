@@ -26,6 +26,8 @@ public class InserimentoFinaleProdotto extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	private static Logger logger = Logger.getAnonymousLogger();
+	private static final String DS_STR = "DataSource";
+	private static final String WARNING_STR = "Problema accesso DB!";
 	
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	doPost(request, response);
@@ -54,12 +56,12 @@ public class InserimentoFinaleProdotto extends HttpServlet {
     		beanBirra.setColore(colore);
     		beanBirra.setNazione(nazione);
     		
-    		BirraDAO birraDAO = new BirraDAO((DataSource) getServletContext().getAttribute("DataSource"));
+    		BirraDAO birraDAO = new BirraDAO((DataSource) getServletContext().getAttribute(DS_STR));
     		
     		try {
     			birraDAO.doSave(beanBirra);
     		} catch (SQLException e) {
-    			logger.log(Level.WARNING, "Problema accesso DB!" +e.getMessage());
+    			logger.log(Level.WARNING,WARNING_STR);
     		}
     	}else if(mod == 2)
     	{
@@ -71,12 +73,12 @@ public class InserimentoFinaleProdotto extends HttpServlet {
     		beanSnack.setID_Prodotto(idProd);
     		beanSnack.setQuantita(quantita);
     		
-    		SnackDAO snackDAO = new SnackDAO((DataSource) getServletContext().getAttribute("DataSource"));
+    		SnackDAO snackDAO = new SnackDAO((DataSource) getServletContext().getAttribute(DS_STR));
     		
     		try {
     			snackDAO.doSave(beanSnack);
     		} catch (SQLException e) {
-    			logger.log(Level.WARNING, "Problema accesso DB!" +e.getMessage());
+    			logger.log(Level.WARNING,WARNING_STR);
     		}
     	}else if(mod == 3)
     	{
@@ -87,12 +89,12 @@ public class InserimentoFinaleProdotto extends HttpServlet {
     		beanAccessorio.setID_Prodotto(idProd);
     		beanAccessorio.setTipologia(tipologia);
     		
-    		AccessorioDAO accessorioDAO = new AccessorioDAO((DataSource) getServletContext().getAttribute("DataSource"));
+    		AccessorioDAO accessorioDAO = new AccessorioDAO((DataSource) getServletContext().getAttribute(DS_STR));
     		
     		try {
     			accessorioDAO.doSave(beanAccessorio);
     		} catch (SQLException e) {
-    			logger.log(Level.WARNING, "Problema accesso DB!" +e.getMessage());
+    			logger.log(Level.WARNING,WARNING_STR);
     		}    		
     	}
     	

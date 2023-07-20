@@ -26,7 +26,7 @@
 					<h2> SCEGLI L'UTENTE DA RIMUOVERE</h2> 
 			      	<div class="form-group">
 			     
-			        <div align="center">
+			        <div>
 				        <select class="selectCategoria" style="text-align: center;" name="user">
 				        <%for(UserBean utente : list){ if(utente.isAdmin() == false) {%>
 				        	<option value="<%=utente.getEmail()%>"> <%=utente.getEmail()%> - <%=utente.getNome()%> <%=utente.getCognome()%></option>
