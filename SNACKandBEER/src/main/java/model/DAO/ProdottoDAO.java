@@ -117,7 +117,7 @@ public class ProdottoDAO{
 		return (result != 0);
 	}
 	
-	public List<ProdottoBean> getAllProductsByCat(String cat){
+	public List<ProdottoBean> getAllProductsByCat(String cat)throws SQLException{
 		List<ProdottoBean> prodotti = new ArrayList<ProdottoBean>();
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -146,14 +146,20 @@ public class ProdottoDAO{
 				prodotti.add(row);
 			}
 			
-		}catch(Exception e) {
-			e.printStackTrace();
+		}finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
 		}
 		
 		return prodotti;
 	}
 	
-	public ArrayList<ProdottoBean> doRetrieveAll(){
+	public ArrayList<ProdottoBean> doRetrieveAll() throws SQLException{
     	
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -176,13 +182,17 @@ public class ProdottoDAO{
                 double prezzo = rs.getDouble(5);
                 int quantita = rs.getInt(6);
                 String categoria = rs.getString(7);
-                String img = rs.getString(8);
                 prodottiList.add(new ProdottoBean(id,nome,produttore,descrizione,prezzo,quantita,categoria));
             }
-        }
-        catch (SQLException e) {
-            e.printStackTrace();
-        }
+        }finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
 
         return prodottiList;
     }

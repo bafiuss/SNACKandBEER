@@ -154,7 +154,7 @@ public class UserDAO{
 		return bean;
 	}
 	
-    public ArrayList<UserBean> doRetrieveAll(){
+    public ArrayList<UserBean> doRetrieveAll() throws SQLException{
     	
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -180,10 +180,15 @@ public class UserDAO{
                 boolean isAdmin = rs.getBoolean(8);
                 utenteList.add(new UserBean(email, password, nome, cognome, nascita, indirizzo, indirizzoSped, isAdmin));
             }
-        }
-        catch (SQLException e) {
-            e.printStackTrace();
-        }
+        }finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
 
         return utenteList;
     }
