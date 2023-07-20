@@ -7,6 +7,7 @@
 		<title>Lista Utenti</title>
 		
 		<link rel="stylesheet" href="./styles/AdminArea.css">
+		<link rel="stylesheet" href="./styles/table.css">
 		
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,34 +22,39 @@
 		<%@ include file="./header.jsp" %>
 		
 		<section class="adminSection">
+		<br><br><br><br><br>
 		<%if(list.size() == 0){%>
-		<h2><b>Non sono disponibili utenti registrati</b></h2>
+			<h2><b>Non sono disponibili utenti registrati</b></h2>
 		<%}else{ %>
 			<h2 id="inth2"><b>Utenti Registrati</b></h2>
-					<table class="tab">
-					    <tr>
-					      <th>Email</th>
-					      <th>Password</th>
-					      <th>Nome</th>
-					      <th>Cognome</th>
-					      <th>Data di nascita</th>
-					      <th>Indirizzo</th>
-					      <th>Indirizzo di spedizione</th>
-					      <th>Admin</th>
-					    </tr>
-					  <%for(UserBean utente : list){ %>
-					    <tr>
-					      <td><%= utente.getEmail()%></td>
-					      <td><%= utente.getPassword()%></td>
-					      <td><%= utente.getNome()%></td>
-					      <td><%= utente.getCognome()%></td>
-					      <td><%= utente.getNascita()%></td>
-					      <td><%= utente.getIndirizzo()%></td>
-					      <td><%= utente.getIndirizzoSped()%></td>
-					      <td><%= utente.isAdmin()%></td>
-					    </tr>
-					    <%} } %>
-					</table>	
+					<table class="responsive-table">
+					    <thead>
+					      <tr>
+					        <th class="email">Email</th>
+					        <th class="password">Password</th>
+					        <th class="name">Nome</th>
+					        <th class="surname">Cognome</th>
+					        <th class="birthdate">Data di nascita</th>
+					        <th class="address">Indirizzo</th>
+					        <th class="shipping-address">Indirizzo di spedizione</th>
+					        <th class="admin">Admin</th>
+					      </tr>
+					    </thead>
+					    <tbody>
+					      <%for(UserBean utente : list){ %>
+						    <tr>
+						      <td><%= utente.getEmail()%></td>
+						      <td><%= utente.getPassword()%></td>
+						      <td><%= utente.getNome()%></td>
+						      <td><%= utente.getCognome()%></td>
+						      <td><%= utente.getNascita()%></td>
+						      <td><%= utente.getIndirizzo()%></td>
+						      <td><%= utente.getIndirizzoSped()%></td>
+						      <td><%= utente.isAdmin()%></td>
+						    </tr>
+						    <%} } %>
+					    </tbody>
+					  </table>	
 			<br><br><br><br><br>
 			<br><br><br><br><br>
 			<br><br><br><br><br>
