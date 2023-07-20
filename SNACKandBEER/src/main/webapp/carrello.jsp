@@ -15,34 +15,50 @@
 	<body>
 	
 		<% 
-			Cart carrello = (Cart) request.getAttribute("carrello");
-			if(carrello == null){
-				response.sendRedirect("CartControl");
-				return;
-			}
+		Cart carrello = (Cart) session.getAttribute("carrello");
+		String error_cart = (String)request.getAttribute("error");
+
+		
+		String flag = "true";
+		if(error_cart == null)
+		{
+			error_cart = "";
+			flag = "false";
+		}
 			
+		if(carrello == null){
+			response.sendRedirect("CartControl");
+			return;
+		}
 			
+		List<String> errors = (List<String>) request.getAttribute("errors");	
 		%>
 	
 		<%@ include file="./header.jsp" %>
 			
 			<section class="carrelloSection">	
-							
-				<% 
-				List<String> errors = (List<String>) request.getAttribute("errors");
-				if (errors != null){
-					System.out.println("caio");
-					for (String error: errors){ %>
+			<br><br><br><br><br><br>
+			
+			<% 
+			if (errors != null){
+				for (String error: errors){ %>
+					<div class="error-message">
+  						<span class="error-text">
+  							<%=error %>
+  						</span>
+  					</div>		
+				<%
+				}
+			}
+			%>
+								
+			<% if(flag.equals("true")){ %>
 						<div class="error-message">
 	  						<span class="error-text">
-	  							<%=error %>
+	  							<%= error_cart %>
 	  						</span>
-	  					</div>		
-					<%
-					}
-				}
-				%>				
-				
+	  					</div>					
+				<%} %>
 				<h2 id="inth2"><b> Il tuo carrello</b></h2>	
 					<table>
 					    <tr>
