@@ -1,0 +1,83 @@
+table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Classi per gli elementi delle colonne */
+th.email, td.email { width: 15%; }
+th.password, td.password { width: 15%; }
+th.name, td.name { width: 10%; }
+th.surname, td.surname { width: 10%; }
+th.birthdate, td.birthdate { width: 12%; }
+th.address, td.address { width: 15%; }
+th.shipping-address, td.shipping-address { width: 15%; }
+th.admin, td.admin { width: 8%; }
+
+@media screen and (max-width: 1100px) {
+  th, td {
+    padding: 5px;
+  }
+  th, td, table {
+    font-size: 16px;
+  }
+  table {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  th, td {
+    padding: 8px;
+  }
+  th, td, table {
+    font-size: 12px;
+  }
+  table {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 860px) {
+  th, td {
+    padding: 9px;
+  }
+  th, td, table {
+    font-size: 11px;
+  }
+  table {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 710px) {
+  th, td {
+    padding: 10px;
+  }
+   th, td, table {
+    font-size: 10px;
+  }
+  table {
+    width:85%;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  th, td {
+    padding: 12px;
+  }
+   th, td, table {
+    font-size: 10px;
+  }
+  table {
+    width:70%;
+  }
+}
+
