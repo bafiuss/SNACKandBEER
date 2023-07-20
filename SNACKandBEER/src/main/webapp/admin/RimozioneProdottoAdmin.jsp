@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
     <%@ page import="model.bean.ProdottoBean, model.DAO.ProdottoDAO, java.util.*"%>
 <!DOCTYPE html>
-<html>
+<html lang="it">
 	<head>
 		<meta charset="ISO-8859-1">
 			<title>Elimina Prodotto</title>

@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"
     import = "model.bean.OrdineBean, java.util.*"%>
 <!DOCTYPE html>
-<html>
+<html lang="it">
 	<head>
 		<title>Ordini Effettuati</title>
 		

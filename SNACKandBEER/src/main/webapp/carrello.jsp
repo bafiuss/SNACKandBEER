@@ -4,7 +4,7 @@
 <%@page import="model.bean.Cart"%>
 <%@page import="model.bean.CartItem"%>
 <!DOCTYPE html>
-<html>
+<html lang="it">
 	<head>
 		<meta charset="ISO-8859-1">
 			<title>Carrello</title>

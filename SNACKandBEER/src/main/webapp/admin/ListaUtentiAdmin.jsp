@@ -2,7 +2,8 @@
     pageEncoding="ISO-8859-1"%>
     
 <%@ page import="model.bean.UserBean, model.DAO.UserDAO, java.util.*, javax.sql.DataSource"%>
-<html>
+<!DOCTYPE html>
+<html lang="it">
 	<head>
 		<title>Lista Utenti</title>
 		

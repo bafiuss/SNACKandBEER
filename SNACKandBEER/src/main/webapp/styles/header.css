@@ -67,7 +67,7 @@ a{
 
 .nav-branding{
 	font-size: 2rem;
-	font-family: 'Angkor';
+	font-family: 'Angkor', sans-serif;
 }
 
 .hamburger{

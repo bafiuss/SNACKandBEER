@@ -4,7 +4,7 @@
 <%@ page import="java.util.List"%>
 <%@ page import="model.bean.ProdottoBean, model.DAO.ProdottoDAO, java.util.*, javax.sql.DataSource"%>
 <!DOCTYPE html>
-<html>
+<html lang="it">
 	<head>
 		<meta charset="ISO-8859-1">
 			<title>Birre</title>

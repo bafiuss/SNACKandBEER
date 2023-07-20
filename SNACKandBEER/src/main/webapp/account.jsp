@@ -3,7 +3,7 @@
 <%@page import="java.util.List"%>
 <%@page import="model.DAO.UserDAO, model.bean.UserBean, java.util.*" %>
 <!DOCTYPE html>
-<html>
+<html lang="it">
 	<head>
 		<meta charset="ISO-8859-1">
 		<title>Account</title>

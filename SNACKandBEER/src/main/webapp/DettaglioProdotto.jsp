@@ -8,7 +8,7 @@
 			ProdottoBean prod = (ProdottoBean) request.getAttribute("prodotto");
 			int type = (int) request.getAttribute("num");
 		%>
-<html>
+<html lang="it">
 	<head>
 		<meta charset="ISO-8859-1">
 		<title>Dettaglio Prodotto</title>
