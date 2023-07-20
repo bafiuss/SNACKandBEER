@@ -35,16 +35,16 @@
 	<div class="cont">
 		<div class="subcont">
 			<nav class="navbar">
-				<a href="index.jsp" class="nav-branding">Snack&Beer</a>
+				<a href="<%=request.getContextPath()%>/index.jsp" class="nav-branding">Snack&Beer</a>
 				<ul class="nav-menu">
 					<li class="nav-item">
-						<a href="Catalogo?categoria=birra" class="nav-link">BIRRE</a>
+						<a href="<%=request.getContextPath()%>/Catalogo?categoria=birra" class="nav-link">BIRRE</a>
 					</li>
 					<li class="nav-item">
-						<a href="Catalogo?categoria=snack" class="nav-link">SNACK</a>
+						<a href="<%=request.getContextPath()%>/Catalogo?categoria=snack" class="nav-link">SNACK</a>
 					</li>
 					<li class="nav-item">
-						<a href="Catalogo?categoria=accessori" class="nav-link">ACCESSORI</a>
+						<a href="<%=request.getContextPath()%>/Catalogo?categoria=accessori" class="nav-link">ACCESSORI</a>
 					</li>
 					<% 
 						if(!logged){%>
