@@ -19,7 +19,6 @@ h2#inth2{
 	width: 8em;
 	align-items: center;
 	margin: 5% auto;
-	margin-top: 15%;
 }
 
 h2#riepilogoh2{
@@ -128,6 +127,11 @@ th {
     .testoRiepilogo{
     	font-size: 18px;
     }
+    .error-message{
+	    width: 380px;
+	    transition: .3s;
+	     margin-top: 10%;
+    }
     
 }
 
@@ -157,6 +161,11 @@ th {
     .testoRiepilogo{
     	font-size: 17px;
     }
+    .error-message{
+	    width: 360px;
+	    transition: .3s;
+	     margin-top: 15%;
+    }
 }
 
 @media(max-width:490px){
@@ -185,6 +194,11 @@ th {
     table{
     	margin-top: 30%;
     	transition: .3s;
+    }
+    .error-message{
+	    width: 340px;
+	    transition: .3s;
+	     margin-top: 20%;
     }
     
 }

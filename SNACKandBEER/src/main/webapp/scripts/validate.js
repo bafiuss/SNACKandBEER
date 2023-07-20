@@ -1,7 +1,7 @@
 
 const nameOrLastnamePattern = /^[A-Za-z]+$/;
 const emailPattern = /^[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-const cardNumberPattern = /^\d{4}-\d{4}-\d{4}$/; 
+const cardNumberPattern = /^\d{4}-\d{4}-\d{4}-\d{4}$/;
 const cvvPattern = /^\d{3}$/;
 const pswdPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()])[0-9a-zA-Z!@#$%^&*()]{8,}$/;
 
