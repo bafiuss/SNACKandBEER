@@ -34,20 +34,29 @@ public class AdminRedirect extends HttpServlet {
         ProdottoDAO prodottoDAO = new ProdottoDAO((DataSource) getServletContext().getAttribute("DataSource"));
         UserDAO utenteDAO = new UserDAO((DataSource) getServletContext().getAttribute("DataSource"));
         
-        ArrayList<UserBean> utenteArrayList;
-        ArrayList<ProdottoBean> prodottiArrayList;
+        ArrayList<UserBean> utenteArrayList = null;
+        ArrayList<ProdottoBean> prodottiArrayList = null;
         HttpSession session = request.getSession(false);
 
         switch(scelta){
           
             case "Visualizza lista utenti":
-            	utenteArrayList = utenteDAO.doRetrieveAll();
+				try {
+					utenteArrayList = utenteDAO.doRetrieveAll();
+				} catch (SQLException e) {
+					
+					e.printStackTrace();
+				}
                 request.setAttribute("listUtenti", utenteArrayList);
                 address = "./admin/ListaUtentiAdmin.jsp";
                 break;
                 
             case "Rimuovi un utente":
-            	utenteArrayList = utenteDAO.doRetrieveAll();
+				try {
+					utenteArrayList = utenteDAO.doRetrieveAll();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
                 request.setAttribute("listUtenti", utenteArrayList);        		
             	address = "./admin/RimozioneUtenteAdmin.jsp";
                 break;
@@ -57,19 +66,31 @@ public class AdminRedirect extends HttpServlet {
                 break;
                 
             case "Rimuovi un prodotto":
-            	prodottiArrayList = prodottoDAO.doRetrieveAll();
+				try {
+					prodottiArrayList = prodottoDAO.doRetrieveAll();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
                 request.setAttribute("listProdotti", prodottiArrayList);        		
             	address = "./admin/RimozioneProdottoAdmin.jsp";
                 break;
                 
             case "Modifica un prodotto":
-            	prodottiArrayList = prodottoDAO.doRetrieveAll();
+				try {
+					prodottiArrayList = prodottoDAO.doRetrieveAll();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
                 request.setAttribute("listProdotti", prodottiArrayList);        		
             	address = "./admin/ModificaProdottoAdmin.jsp";
                 break;
                 
             case "Visualizza ordini":
-            	utenteArrayList = utenteDAO.doRetrieveAll();
+				try {
+					utenteArrayList = utenteDAO.doRetrieveAll();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
                 request.setAttribute("listUtenti", utenteArrayList);
                 address = "./admin/OrdiniUtenteAdmin.jsp";
         }
