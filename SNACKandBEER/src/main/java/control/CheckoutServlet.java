@@ -36,14 +36,14 @@ public class CheckoutServlet extends HttpServlet {
 		Cart carrello = (Cart) request.getSession().getAttribute("carrello");
 		UserBean user = (UserBean) request.getSession().getAttribute("user"); 
 
-		if (carrello == null || user == null) {
+		if (user == null) {
 			request.getRequestDispatcher("/login.jsp").forward(request, response);
 			return;
 		}
 		
 		
 		
-		/*List<String> errors = carrello.getProducts().stream().map(el->
+		List<String> errors = carrello.getProducts().stream().map(el->
 		el.getProductBean().getQuantita()<el.getQuantita()
 		?"Non ci sono abbastanza "+el.getProductBean().getNome()+" nel magazzino (Restanti: "+el.getProductBean().getQuantita()+")"
 		:null
@@ -51,18 +51,17 @@ public class CheckoutServlet extends HttpServlet {
 		.filter(x -> x != null)
 		.collect(Collectors.toList());
 		
-		/*if (!errors.isEmpty()) {
+		if (!errors.isEmpty()) {
 			request.setAttribute("errors", errors);
 			request.getRequestDispatcher("/CartControl").forward(request, response);
 			return;
-		}*/
+		}
 		
-		List<String> errors = new ArrayList<>();
 		List<CartItem> elementi = carrello.getProducts(); 
 
 		if (elementi == null || elementi.isEmpty()) {
-			errors.add("Non puoi procedere al pagamento con un carrello vuoto!");
-			request.setAttribute("errors", errors);
+			String error = "Non puoi procedere al pagamento con un carrello vuoto!";
+			request.setAttribute("error", error);
 			request.getRequestDispatcher("/carrello.jsp").forward(request, response);
 			return;
 		}

@@ -27,7 +27,7 @@
 		    <form action="checkoutPagamento" method="post" id="checkoutForm" onsubmit="event.preventDefault();checkCheckout(this)">
  			 <div class="form-group">
 			        <label for="numeroCarta">Numero di carta:</label>
-			        <input type="number" id="numCard" name="numeroCarta" required onChange="return validateNumCarta()">
+			        <input type="text" id="numCard" name="numeroCarta" required onChange="return validateNumCarta()">
 			        <span id="cardNumberError"></span><br>
 			      </div>
 			      <div class="form-group">
@@ -37,7 +37,7 @@
 			      </div>
 			      <div class="form-group">
 			        <label for="cvv">CVV:</label>
-			        <input type="number" id="cvv" name="cvv" onChange="return validateCVV()"> 
+			        <input type="text" id="cvv" name="cvv" onChange="return validateCVV()"> 
 			        <span id="CVVError"></span><br>
 			      </div>
 			      <div class="form-group">
