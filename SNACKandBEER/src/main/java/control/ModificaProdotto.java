@@ -111,7 +111,7 @@ public class ModificaProdotto extends HttpServlet {
     		try {
     			prodottoDAO.doUpdate(id,nome,produttore,descrizione,prezzo,quantita);
     		} catch (SQLException e) {
-    			logger.log(Level.WARNING, "Problema modifica prodotto!");
+    			logger.log(Level.WARNING,MODIFY_STR);
     		}
     		
     		categ = Integer.parseInt(request.getParameter("categoria"));
