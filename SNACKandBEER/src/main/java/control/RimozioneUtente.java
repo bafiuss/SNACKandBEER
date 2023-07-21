@@ -18,11 +18,11 @@ import model.dao.UserDAO;
 @WebServlet("/RimozioneUtente")
 public class RimozioneUtente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+	private static Logger logger = Logger.getAnonymousLogger();
 
        
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Logger logger = Logger.getAnonymousLogger();
+		
 		
 		String email = request.getParameter("user");
 		UserDAO userDAO = new UserDAO((DataSource) getServletContext().getAttribute("DataSource"));

@@ -27,7 +27,6 @@ public class ModificaProdotto extends HttpServlet {
 	
 	private static final String WARNING_STR = "Problema accesso DB!";
 	private static final String DS_STR = "DataSource";
-	//private static final String MODIFY_STR = "Problema modifica prodotto!";
        
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
