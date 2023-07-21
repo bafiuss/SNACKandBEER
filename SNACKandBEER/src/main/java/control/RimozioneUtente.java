@@ -22,7 +22,7 @@ public class RimozioneUtente extends HttpServlet {
 
        
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Logger logger = Logger.getAnonymousLogger();
+		
 		
 		String email = request.getParameter("user");
 		UserDAO userDAO = new UserDAO((DataSource) getServletContext().getAttribute("DataSource"));
@@ -30,7 +30,7 @@ public class RimozioneUtente extends HttpServlet {
 		
 		
 		if(email != null) {
-		
+			Logger logger = Logger.getAnonymousLogger();
 			try {
 				userDAO.doDelete(email);
 			} catch (SQLException e) {
