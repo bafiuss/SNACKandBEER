@@ -24,11 +24,7 @@
 			<form method="post" action="ModificaProdotto" enctype="multipart/form-data">
 				<div class="content">	 
 					<h2> SCEGLI IL PRODOTTO DA MODIFICARE</h2> 
-			      	<div class="form-group">
-			     	  
-			     	<input type="hidden" value="1" name="modType">
-			     	
-			     
+			      	<div class="form-group">		     			     		     
 			        <div>
 				        <select class="selectCategoria" style="text-align: center;" name="prodotto">
 				        <%for(ProdottoBean prodotto : list)

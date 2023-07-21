@@ -24,12 +24,11 @@
 		<section class="adminSection">
 			
 			<h2 id="inth2"><b>Modifica</b></h2>
-		<form action="ModificaProdotto" method="POST" enctype="multipart/form-data">
+		<form action="ModificaFinaleAdmin" method="POST" enctype="multipart/form-data">
 			<div class="form">
 				<h2>INSERISCI MODIFICHE PRODOTTO</h2>
 			    
 			    
-			    <input type="hidden" value="2" name="modType">
 			    <input type="hidden" value="<%=cat%>" name="categoria">
 			    
 			      <div class="form-group">
