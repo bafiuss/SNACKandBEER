@@ -25,7 +25,8 @@ public class AdminRedirect extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	private static final String UTENTI_STR = "listUtenti";
-	 
+	private static Logger logger = Logger.getAnonymousLogger();
+	private static final String WARNING_STR = "Problema accesso db!";
 	
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String scelta = request.getParameter("scelta");
@@ -43,8 +44,7 @@ public class AdminRedirect extends HttpServlet {
 				try {
 					utenteArrayList = utenteDAO.doRetrieveAll();
 				} catch (SQLException e) {
-					
-					e.printStackTrace();
+					logger.log(Level.WARNING,WARNING_STR);
 				}
                 request.setAttribute(UTENTI_STR, utenteArrayList);
                 address = "./admin/ListaUtentiAdmin.jsp";
@@ -54,7 +54,7 @@ public class AdminRedirect extends HttpServlet {
 				try {
 					utenteArrayList = utenteDAO.doRetrieveAll();
 				} catch (SQLException e) {
-					e.printStackTrace();
+					logger.log(Level.WARNING,WARNING_STR);
 				}
                 request.setAttribute(UTENTI_STR, utenteArrayList);        		
             	address = "./admin/RimozioneUtenteAdmin.jsp";
@@ -68,7 +68,7 @@ public class AdminRedirect extends HttpServlet {
 				try {
 					prodottiArrayList = prodottoDAO.doRetrieveAll();
 				} catch (SQLException e) {
-					e.printStackTrace();
+					logger.log(Level.WARNING,WARNING_STR);
 				}
                 request.setAttribute("listProdotti", prodottiArrayList);        		
             	address = "./admin/RimozioneProdottoAdmin.jsp";
@@ -78,7 +78,7 @@ public class AdminRedirect extends HttpServlet {
 				try {
 					prodottiArrayList = prodottoDAO.doRetrieveAll();
 				} catch (SQLException e) {
-					e.printStackTrace();
+					logger.log(Level.WARNING,WARNING_STR);
 				}
                 request.setAttribute("listProdotti", prodottiArrayList);        		
             	address = "./admin/ModificaProdottoAdmin.jsp";
@@ -88,7 +88,7 @@ public class AdminRedirect extends HttpServlet {
 				try {
 					utenteArrayList = utenteDAO.doRetrieveAll();
 				} catch (SQLException e) {
-					e.printStackTrace();
+					logger.log(Level.WARNING,WARNING_STR);
 				}
                 request.setAttribute(UTENTI_STR, utenteArrayList);
                 address = "./admin/OrdiniUtenteAdmin.jsp";

@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -19,7 +21,9 @@ import model.dao.*;
 @WebServlet("/Signup")
 public class SignupServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	private static Logger logger = Logger.getAnonymousLogger();
+	private static final String WARNING_STR = "Problema accesso db!";
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.sendRedirect("signup.jsp");
@@ -50,7 +54,7 @@ public class SignupServlet extends HttpServlet {
 				request.setAttribute("errors", errors);
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			logger.log(Level.WARNING,WARNING_STR);
 		}
 		
 		if(email.contains(adminEmail))
@@ -72,7 +76,7 @@ public class SignupServlet extends HttpServlet {
 				userDao.doSave(ub);
 	
 			} catch (SQLException e) {
-				e.printStackTrace();
+				logger.log(Level.WARNING,WARNING_STR);
 			}
 		}else {
 			errors.add("Le due password non corrispondono");

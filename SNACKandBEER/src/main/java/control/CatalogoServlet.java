@@ -21,7 +21,9 @@ import model.dao.*;
 @WebServlet("/Catalogo")
 public class CatalogoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	private static Logger logger = Logger.getAnonymousLogger();
+	private static final String WARNING_STR = "Problema accesso db!";
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		doPost(request, response);
@@ -40,7 +42,7 @@ public class CatalogoServlet extends HttpServlet {
 			try {
 				prodotti = pDao.getAllProductsByCat("Birra");
 			} catch (SQLException e) {
-				e.printStackTrace();
+				logger.log(Level.WARNING,WARNING_STR);
 			}
 			request.setAttribute("type", 1);
 			
@@ -50,7 +52,7 @@ public class CatalogoServlet extends HttpServlet {
 			try {
 				prodotti = pDao.getAllProductsByCat("Snack");
 			} catch (SQLException e) {
-				e.printStackTrace();
+				logger.log(Level.WARNING,WARNING_STR);
 			}
 			request.setAttribute("type", 2);
 		}
@@ -59,7 +61,7 @@ public class CatalogoServlet extends HttpServlet {
 			try {
 				prodotti = pDao.getAllProductsByCat("Accessorio");
 			} catch (SQLException e) {
-				e.printStackTrace();
+				logger.log(Level.WARNING,WARNING_STR);
 			}
 			request.setAttribute("type", 3);
 		}

@@ -2,6 +2,8 @@ package control;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
@@ -16,7 +18,8 @@ import model.bean.PhotoControl;
 @WebServlet("/GetPictureServlet")
 public class GetPictureServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	private static Logger logger = Logger.getAnonymousLogger();
+	private static final String WARNING_STR = "Problema accesso db!";
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException 
@@ -30,7 +33,7 @@ public class GetPictureServlet extends HttpServlet {
 			try {
 				bt = PhotoControl.load(id);
 			} catch (SQLException e) {
-				e.printStackTrace();
+				logger.log(Level.WARNING,WARNING_STR);
 			}
 
 			ServletOutputStream out = response.getOutputStream();
