@@ -49,7 +49,7 @@
 			      </div>
 			      <div class="form-group">
 			        <label for="prezzo">Prezzo:</label>
-			        <input type="number" id="prezzo" name="prezzo" value="<%= prodotto.getPrezzo()%>"required>
+			        <input type="number" id="prezzo" name="prezzo" value="<%= prodotto.getPrezzo()%>" min="0" step="0.01" required>
 			      </div>
 			      <div class="form-group">
 			        <label for="quantita">Quantità:</label>
