@@ -27,13 +27,13 @@ public class ModificaProdotto extends HttpServlet {
 	
 	private static final String WARNING_STR = "Problema accesso DB!";
 	private static final String DS_STR = "DataSource";
-	private static final String MODIFY_STR = "Problema modifica prodotto!";
+	//private static final String MODIFY_STR = "Problema modifica prodotto!";
        
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		int modType = Integer.parseInt(request.getParameter("modType"));	
+			
 		int cat = 0;
-		int categ = 0;
+		
 		
 		ProdottoDAO prodottoDAO = new ProdottoDAO((DataSource) getServletContext().getAttribute(DS_STR));
 		BirraDAO birraDAO = new BirraDAO((DataSource) getServletContext().getAttribute(DS_STR));
@@ -45,8 +45,6 @@ public class ModificaProdotto extends HttpServlet {
 		SnackBean snackBean = null;
 		AccessorioBean accessorioBean = null;
 		
-		if(modType == 1)
-		{
 			int id = Integer.parseInt(request.getParameter("prodotto"));
 			
 			try {
@@ -96,66 +94,7 @@ public class ModificaProdotto extends HttpServlet {
 			
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin/ModificaFinaleAdmin.jsp");
 			dispatcher.forward(request, response);
-			
-		}else if(modType == 2)
-		{
-			
-			int id = Integer.parseInt(request.getParameter("idProdotto"));
-    		String nome = request.getParameter("nome");
-    		String produttore = request.getParameter("produttore");
-    		String descrizione = request.getParameter("descrizione");
-    		double prezzo = Double.parseDouble(request.getParameter("prezzo"));
-    		int quantita = Integer.parseInt(request.getParameter("quantita"));
-    		
-    		
-    		try {
-    			prodottoDAO.doUpdate(id,nome,produttore,descrizione,prezzo,quantita);
-    		} catch (SQLException e) {
-    			logger.log(Level.WARNING,MODIFY_STR);
-    		}
-    		
-    		categ = Integer.parseInt(request.getParameter("categoria"));
-    		
-    		if(categ == 1)
-    		{
-    			double volume = Double.parseDouble(request.getParameter("volume"));
-    			double gradAlcolica = Double.parseDouble(request.getParameter("gradAlcolica"));
-    			String colore = request.getParameter("colore");
-    			String nazione = request.getParameter("nazione");
 
-    			try {
-        			birraDAO.doUpdate(id,volume,gradAlcolica,colore,nazione);
-        		} catch (SQLException e) {
-        			logger.log(Level.WARNING,MODIFY_STR);
-        		}
-    		}else if(categ == 2)
-    		{
-    			int quant = Integer.parseInt(request.getParameter("quantitaSnack"));
-    			
-    			try {
-        			snackDAO.doUpdate(id,quant);
-        		} catch (SQLException e) {
-        			logger.log(Level.WARNING,MODIFY_STR);
-        		}
-    		}else if(categ == 3)
-    		{
-    			String tipologia = request.getParameter("tipologia");
-    			
-    			try {
-        			accessorioDAO.doUpdate(id,tipologia);
-        		} catch (SQLException e) {
-        			logger.log(Level.WARNING,MODIFY_STR);
-        		}
-    		}
-    		
-    		String op = "modifica";
-    		
-    		request.setAttribute("idProd", id);
-    		request.setAttribute("op", op);
-    		
-    		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/UploadPhoto");
-    		dispatcher.forward(request, response);
-    		
-		}
+		
 	}
 }
