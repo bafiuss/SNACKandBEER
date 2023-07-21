@@ -17,16 +17,13 @@
 	<body>
 	
 		<%
-		    List<UserBean> list = (List<UserBean>)request.getAttribute("listUtenti");   
+		    ArrayList<UserBean> list = (ArrayList<UserBean>)request.getAttribute("listUtenti");   
 		%>
 	
 		<%@ include file="../header.jsp" %>
 		
 		<section class="adminSection">
-		<br><br><br><br><br>
-		<%if(list.size() == 0){%>
-			<h2><b>Non sono disponibili utenti registrati</b></h2>
-		<%}else{ %>
+		<br><br><br><br><br>		
 			<h2 id="inth2"><b>Utenti Registrati</b></h2>
 					<table class="responsive-table">
 					<caption> </caption>
@@ -54,7 +51,7 @@
 						      <td><%= utente.getIndirizzoSped()%></td>
 						      <td><%= utente.isAdmin()%></td>
 						    </tr>
-						    <%} } %>
+						    <%} %>
 					    </tbody>
 					  </table>	
 			<br><br><br><br><br>
