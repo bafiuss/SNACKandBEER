@@ -27,12 +27,16 @@
 					      <th> ID</th>
 					      <th>Utente</th>
 					      <th>Data</th>
+					      <th>Quantità</th>
+					      <th>Prezzo Totale</th>
 					    </tr>
 					   <%for(OrdineBean ordine: ordini){ %>
 					    <tr>
 					      <td><%= ordine.getNumero_ordine()%></td>
 					      <td><%= ordine.getEmail()%></td>
 					      <td><%= ordine.getData_ordine()%></td>
+					      <td><%= ordine.getQuantita()%></td>
+					      <td><%= ordine.getPrezzo_totale()%></td>
 					    </tr>
 					    <%} %>
 					</table>		
