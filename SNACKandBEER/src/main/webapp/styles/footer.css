@@ -10,9 +10,7 @@ body {
 	background-color: #ededed;
 	clear: both;
 	top: 100%;
-	padding-bottom: 0.2em;
-	padding-left: 0.6em;
-	 align-items: center;
+	align-items: center;
 }
 
 .footer .social{
@@ -68,9 +66,9 @@ body {
 }
 
 .footer .copyright{
-	margin-top: 15px;
 	text-align: center;
 	font-size: 15px;
 	color: black;
+	padding: 0.5%;
 	
 }

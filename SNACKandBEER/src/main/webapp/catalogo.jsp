@@ -7,7 +7,7 @@
 <html lang="it">
 	<head>
 		<meta charset="ISO-8859-1">
-			<title>Birre</title>
+			<title>Catalogo</title>
 			
 			<link rel="stylesheet" href="./styles/catalogo.css">
 		
