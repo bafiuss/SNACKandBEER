@@ -2,13 +2,11 @@ package control;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -68,7 +66,6 @@ public class CheckoutServlet extends HttpServlet {
 
 		OrdineDAO ordinedao = new OrdineDAO((DataSource) getServletContext().getAttribute("DataSource"));
 		OrdineBean ordine = new OrdineBean();
-		
 		int numeroOrdine = 0;
 
 		try {
@@ -76,11 +73,9 @@ public class CheckoutServlet extends HttpServlet {
 			ordine.setNumero_ordine(numeroOrdine);
 			ordine.setEmail(user.getEmail());
 			ordine.setData_ordine(new java.sql.Date(System.currentTimeMillis()));
-			for(CartItem elem : elementi)
-			{
-				ordine.setQuantita(elem.getQuantita());
-				ordine.setPrezzo_totale(elem.getProductBean().getPrezzo() * elem.getQuantita());
-			}
+			ordine.setQuantita(carrello.getItemsCount());
+			ordine.setPrezzo_totale(carrello.getTotale());
+
 			ordinedao.doSave(ordine);
 		} catch (SQLException e1) {
 			logger.log(Level.WARNING, LOG_MSG);
