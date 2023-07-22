@@ -36,7 +36,8 @@ public class AccessControlFilter extends HttpFilter implements Filter {
 		}
 		
 		if((!isAdmin) && (path.contains("InserimentoProdotto") || path.contains("InserimentoFinaleProdotto") || 
-			 path.contains("RimozioneProdotto") || path.contains("ModificaProdotto") || path.contains("UploadPhoto") || path.contains("ordAdmin")) ) 
+			 path.contains("RimozioneProdotto") || path.contains("ModificaProdotto") || path.contains("ModificaFinaleAdmin") || 
+			 path.contains("UploadPhoto") || path.contains("ordAdmin")) ) 
 		{
 			httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/index.jsp");
 			return;
