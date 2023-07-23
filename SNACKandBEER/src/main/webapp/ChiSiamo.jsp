@@ -16,23 +16,16 @@
 		<%@ include file="./header.jsp" %>
 	
 		<section class="aboutSection">
-		
-			<div class="wrapper">
-				<div class="rosw">
-					<div class="image-section">
-						<img src ="images/logo.jpg"  alt="logo">
+			<div class="about-container">
+				    <div class="about-image">
+				      <img src="./images/logo.jpg"  alt="imgProdotto">
+				    </div>
+				    <div class="about-info">
+				    <h1>CHI SIAMO - IL NOSTRO ECOMMERCE</h1><br>
+				      <p>Benvenuti nel nostro sito ecommerce dedicato alla birra, il paradiso per gli amanti delle bevande artigianali e dei sapori unici. Siamo entusiasti di presentarvi la nostra vasta selezione di birre provenienti da tutto il mondo, pronte ad essere esplorate e apprezzate.<br><br>
+						Quando visitate il nostro sito, sarete accolti da un'interfaccia intuitiva e moderna, progettata per rendere la vostra esperienza di shopping online semplice e piacevole.</p>
 					</div>
-					<div class="content">
-						<h1>Chi siamo</h1>
-						<h2>Il nostro e-commerce</h2>
-						<p>Benvenuti nel nostro sito ecommerce dedicato alla birra, il paradiso per gli amanti delle bevande artigianali e dei sapori unici. Siamo entusiasti di presentarvi la nostra vasta selezione di birre provenienti da tutto il mondo, pronte ad essere esplorate e apprezzate.
-						<br><br>	Quando visitate il nostro sito, sarete accolti da un'interfaccia intuitiva e moderna, progettata per rendere la vostra esperienza di shopping online semplice e piacevole.
-						</p>
-					</div>
-				</div>
-			
 			</div>
-			
 		</section>
 		
 		<%@ include file="./footer.jsp" %>
